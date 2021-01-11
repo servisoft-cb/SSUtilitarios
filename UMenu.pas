@@ -23,6 +23,7 @@ type
     NxButton9: TNxButton;
     NxButton10: TNxButton;
     btnCBenef: TNxButton;
+    NxButton11: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -36,6 +37,7 @@ type
     procedure NxButton9Click(Sender: TObject);
     procedure NxButton10Click(Sender: TObject);
     procedure btnCBenefClick(Sender: TObject);
+    procedure NxButton11Click(Sender: TObject);
   private
     { Private declarations }
 
@@ -51,7 +53,7 @@ implementation
 uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UImportar_PlanoContas, UCadContaOrc_Txt, UImportarArq, UConversor,
   UimportarRegras, ULeEstoque_Mov, uAjustaConOrcDuplicata, UGeraInventario,
-  UGeraCBenef;//, UGerarTalao_Setor;
+  UGeraCBenef, UConvProdutoProc;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -141,6 +143,13 @@ begin
   frmGeraCBenef := TfrmGeraCBenef.Create(self);
   frmGeraCBenef.ShowModal;
   FreeAndNil(frmGeraCBenef);
+end;
+
+procedure TfMenu.NxButton11Click(Sender: TObject);
+begin
+  frmConvProdutoProc := TfrmConvProdutoProc.Create(self);
+  frmConvProdutoProc.ShowModal;
+  FreeAndNil(frmConvProdutoProc);
 end;
 
 initialization

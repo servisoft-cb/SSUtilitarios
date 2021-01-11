@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 54
   Width = 801
   Height = 650
-  Caption = 'Menu    (13/07/2019  1.0.08)'
+  Caption = 'Menu    (11/01/2021  1.0.09)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -230,5 +230,20 @@ object fMenu: TfMenu
     ParentFont = False
     TabOrder = 13
     OnClick = btnCBenefClick
+  end
+  object NxButton11: TNxButton
+    Left = 428
+    Top = 171
+    Width = 236
+    Height = 33
+    Caption = 'Ajusta Produto_Processo'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 14
+    OnClick = NxButton11Click
   end
 end

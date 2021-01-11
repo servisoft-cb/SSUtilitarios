@@ -37,7 +37,9 @@ uses
   uNFeConsts in '..\ssfacil\uNFeConsts.pas',
   UGeraInventario in 'UGeraInventario.pas' {frmGeraInventario},
   UDMCadInventario in '..\ssfacil\UDMCadInventario.pas' {DMCadInventario: TDataModule},
-  UGeraCBenef in 'UGeraCBenef.pas' {frmGeraCBenef};
+  UGeraCBenef in 'UGeraCBenef.pas' {frmGeraCBenef},
+  UDMProdutoProcesso in 'UDMProdutoProcesso.pas' {DMProdutoProcesso: TDataModule},
+  UConvProdutoProc in 'UConvProdutoProc.pas' {frmConvProdutoProc};
 
 {$R *.res}
 
