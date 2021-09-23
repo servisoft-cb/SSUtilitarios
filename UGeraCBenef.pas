@@ -128,12 +128,24 @@ var
   vTexto1 : String;
   vCont : Integer;
   vID_CBenef : Integer;
+  sds: TSQLDataSet;
 begin
   vCont := 0;
   Linha := 0;
   qMax.Close;
   qMax.Open;
   vID_CBenef := qMaxID.AsInteger;
+
+  sds := TSQLDataSet.Create(nil);
+  try
+    sds.SQLConnection := dmDatabase.scoDados;
+    sds.NoMetadata    := True;
+    sds.GetMetadata   := False;
+    sds.CommandText   := 'DELETE FROM CBENEF';
+    sds.ExecSQL;
+  finally
+    FreeAndNil(sds);
+  end;
 
   while Linha < gGrid.RowCount -1 do
   begin
