@@ -5,10 +5,11 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls, Buttons, ComCtrls, jpeg,
   ToolWin, Menus, Types, UCBase, UCDBXConn, ActnList, ImgList, ShellAPI, ExtCtrls, RLConsts, IniFiles, Midaslib, DBClient,
-  GradPnl, SqlExpr, NxCollection;
+  GradPnl, SqlExpr, NxCollection, AdvPanel;
   
 type
   TfMenu = class(TForm)
+    pnlPrincipal: TAdvPanel;
     btnLocalizar: TNxButton;
     NxButton1: TNxButton;
     NxButton2: TNxButton;
@@ -24,6 +25,8 @@ type
     NxButton10: TNxButton;
     btnCBenef: TNxButton;
     NxButton11: TNxButton;
+    btnAtualizarNCMUnidTrib: TNxButton;
+    btnGravarProdutosWeb: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -38,6 +41,7 @@ type
     procedure NxButton10Click(Sender: TObject);
     procedure btnCBenefClick(Sender: TObject);
     procedure NxButton11Click(Sender: TObject);
+    procedure btnGravarProdutosWebClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -53,7 +57,7 @@ implementation
 uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UImportar_PlanoContas, UCadContaOrc_Txt, UImportarArq, UConversor,
   UimportarRegras, ULeEstoque_Mov, uAjustaConOrcDuplicata, UGeraInventario,
-  UGeraCBenef, UConvProdutoProc;//, UGerarTalao_Setor;
+  UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -150,6 +154,16 @@ begin
   frmConvProdutoProc := TfrmConvProdutoProc.Create(self);
   frmConvProdutoProc.ShowModal;
   FreeAndNil(frmConvProdutoProc);
+end;
+
+procedure TfMenu.btnGravarProdutosWebClick(Sender: TObject);
+begin
+  frmGerarProdutoWeb := TfrmGerarProdutoWeb.Create(self);
+  try
+    frmGerarProdutoWeb.ShowModal;
+  finally
+    FreeAndNil(frmGerarProdutoWeb);
+  end;
 end;
 
 initialization
