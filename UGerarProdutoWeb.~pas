@@ -34,7 +34,7 @@ var
 
 implementation
 
-uses rsDBUtils, uUtilPadrao;
+uses rsDBUtils, uUtilPadrao, DmdDatabase;
 
 {$R *.dfm}
 
@@ -97,7 +97,7 @@ begin
     fDMCadProduto.cdsProduto_Consulta.First;
     while not fDMCadProduto.cdsProduto_Consulta.Eof do
     begin
-      if SMDBGrid1.SelectedRows.CurrentRowSelected then
+      if (SMDBGrid1.SelectedRows.CurrentRowSelected) and (StrToFloat(FormatFloat('0.000',fDMCadProduto.cdsProdutoPRECO_VENDA.AsFloat)) > 0) then
       begin
         fDMCadProduto.prc_Localizar(fDMCadProduto.cdsProduto_ConsultaID.AsInteger);
         if fDMCadProduto.cdsProdutoGERAR_WEB.AsString <> 'S' then
