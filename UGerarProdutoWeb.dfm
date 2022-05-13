@@ -1,6 +1,6 @@
 object frmGerarProdutoWeb: TfrmGerarProdutoWeb
-  Left = 166
-  Top = 155
+  Left = 132
+  Top = 143
   Width = 1150
   Height = 480
   Caption = 'frmGerarProdutoWeb'
@@ -306,6 +306,7 @@ object frmGerarProdutoWeb: TfrmGerarProdutoWeb
         Title.Alignment = taCenter
         Title.Caption = 'Unid.'
         Title.Color = 14930369
+        Width = 64
         Visible = True
       end
       item
