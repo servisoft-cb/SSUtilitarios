@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (13/05/2022  1.0.12)'
+  Caption = 'Menu    (16/05/2022  1.0.13)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -306,6 +306,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 16
       OnClick = btnGravarProdutosWebClick
+    end
+    object btnAjustarCCusto: TNxButton
+      Left = 429
+      Top = 235
+      Width = 281
+      Height = 33
+      Caption = 'Ajustar Centro de Custo nos itens da NFe'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 17
+      OnClick = btnAjustarCCustoClick
     end
   end
 end

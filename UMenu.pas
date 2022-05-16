@@ -27,6 +27,7 @@ type
     NxButton11: TNxButton;
     btnAtualizarNCMUnidTrib: TNxButton;
     btnGravarProdutosWeb: TNxButton;
+    btnAjustarCCusto: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -42,6 +43,7 @@ type
     procedure btnCBenefClick(Sender: TObject);
     procedure NxButton11Click(Sender: TObject);
     procedure btnGravarProdutosWebClick(Sender: TObject);
+    procedure btnAjustarCCustoClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -57,7 +59,7 @@ implementation
 uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UImportar_PlanoContas, UCadContaOrc_Txt, UImportarArq, UConversor,
   UimportarRegras, ULeEstoque_Mov, uAjustaConOrcDuplicata, UGeraInventario,
-  UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb;//, UGerarTalao_Setor;
+  UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb, UAjustarCCustoNFe;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -163,6 +165,16 @@ begin
     frmGerarProdutoWeb.ShowModal;
   finally
     FreeAndNil(frmGerarProdutoWeb);
+  end;
+end;
+
+procedure TfMenu.btnAjustarCCustoClick(Sender: TObject);
+begin
+  frmAjustarCCustoNFe := TfrmAjustarCCustoNFe.Create(self);
+  try
+    frmAjustarCCustoNFe.ShowModal;
+  finally
+    FreeAndNil(frmAjustarCCustoNFe);
   end;
 end;
 

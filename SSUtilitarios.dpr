@@ -41,7 +41,9 @@ uses
   UDMProdutoProcesso in 'UDMProdutoProcesso.pas' {DMProdutoProcesso: TDataModule},
   UConvProdutoProc in 'UConvProdutoProc.pas' {frmConvProdutoProc},
   UDMCadProduto in '..\ssfacil\UDMCadProduto.pas' {dmCadProduto: TDataModule},
-  UGerarProdutoWeb in 'UGerarProdutoWeb.pas' {frmGerarProdutoWeb};
+  UGerarProdutoWeb in 'UGerarProdutoWeb.pas' {frmGerarProdutoWeb},
+  uUtilImpressao in '..\ssfacil\uUtilImpressao.pas',
+  UAjustarCCustoNFe in 'UAjustarCCustoNFe.pas' {frmAjustarCCustoNFe};
 
 {$R *.res}
 
