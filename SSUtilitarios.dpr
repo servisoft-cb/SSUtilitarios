@@ -43,7 +43,9 @@ uses
   UDMCadProduto in '..\ssfacil\UDMCadProduto.pas' {dmCadProduto: TDataModule},
   UGerarProdutoWeb in 'UGerarProdutoWeb.pas' {frmGerarProdutoWeb},
   uUtilImpressao in '..\ssfacil\uUtilImpressao.pas',
-  UAjustarCCustoNFe in 'UAjustarCCustoNFe.pas' {frmAjustarCCustoNFe};
+  UAjustarCCustoNFe in 'UAjustarCCustoNFe.pas' {frmAjustarCCustoNFe},
+  UAjusteNCMCFOP in 'UAjusteNCMCFOP.pas' {frmAjusteNCMCFOP},
+  UDMAjustarNCMCFOP in 'UDMAjustarNCMCFOP.pas' {DMAjustarNCMCFOP: TDataModule};
 
 {$R *.res}
 

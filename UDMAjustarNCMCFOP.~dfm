@@ -1,0 +1,118 @@
+object DMAjustarNCMCFOP: TDMAjustarNCMCFOP
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Left = 364
+  Top = 204
+  Height = 340
+  Width = 486
+  object sdsTab_NCM: TSQLDataSet
+    NoMetadata = True
+    GetMetadata = False
+    CommandText = 
+      'select N.ID, N.ID_CFOP, N.ID_CST_ICMS'#13#10'from TAB_NCM N'#13#10'where NCM' +
+      ' like :NCM '
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'NCM'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmDatabase.scoDados
+    Left = 48
+    Top = 30
+    object sdsTab_NCMID: TIntegerField
+      FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object sdsTab_NCMID_CFOP: TIntegerField
+      FieldName = 'ID_CFOP'
+    end
+    object sdsTab_NCMID_CST_ICMS: TIntegerField
+      FieldName = 'ID_CST_ICMS'
+    end
+  end
+  object dspTab_NCM: TDataSetProvider
+    DataSet = sdsTab_NCM
+    UpdateMode = upWhereKeyOnly
+    Left = 94
+    Top = 30
+  end
+  object cdsTab_NCM: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspTab_NCM'
+    Left = 137
+    Top = 29
+    object cdsTab_NCMID: TIntegerField
+      FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsTab_NCMID_CFOP: TIntegerField
+      FieldName = 'ID_CFOP'
+    end
+    object cdsTab_NCMID_CST_ICMS: TIntegerField
+      FieldName = 'ID_CST_ICMS'
+    end
+  end
+  object sdsProduto: TSQLDataSet
+    NoMetadata = True
+    GetMetadata = False
+    CommandText = 
+      'select P.ID, P.ID_NCM, P.ID_CFOP_NFCE, P.ID_CSTICMS'#13#10'from PRODUT' +
+      'O P'#13#10'where P.ID_NCM = :ID_NCM'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'ID_NCM'
+        ParamType = ptInput
+      end>
+    SQLConnection = dmDatabase.scoDados
+    Left = 48
+    Top = 86
+    object sdsProdutoID: TIntegerField
+      FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object sdsProdutoID_NCM: TIntegerField
+      FieldName = 'ID_NCM'
+    end
+    object sdsProdutoID_CFOP_NFCE: TIntegerField
+      FieldName = 'ID_CFOP_NFCE'
+    end
+    object sdsProdutoID_CSTICMS: TIntegerField
+      FieldName = 'ID_CSTICMS'
+    end
+  end
+  object dspProduto: TDataSetProvider
+    DataSet = sdsProduto
+    UpdateMode = upWhereKeyOnly
+    Left = 94
+    Top = 86
+  end
+  object cdsProduto: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspProduto'
+    Left = 137
+    Top = 85
+    object cdsProdutoID: TIntegerField
+      FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsProdutoID_NCM: TIntegerField
+      FieldName = 'ID_NCM'
+    end
+    object cdsProdutoID_CFOP_NFCE: TIntegerField
+      FieldName = 'ID_CFOP_NFCE'
+    end
+    object cdsProdutoID_CSTICMS: TIntegerField
+      FieldName = 'ID_CSTICMS'
+    end
+  end
+end

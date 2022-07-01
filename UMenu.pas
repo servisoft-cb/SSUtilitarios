@@ -28,6 +28,7 @@ type
     btnAtualizarNCMUnidTrib: TNxButton;
     btnGravarProdutosWeb: TNxButton;
     btnAjustarCCusto: TNxButton;
+    btnAjustaNCM_CFOP: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -44,6 +45,7 @@ type
     procedure NxButton11Click(Sender: TObject);
     procedure btnGravarProdutosWebClick(Sender: TObject);
     procedure btnAjustarCCustoClick(Sender: TObject);
+    procedure btnAjustaNCM_CFOPClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -59,7 +61,8 @@ implementation
 uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UImportar_PlanoContas, UCadContaOrc_Txt, UImportarArq, UConversor,
   UimportarRegras, ULeEstoque_Mov, uAjustaConOrcDuplicata, UGeraInventario,
-  UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb, UAjustarCCustoNFe;//, UGerarTalao_Setor;
+  UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb, UAjustarCCustoNFe,
+  UAjusteNCMCFOP;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -175,6 +178,16 @@ begin
     frmAjustarCCustoNFe.ShowModal;
   finally
     FreeAndNil(frmAjustarCCustoNFe);
+  end;
+end;
+
+procedure TfMenu.btnAjustaNCM_CFOPClick(Sender: TObject);
+begin
+  frmAjusteNCMCFOP := TfrmAjusteNCMCFOP.Create(self);
+  try
+    frmAjusteNCMCFOP.ShowModal;
+  finally
+    FreeAndNil(frmAjusteNCMCFOP);
   end;
 end;
 

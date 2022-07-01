@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (16/05/2022  1.0.13)'
+  Caption = 'Menu    (30/06/2022  1.0.14)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -321,6 +321,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 17
       OnClick = btnAjustarCCustoClick
+    end
+    object btnAjustaNCM_CFOP: TNxButton
+      Left = 429
+      Top = 270
+      Width = 281
+      Height = 33
+      Caption = 'Ajustar NCM / CFOP 01/07/2022'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 18
+      OnClick = btnAjustaNCM_CFOPClick
     end
   end
 end
