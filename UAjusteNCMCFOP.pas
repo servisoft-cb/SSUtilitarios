@@ -18,6 +18,8 @@ type
     Label3: TLabel;
     Label4: TLabel;
     ceLidos: TCurrencyEdit;
+    Label5: TLabel;
+    FilenameEdit2: TFilenameEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure NxButton1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -33,6 +35,7 @@ type
     function XlsToStringGrid2(AGrid: TStringGrid; AXLSFile: string; WorkSheet: Integer): Boolean;
     procedure prc_Le_Arq_Planilha;
     procedure prc_Le_Arq_Planilha2;
+    procedure prc_Le_Arquivo_CSV;
     function Monta_Numero(Campo: String; Tamanho: Integer): String;
 
   public
@@ -82,24 +85,32 @@ end;
 
 procedure TfrmAjusteNCMCFOP.NxButton1Click(Sender: TObject);
 begin
-  if trim(FilenameEdit1.Text) = '' then
+  if (trim(FilenameEdit1.Text) = '') and (trim(FilenameEdit2.Text) = '') then
   begin
-    MessageDlg('Arquivo Excel não informado!', mtInformation, [mbOk], 0);
+    MessageDlg('*** Arquivo Excel ou CSV não informado!', mtInformation, [mbOk], 0);
     exit;
   end;
   if trim(DirectoryEdit1.Text) = '' then
   begin
-    MessageDlg('Pasta para gravar o txt não informada!', mtInformation, [mbOk], 0);
+    MessageDlg('*** Pasta para gravar o txt não informada!', mtInformation, [mbOk], 0);
     exit;
   end;
   if copy(DirectoryEdit1.Text,1,Length(DirectoryEdit1.Text)) <> '\' then
     DirectoryEdit1.Text := DirectoryEdit1.Text + '\';
-  gGrid := TStringGrid.Create(gGrid);
-  vArquivo_XLS := fnc_verifica_Arquivo(FilenameEdit1.Text,'L');
-  XlsToStringGrid2(gGrid,vArquivo_XLS,1);
-  //prc_Le_Arq_Planilha;
-  prc_Le_Arq_Planilha2;
-  FreeAndNil(gGrid);
+  if trim(FilenameEdit1.Text) <> '' then
+  begin
+    gGrid := TStringGrid.Create(gGrid);
+    vArquivo_XLS := fnc_verifica_Arquivo(FilenameEdit1.Text,'L');
+    XlsToStringGrid2(gGrid,vArquivo_XLS,1);
+    //prc_Le_Arq_Planilha;
+    prc_Le_Arq_Planilha2;
+    FreeAndNil(gGrid);
+  end
+  else
+  begin
+    vArquivo_XLS := fnc_verifica_Arquivo(FilenameEdit2.Text,'L');
+    prc_Le_Arquivo_CSV;
+  end;
 end;
 
 procedure TfrmAjusteNCMCFOP.prc_Le_Arq_Planilha;
@@ -331,6 +342,99 @@ begin
       FreeAndNil(sds);
       FreeAndNil(Form);
       FreeAndNil(vArqTxt);
+    end;
+  end;
+  MessageDlg('NCM/CFOP Ajustados!', mtConfirmation, [mbOk], 0);
+end;
+
+procedure TfrmAjusteNCMCFOP.prc_Le_Arquivo_CSV;
+var
+  vTexto1 : String;
+  vCont : Integer;
+  sds: TSQLDataSet;
+  vID_CFOP5405 : Integer;
+  Form: TForm;
+  vArqTxt: TStringList;
+  vArqCSV: TStringList;
+  i: Integer;
+begin
+  vTexto1 := SQLLocate('TAB_CFOP','CODCFOP','ID','5405');
+  if trim(vTexto1) = '' then
+  begin
+    MessageDlg('Não encontrou a CFOP 5405 no cadastro da CFOP!', mtInformation, [mbOk], 0);
+    exit;
+  end;
+  vID_CFOP5405 := StrToInt(vTexto1);
+  vArqCSV := TStringList.Create;
+  vArqCSV.LoadFromFile(vArquivo_XLS);
+  ceTotal.AsInteger := vArqCSV.Count;
+  vCont := 0;
+  Linha := 0;
+  vArqTxt := TStringList.Create;
+  Form := TForm.Create(Application);
+  sds := TSQLDataSet.Create(nil);
+  try
+    uUtilPadrao.prc_Form_Aguarde(Form);
+    sds.SQLConnection := dmDatabase.scoDados;
+    sds.NoMetadata    := True;
+    sds.GetMetadata   := False;
+    for i := 0 to vArqCSV.Count - 1 do
+    begin
+      Linha := Linha + 1;
+      ceLidos.AsInteger := Linha;
+      Application.ProcessMessages;
+      try
+        vTexto1 := trim(vArqCSV.Strings[i]);
+        if trim(vTexto1) <> '' then
+        begin
+          fDMAjustarNCMCFOP.cdsTab_NCM.Close;
+          fDMAjustarNCMCFOP.sdsTab_NCM.ParamByName('NCM').AsString := vTexto1 + '%';
+          fDMAjustarNCMCFOP.cdsTab_NCM.Open;
+          fDMAjustarNCMCFOP.cdsTab_NCM.First;
+          while not fDMAjustarNCMCFOP.cdsTab_NCM.Eof do
+          begin
+            fDMAjustarNCMCFOP.cdsProduto.Close;
+            fDMAjustarNCMCFOP.sdsProduto.ParamByName('ID_NCM').AsInteger := fDMAjustarNCMCFOP.cdsTab_NCMID.AsInteger;
+            fDMAjustarNCMCFOP.cdsProduto.Open;
+            fDMAjustarNCMCFOP.cdsProduto.First;
+            while not fDMAjustarNCMCFOP.cdsProduto.Eof do
+            begin
+              if fDMAjustarNCMCFOP.cdsProdutoID_CFOP_NFCE.AsInteger = vID_CFOP5405 then
+              begin
+                vArqTxt.Add('Produto: ' + fDMAjustarNCMCFOP.cdsProdutoID.AsString + '  CFOP: ' + '5405   foi deixada em branco' );
+                fDMAjustarNCMCFOP.cdsProduto.Edit;
+                fDMAjustarNCMCFOP.cdsProdutoID_CFOP_NFCE.Clear;
+                fDMAjustarNCMCFOP.cdsProdutoID_CSTICMS.Clear;
+                fDMAjustarNCMCFOP.cdsProduto.Post;
+                fDMAjustarNCMCFOP.cdsProduto.ApplyUpdates(0);
+              end;
+              fDMAjustarNCMCFOP.cdsProduto.Next;
+            end;
+            if fDMAjustarNCMCFOP.cdsTab_NCMID_CFOP.AsInteger = vID_CFOP5405 then
+            begin
+              vArqTxt.Add('NCM: ' + fDMAjustarNCMCFOP.cdsTab_NCMID.AsString  + '  NCM: ' + fDMAjustarNCMCFOP.cdsTab_NCMNCM.AsString + ' CFOP: ' + '5405   foi deixada em branco' );
+              sds.Close;
+              sds.CommandText := 'update TAB_NCM N set N.ID_CFOP = null, '
+                               + '    N.ID_CST_ICMS = null '
+                               + 'where N.ID = :ID ';
+              sds.ParamByName('ID').AsInteger := fDMAjustarNCMCFOP.cdsTab_NCMID.AsInteger;
+              sds.ExecSQL;
+            end;
+            fDMAjustarNCMCFOP.cdsTab_NCM.Next;
+          end;
+        end;
+      except
+        on e: Exception do
+        ShowMessage('Ocorreu o seguinte erro ao gravar, Produto / NCM ' + fDMAjustarNCMCFOP.cdsTab_NCMID.AsString  + ', na linha ' + IntToStr(linha) + ' :' + #13 + e.Message);
+      end;
+    end;
+  finally
+    begin
+      vArqTxt.SaveToFile(DirectoryEdit1.Text + 'AjusteNCMCFOP.txt');
+      FreeAndNil(sds);
+      FreeAndNil(Form);
+      FreeAndNil(vArqTxt);
+      FreeAndNil(vArqCSV);
     end;
   end;
   MessageDlg('NCM/CFOP Ajustados!', mtConfirmation, [mbOk], 0);
