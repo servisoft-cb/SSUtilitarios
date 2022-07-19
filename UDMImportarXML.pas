@@ -367,7 +367,6 @@ type
     sdsProdutoPERC_REDUCAOICMS: TFloatField;
     sdsProdutoTIPO_VENDA: TStringField;
     sdsProdutoPERC_MARGEMLUCRO: TFloatField;
-    sdsProdutoUNIDADE: TStringField;
     cdsProdutoID: TIntegerField;
     cdsProdutoREFERENCIA: TStringField;
     cdsProdutoNOME: TStringField;
@@ -394,7 +393,6 @@ type
     cdsProdutoPERC_REDUCAOICMS: TFloatField;
     cdsProdutoTIPO_VENDA: TStringField;
     cdsProdutoPERC_MARGEMLUCRO: TFloatField;
-    cdsProdutoUNIDADE: TStringField;
     qCFOP: TSQLQuery;
     qCFOPID: TIntegerField;
     qCFOPCODCFOP: TStringField;
@@ -1144,6 +1142,16 @@ type
     cdsParcelasnDup: TStringField;
     cdsParcelasdVenc: TDateField;
     cdsParcelasvDup: TFloatField;
+    sdsProdutoUSA_PRECO_COR: TStringField;
+    sdsProdutoUSA_COR: TStringField;
+    sdsProdutoNOME_ORIGINAL: TStringField;
+    sdsProdutoUNIDADE: TStringField;
+    sdsProdutoSPED_TIPO_ITEM: TStringField;
+    cdsProdutoUSA_PRECO_COR: TStringField;
+    cdsProdutoUSA_COR: TStringField;
+    cdsProdutoNOME_ORIGINAL: TStringField;
+    cdsProdutoUNIDADE: TStringField;
+    cdsProdutoSPED_TIPO_ITEM: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsNCMNewRecord(DataSet: TDataSet);
     procedure cdsProdutoNewRecord(DataSet: TDataSet);
@@ -1453,6 +1461,10 @@ begin
   cdsProdutoPERC_PIS.AsFloat    := StrToFloat(FormatFloat('0.00',mItensNotaAliqPIS.AsFloat));
   if qParametrosUSA_PRODUTO_FILIAL.AsString = 'S' then
     cdsProdutoFILIAL.AsInteger := vFilial;
+  cdsProdutoSPED_TIPO_ITEM.AsString := '00';
+  cdsProdutoUSA_COR.AsString        := 'N';
+  cdsProdutoUSA_GRADE.AsString      := 'N';
+  cdsProdutoUSA_PRECO_COR.AsString  := 'N';
   cdsProduto.Post;
   cdsProduto.ApplyUpdates(0);
 

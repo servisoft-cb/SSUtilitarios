@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (30/06/2022  1.0.14)'
+  Caption = 'Menu    (19/07/2022  1.0.15)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
