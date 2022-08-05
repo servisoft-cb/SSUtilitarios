@@ -1,0 +1,507 @@
+SISTEMA DE CONTABILIDADE                                            P;;;;;
+229 - SUPPLIER TEXTIL EIRELI                    04/08/202;;;;;
+Conta;Reduzido;Referencial Sped;Tipo;Natureza;Rel.Alfab.
+1                    ATIVO;00002;;S;D;N
+1.1                    ATIVO CIRCULANTE;00003;;S;D;N
+1.1.1                    DISPONIBILIDADES;00004;;S;D;N
+1.1.1.1                    BENS NUMERARIOS;00005;;S;D;N
+1.1.1.1.1                    CAIXA;00007;;A;D;N
+1.1.1.2                    BANCOS C/MOVIMENTO;00008;;S;D;N
+1.1.1.2.1                    SICREDI;00009;;A;D;N
+1.1.1.2.2                    BRADESCO;00010;;A;D;N
+1.1.1.2.3                    BANRISUL;00015;;A;D;N
+1.1.1.2.4                    BANCO SANTANDER;00020;;A;D;N
+1.1.1.3                    APLICAÇÕES FINANCEIRAS;00012;;S;D;N
+1.1.1.3.1                    APLIC. FINAN. SICREDI;00013;;A;D;N
+1.1.1.3.2                    BRADESCO CAPITALIZ;00014;;A;D;N
+1.1.1.3.3                    BANRISUL CAPITALIZ;00019;;A;D;N
+1.1.1.3.4                    SANTANDER CDB;00021;;A;D;N
+1.1.2                    CREDITOS;00016;;S;D;N
+1.1.2.1                    CLIENTES;00017;;S;D;N
+1.1.2.1.1                    DASS NORDESTE CALCADOS ARTIGOS ESPORTIVOS LTD;00018;;A;D;S
+1.1.2.1.2                    CALCADOS PEGADA NORDESTE LTDA;00022;;A;D;S
+1.1.2.1.3                    REDEPLAST IND DE CALCADOS LTDA;00023;;A;D;S
+1.1.2.1.4                    COOPERSHOES COOP DE TRAB E IND DE CALCADOS JO;00024;;A;D;S
+1.1.2.1.5                    COUROQUIMICA COUROS ACABAMENTOS LTDA;00025;;A;D;S
+1.1.2.1.6                    MARISOL VESTUARIO S.A.;00026;;A;D;S
+1.1.2.1.7                    ANIGER CALCADOS SUPR E EMPREEND LTDA ;00027;;A;D;S
+1.1.2.1.8                    CALCADOS RAMARIM LTDA;00028;;A;D;S
+1.1.2.1.9                    TOPSHOES INDUSTRIA DE CALCADOS SA;00029;;A;D;S
+1.1.2.1.10                   GRENDENE S/A;00030;;A;D;S
+1.1.2.1.11                   CONFORTO ARTEFATOS DE COURO LTDA;00031;;A;D;S
+1.1.2.1.12                   NKS IMPORTACOES E EXPORTACOES INDUSTRIA E COM;00032;;A;D;S
+1.1.2.1.13                   ASCORPH CONSULTORIA LTDA;00033;;A;D;S
+1.1.2.1.14                   NEORUBBER INDUSTRIA DE SANDALIAS LTDA;00034;;A;D;S
+1.1.2.1.15                   CALCADOS BEIRA RIO S/A;00035;;A;D;S
+1.1.2.1.16                   VALENTINI IND DE BOLSAS LTDA;00036;;A;D;S
+1.1.2.1.17                   PASSCAL INDUSTRIA DE CALCADOS LTDA;00037;;A;D;S
+1.1.2.1.18                   CALCADOS HOFFLLES LTDA;00038;;A;D;S
+1.1.2.1.19                   A.M.C. TEXTIL LTDA;00039;;A;D;S
+1.1.2.1.20                   A C DA VEIGA CALCADOS EIRELI;00040;;A;D;S
+1.1.2.1.21                   ZENGLEIN INDUSTRIA E COMERCIO DE CALCADOS EIR;00041;;A;D;S
+1.1.2.1.22                   SUGAR SHOES INDUSTRIA DE CALCADOS LTDA;00042;;A;D;S
+1.1.2.1.23                   PACIFIC SHOES IND E COM DE CALCADOS LTDA;00043;;A;D;S
+1.1.2.1.24                   I5 FACTORY LTDA;00044;;A;D;S
+1.1.2.1.25                   INDUSTRIA DE CALCADOS JACOB LTDA ;00045;;A;D;S
+1.1.2.1.26                   DILLY NORDESTE INDUSTRIA DE CALCADOS LTDA;00046;;A;D;S
+1.1.2.1.27                   INDUSTRIA DE CALCADOS WIRTH;00047;;A;D;S
+1.1.2.1.28                   STYKA INDUSTRIA DE CORDAS E CORDOES LTDA;00048;;A;D;S
+1.1.2.1.29                   BTO JOIAS E MINERAIS LTDA-ME;00049;;A;D;S
+1.1.2.1.30                   ITM INDS TEXTEIS H MILAGRE LTDA;00050;;A;D;S
+1.1.2.1.31                   TAILE CALCADOS LTDA;00051;;A;D;S
+1.1.2.1.32                   FIBER TECIDOS TECNICOS LTDA;00052;;A;D;S
+1.1.2.7                    ADIANTAMENTOS;00115;;S;D;N
+1.1.2.7.1                    ADIANT.DE SALARIOS;00116;;A;D;N
+1.1.2.7.2                    ADIANT.DE SAL.FAMILIA;00117;;A;D;N
+1.1.2.7.4                    ADIANT. 13.SALARIO;00118;;A;D;N
+1.1.2.7.5                    ANTECIPACAO DE IRPJ;00119;;A;D;N
+1.1.2.7.6                    ANTECIPACAO DE CONTR SOCIAL;00120;;A;D;N
+1.1.2.9                    IMPOSTOS RECUPERAVEIS;00100;;S;D;N
+1.1.2.9.1                    ICMS A RECUPERAR;00101;;A;D;N
+1.1.2.9.2                    IRRF A RECUPERAR;00102;;A;D;N
+1.1.2.9.3                    SALARIO FAMILIA A RECUPERAR;00103;;A;D;N
+1.1.2.9.4                    SALÁRIO MATERNIDADE A RECUPERAR;00104;;A;D;N
+1.1.3                    ESTOQUE EXISTENTES;00110;;S;D;N
+1.1.3.1                    ESTOQUE DE MERCADORIAS;00111;;A;D;N
+1.1.7                    SOCIOS C/CAPITAL;00130;;S;D;N
+1.1.7.1                    EMERSON ALCIONE SCHERER C/CAP.;00131;;A;D;N
+1.1.7.2                    -;00132;;A;D;N
+1.1.8                    SOCIOS C/EMPRESTIMO;00135;;S;D;N
+1.1.8.1                    EMERSON ALCIONE SCHERER C/EMPR.;00136;;A;D;N
+1.1.8.2                    -;00137;;A;D;N
+1.2                    ATIVO NÃO CIRCULANTE;00138;;S;D;N
+1.2.1                    REALIZAVEL A LONGO PRAZO;00139;;S;D;N
+1.2.1.5                    TITULOS DE LIQUIDEZ;00146;;S;D;N
+1.2.2                    INVESTIMENTOS;00141;;S;D;N
+1.2.2.1                    PARTICIPAÇÕES SOCIETARIAS;00142;;S;D;N
+1.2.2.1.1                    PARTICIPAÇÕES SOCIETARIAS;00143;;A;D;N
+1.2.3                    IMOBILIZADO;00150;;S;D;N
+1.2.3.1                    IMOBILIZADO TECNICO;00151;;S;D;N
+1.2.3.1.1                    MOVEIS E UTENSILIOS;00152;;A;D;N
+1.2.3.1.2                    INSTALAÇÕES;00153;;A;D;N
+1.2.3.1.3                    VEICULOS;00154;;A;D;N
+1.2.3.1.4                    FERRAMENTAS;00156;;A;D;N
+1.2.3.1.5                    FERRAMENTAS DIF IPC;00157;;A;D;N
+1.2.3.1.6                    MAQUINARIOS;00158;;A;D;N
+1.2.3.1.7                    COMPUTADORES;00159;;A;D;N
+1.2.3.2                    CONTRUÇÕES EM ANDAMENTO;00148;;S;D;N
+1.2.3.2.1                    IMOVEL;00149;;A;D;N
+1.2.3.3                    PARTICIPAÇÃO EM CONSORCIOS;00169;;S;D;N
+1.2.3.3.1                    COTAS DE CONSORCIO CEF;00145;;A;D;N
+1.2.3.3.2                    COTAS P/AQUISICAO DE CONSORCIO;00144;;A;D;N
+1.2.3.4                    (-) DEPRECIAÇÕES ACUMULADAS;00160;;S;C;N
+1.2.3.4.1                    (-) MOV.E UTENS.C/DEPRECIAÇÃO ACUM.;00161;;A;C;N
+1.2.3.4.2                    (-) VEICULOS C/DEPRECIAÇÃO ACUM.;00163;;A;C;N
+1.2.3.4.3                    (-) VEICULOS DIF IPC C/DEPRECIAÇÃO ACUM.;00164;;A;C;N
+1.2.3.4.4                    (-) FERRAMENTAS C/DEPRECIAÇÃO ACUM.;00165;;A;C;N
+1.2.3.4.5                    (-) FERRAMENTAS DIF IPC C/DEPRECIAÇÃO ACUM.;00166;;A;C;N
+1.2.3.4.6                    (-) MAQUINARIOS C/DEPRECIAÇÃO;00167;;A;C;N
+1.2.3.4.7                    (-) COMPUTADORES C/DEPRECIAÇÃO;00168;;A;C;N
+1.2.4                    BENS INTANGIVEIS;00208;;S;C;N
+1.2.4.1                    INTANGIVEL;00212;;S;C;N
+1.2.4.1.1                    DEP. P/MARCAS & PATENTES;00241;;A;D;N
+2                    PASSIVO;00170;;S;C;N
+2.1                    PASSIVO CIRCULANTE;00171;;S;C;N
+2.1.1                    FORNECEDORES;00172;;S;C;N
+2.1.1.1                    FORNECEDORES;00173;;S;C;N
+2.1.1.1.9                    CALCADOS PEGADA NORDESTE LTDA;00182;;A;C;N
+2.1.1.1.11                   CONTABIL JARA LTDA;00184;;A;C;N
+2.1.1.1.12                   FILLER ALIMENTOS E BEBIDAS LTDA;00183;;A;C;N
+2.1.1.1.13                   MCM COML. DE ALIMENTOS LTDA;00185;;A;C;N
+2.1.1.1.14                   NESTLE BRASIL LTDA;00186;;A;C;N
+2.1.1.1.15                   CHOCOLATES GAROTO S/A;00187;;A;C;N
+2.1.1.1.16                   COMPANHIA DE BEBIDAS DAS AMÉRICAS-AMBE;00188;;A;C;N
+2.1.1.1.17                   SAMAR ALIMENTOS LTDA;00189;;A;C;N
+2.1.1.1.20                   FJR COM DE EQUIP INDL E COM LT;00191;;A;C;N
+2.1.1.1.24                   NTM COML E DIST  LTDA;00196;;A;C;N
+2.1.1.1.26                   CIA. ULTRAGAZ S/A;00198;;A;C;N
+2.1.1.1.27                   COOP SUINOCULTORES DO CAI SUPERIOR LTDA;00199;;A;C;N
+2.1.1.1.28                   LT DISTRIBUIDORA LTDA;00200;;A;C;N
+2.1.1.1.29                   FRUMAR FRUTOS DO MAR LTDA;00201;;A;C;N
+2.1.1.1.30                   NOIA ALIMENTOS LTDA;00202;;A;C;N
+2.1.1.1.31                   IND DE ALIM PETRY LTDA;00430;;D;C;N
+2.1.1.1.32                   VILAGE MARCAS & PATENTES S/C LTDA;01170;;A;C;N
+2.1.1.1.33                   COOP. DOS SUINOCULTORES ENCANTADO LTDA;01171;;A;C;N
+2.1.1.1.34                   COOPERATIVA VINICOLA AURORA LTDA;01172;;A;C;N
+2.1.1.1.35                   DISTRIBUIDORA AMS LTDA;01173;;A;C;N
+2.1.1.1.36                   PROTEC PRODUÇÕES VISUAIS LTDA ME;01174;;A;C;N
+2.1.1.1.37                   LATICINIO STEFANELLO LTDA;01175;;A;C;N
+2.1.1.1.38                   RC ARTES GRÁFICAS LTDA;01176;;A;C;N
+2.1.1.1.39                   GETEBEL COM BEBIDAS LTDA;01177;;A;C;N
+2.1.1.1.40                   ROBINSON KRUMMENAUER ME;01178;;A;D;N
+2.1.1.1.41                   PORTOSUL DISTR DE EMBALAGENS LTDA;01180;;A;C;S
+2.1.1.1.42                   SADIA S/A;01181;;A;C;S
+2.1.1.1.43                   RODOLFO PEREIRA DE ANDRADE;01182;;A;C;S
+2.1.1.1.44                   MARTINS BERNI DISTR DE PROD ALIMENT LTDA;01183;;A;C;S
+2.1.1.1.45                   WATT DISTRIBUIDORA LTDA;01184;;A;C;S
+2.1.1.1.48                   VINICOLA PERINI LTDA;01187;;A;C;S
+2.1.1.1.50                   TRANSP E COMERCIO GAS STEYER LTDA;01189;;A;C;S
+2.1.1.1.52                   M R COMERCIO DE BEBIDAS LTDA;01191;;A;C;S
+2.1.1.1.54                   CHOCOLATE DO PARKE LTDA;01193;;A;C;S
+2.1.1.1.55                   PREMIUM EMBALAGENS LTDA;01194;;A;C;S
+2.1.1.1.56                   HAMBURGO PLAST DISTRIBUIDORA LTDA;01195;;A;C;S
+2.1.1.1.57                   PCP DO BRASIL LTDA;01196;;A;C;S
+2.1.1.1.58                   IMPERATRIZ COM DE MAQ E EQUIP LTDA;01197;;A;C;S
+2.1.1.1.59                   STELLA ALPINA GEL E ALIM LTDA;01198;;A;C;S
+2.1.1.1.60                   LUAR SUL IND E COM DE PROD ALIM LTDA;01199;;A;C;S
+2.1.1.1.61                   MACRODOCE COM DE ALIMENTOS LTDA;01200;;A;C;S
+2.1.1.1.62                   BRF - BRASIL FOODS S/A;01201;;A;C;S
+2.1.1.1.63                   SUPRIMAXXI IND COM ARTEF PAPEL LTDA;01202;;A;C;S
+2.1.1.1.64                   DISTEC MAQ E MOVEIS P/ESCRIT LTDA;01203;;A;C;S
+2.1.1.1.65                   PERTE DISTR DE ALIMENTOS LTDA;01204;;A;C;S
+2.1.1.1.66                   MASSAS E BISCOITOS SCATOLIN LTDA;01205;;A;C;S
+2.1.1.1.68                   MARIA JUCARA MORAES DA SILVA;01207;;A;C;S
+2.1.1.1.69                   JOHANN ALIMENTOS LTDA;01208;;A;C;S
+2.1.1.1.70                   ZIMMER FOODS COM. DE ALIMENTOS LTDA;01209;;A;C;S
+2.1.1.1.71                   SENAR COM. PROD. ALIMENTICIOS LTDA;01210;;A;C;S
+2.1.1.1.72                   DIST DE BEBIDAS MARMITT LTDA;01211;;A;C;S
+2.1.1.1.73                   DINAMICA REAL DIST. PROD. ALIMENT. LTDA;01212;;A;C;S
+2.1.1.1.74                   BEBIDAS FRUKI S.A;01213;;A;C;S
+2.1.1.1.75                   MARISA RIBOLI E CIA LTDA;01214;;A;C;S
+2.1.1.1.76                   FLEXSUL DISTRIBUIDORA LTDA;01215;;A;C;S
+2.1.1.1.77                   MATHEUS GIORDANI E CIA LTDA - ME;01216;;A;C;S
+2.1.1.1.78                   FOCATTO DISTR. DE ALIMENTOS LTDA;01217;;A;C;S
+2.1.1.1.79                   NOVO MIX DIST. DE PR. ALIMENT. LTDA;01218;;A;C;S
+2.1.1.1.80                   LATICINIOS FRIZZO LTDA;01219;;A;C;S
+2.1.1.1.81                   KATIANA RAQUEL COLOMBO;01220;;A;C;S
+2.1.1.1.82                   COMPANHIA ULTRAGAZ SA;01221;;A;C;S
+2.1.1.1.83                   SPADER DISTR. DE ALIMENTOS LTDA;01222;;A;C;S
+2.1.1.1.84                   EVOPEL BOBINAS TERMICAS LTDA;01223;;A;C;S
+2.1.1.1.85                   AMBEV S.A.;01224;;A;C;S
+2.1.1.1.86                   PEGON IND. E COM. DE EMB. LTDA;01225;;A;C;S
+2.1.2                    OBRIGAÇÕES A RECOLHER;00203;;S;C;N
+2.1.2.1                    OBRIGAÇÕES TRIBUTARIAS A RECOLHER;00204;;S;C;N
+2.1.2.1.1                    ICMS A RECOLHER;00205;;A;C;N
+2.1.2.1.2                    IRRF A RECOLHER;00206;;A;C;N
+2.1.2.1.3                    ISSQN A RECOLHER;00207;;A;C;N
+2.1.2.1.4                    RET. LEI 10233/03 A RECOLHER;00209;;A;C;N
+2.1.2.1.5                    SIMPLES A RECOLHER;00210;;A;C;N
+2.1.2.1.6                    COFINS A RECOLHER;00268;;A;C;N
+2.1.2.1.7                    PIS A RECOLHER;00269;;A;C;N
+2.1.2.2                    OBRIGAÇÕES TRABALHISTAS A PAGAR;00220;;S;C;N
+2.1.2.2.1                    SALARIOS A PAGAR;00221;;A;C;N
+2.1.2.2.2                    13§ SALARIO A PAGAR;00222;;A;C;N
+2.1.2.2.3                    FERIAS NORMAIS A PAGAR;00223;;A;C;N
+2.1.2.2.4                    1/3 FERIAS A PAGAR;00224;;A;C;N
+2.1.2.2.5                    ABONO FERIAS A PAGAR;00225;;A;C;N
+2.1.2.2.6                    FERIAS VENCIDAS A PAGAR;00226;;A;C;N
+2.1.2.2.7                    FERIAS INDENIZADAS A PAGAR;00227;;A;C;N
+2.1.2.2.8                    FERIAS PROPORCIONAIS A PAGAR;00228;;A;C;N
+2.1.2.2.9                    AVISO PREVIO A PAGAR;00229;;A;C;N
+2.1.2.2.10                   AVISO PREVIO INDENIZADO A PAGAR;00230;;A;C;N
+2.1.2.2.11                   SALARIO FAMILIA A PAGAR;00231;;A;C;N
+2.1.2.2.12                   DISSIDIO SALARIAL A PAGAR;00233;;A;C;N
+2.1.2.2.13                   CONTR SINDICAL EMPR.A PAGAR;00234;;A;C;N
+2.1.2.2.14                   CONTR. ASSISTENCIAL A PAGAR;00235;;A;C;N
+2.1.2.3                    OBRIGAÇÕES PREVIDENCIARIAS A RECOLHER;00250;;S;C;N
+2.1.2.3.1                    INSS SOCIOS A RECOLHER;00251;;A;C;N
+2.1.2.3.2                    INSS A RECOLHER;00252;;A;C;N
+2.1.2.3.3                    INSS S/PRO-LABORE A RECOLHER;00253;;A;C;N
+2.1.2.3.4                    INSS S/FERIAS A RECOLHER;00254;;A;C;N
+2.1.2.3.5                    INSS S/FERIAS VENCIDAS A RECOLHER;00255;;A;C;N
+2.1.2.3.6                    INSS S/FERIAS INDENIZADAS A RECOLHER;00256;;A;C;N
+2.1.2.3.7                    INSS S/FERIAS PROPORCIONAIS A RECOLHER;00257;;A;C;N
+2.1.2.3.8                    INSS S/13º A RECOLHER;00258;;A;C;N
+2.1.2.3.9                    INSS S/AUTONOMOS A RECOLHER;00259;;A;C;N
+2.1.2.3.10                   FGTS A RECOLHER;00260;;A;C;N
+2.1.2.3.11                   FGTS S/13§ SALARIOS A RECOLHER;00261;;A;C;N
+2.1.2.3.12                   FGTS S/FERIAS A RECOLHER;00262;;A;C;N
+2.1.2.3.13                   INSS S/FERIAS A RECOLHER;00263;;A;C;N
+2.1.2.3.14                   FGTS S/FERIAS VENCIDAS A RECOLHER;00264;;A;C;N
+2.1.2.3.15                   FGTS S/FERIAS PROPORCIONAIS A RECOLHER;00265;;A;C;N
+2.1.2.3.18                   SAT A RECOLHER;00270;;A;C;N
+2.1.2.3.19                   SAL.EDUCAÇÃO A RECOLHER;00271;;A;C;N
+2.1.2.3.20                   CTA;00272;;A;C;N
+2.1.2.3.21                   CTA;00273;;A;C;N
+2.1.2.4                    PROVISÕES A RECOLHER;00290;;S;C;N
+2.1.2.4.1                    PROVISOES P/IR A RECOLHER;00291;;A;C;N
+2.1.2.4.2                    CONTR SOCIAL LEI 7679 A RECOLHER;00292;;A;C;N
+2.1.2.4.3                    ADICIONAL DO IR EST A RECOLHER;00293;;A;C;N
+2.1.2.4.4                    IR S/LUCRO LIQUIDO;00294;;A;C;N
+2.1.2.5                    OUTROS DEBITOS OPERACIONAIS;00300;;S;C;N
+2.1.2.5.1                    CONSUMO DE AGUA E LUZ A PAGAR;00301;;A;C;N
+2.1.2.5.2                    ALUGUEL A PAGAR;00302;;A;C;N
+2.1.2.5.3                    HONORARIOS A PAGAR;00303;;A;C;N
+2.1.2.5.4                    COMISSÕES A PAGAR;00304;;A;C;N
+2.1.2.5.5                    CREDORES DIVERSOS;00305;;A;C;N
+2.1.2.6                    DEBITOS DE FINANCIAMENTO;00310;;S;C;N
+2.1.2.6.1                    CHEQUE CAIXA ECON FEDERAL;00311;;A;C;N
+2.1.2.6.2                    FINANCIAMENTO DO CAPITAL DE GIRO;00312;;A;C;N
+2.1.2.6.3                    CH ESPECIAL MERIDIONAL DO BRASIL S/A;00767;;A;C;N
+2.1.2.6.4                    BANCO BRADESCO CAP GIRO;00770;;A;C;N
+2.1.2.6.5                    BANRISUL BBH;00771;;A;C;N
+2.1.2.6.6                    BANCO SANTANDER;00772;;A;C;N
+2.1.2.7                    SOCIOS C/EMPRESTIMO;00315;;S;C;N
+2.1.2.7.1                    EMERSON ALCIONE SCHERER C/EMPR;00316;;A;C;N
+2.1.2.7.2                    ROSA;00317;;A;C;N
+2.1.2.8                    SOCIOS C/PARTICULAR;00320;;S;C;N
+2.1.2.8.1                    DOUGLAS THESSING DA SILVA C/PART.;00321;;A;C;N
+2.1.2.8.2                    ROSA;00322;;A;C;N
+2.1.2.9                    VALORES RECEBIDOS ANTECIPADAMENTE;00308;;S;C;N
+2.1.2.9.1                    ADIANTAMENTO DE CLIENTES;00309;;A;C;N
+2.2                    PASSIVO NÃO CIRCULANTE;00350;;S;C;N
+2.2.1                    EXIGIVEL A LONGO PRAZO;00351;;S;C;N
+2.2.1.1                    BANCOS E FINANCIAMENTOS;00352;;S;C;N
+2.2.1.1.1                    CEF;00353;;A;C;N
+2.2.1.2                    PARCELAMENTOS;00354;;S;C;N
+2.2.3                    RECEITAS DIFERIDAS;00355;;S;C;N
+2.2.3.1                    RECEITAS DIFERIDAS;00356;;S;C;N
+2.2.3.1.2                    RECEITAS A REALIZAR;00357;;A;C;N
+2.2.3.2                    CUSTOS DIFERIDOS;00358;;S;C;N
+2.2.3.2.1                    CUSTOS DIFERIDOS;00405;;A;C;N
+2.2.3.3                    DESPESAS DIFERIDAS;00360;;S;C;N
+2.2.3.3.1                    DESPESAS DIFERIDAS;00361;;A;C;N
+2.4                    PATRIMÔNIO LIQUIDO;00370;;S;C;N
+2.4.1                    CAPITAL SOCIAL;00371;;S;C;N
+2.4.1.1                    CAPITAL SOCIAL REALIZADO;00372;;S;C;N
+2.4.1.1.1                    DOUGLAS THESSING DA SILVA;00373;;A;C;N
+2.4.1.2                    (-) CAPITAL SOCIAL A INTEGRALIZAR;00377;;S;C;N
+2.4.1.2.1                    EMERSON ALCIONE SCHERER CAP.SOC.A INTEGR.;00379;;A;C;N
+2.4.2                    RESERVAS;00385;;S;C;N
+2.4.2.1                    RESERVAS DE CAPITAL;00386;;S;C;N
+2.4.2.1.1                    RESERVA DE CORREÇÃO DO CAPITAL REALIZADO;00480;;A;C;N
+2.4.2.2                    AJUSTE  DE AVALIAÇÃO PATRIMONIAL;00481;;S;C;N
+2.4.2.2.1                    AJUSTE  AS NORMAS INTERN CONTABIL;00482;;A;C;N
+2.4.2.3                    RESERVAS DE LUCROS;00389;;S;C;N
+2.4.2.3.1                    RESERVAS P/AUMENTO DO CAPITAL;00388;;A;C;N
+2.4.2.3.2                    RESERVA DE CAPITAL;00400;;A;C;N
+2.4.2.3.3                    RESERVAS  DE LUCROS;00401;;A;C;N
+2.4.2.3.5                    RESERVAS DE INCENTIVOS FISCAIS;00387;;A;C;N
+2.4.2.3.6                    RESERVAS DE REAVALIAÇÃO;00399;;A;C;N
+2.4.2.3.7                    OUTRAS RESERVAS;00404;;A;C;N
+2.4.2.4                    LUCROS OU PREJUIZOS ACUMULADOS;00390;;S;C;N
+2.4.2.4.1                    LUCROS ACUMULADOS;00391;;A;C;N
+2.4.2.4.2                    PREJUIZOS ACUMULADOS;00392;;A;C;N
+2.4.2.4.3                    PREJUIZOS DO EXERCICIO;00393;;A;C;N
+2.4.2.4.4                    LUCRO DO EXERCICIO;00394;;A;C;N
+3                    RESULTADO OPERACIONAL LIQUIDO;00450;;S;C;N
+3.1                    RECEITA OPERACIONAL LIQUIDA;00451;;S;C;N
+3.1.1                    VENDAS OPERACIONAIS BRUTAS;00452;;S;C;N
+3.1.1.1                    RECEITA DE VENDAS MATRIZ;00662;;A;C;N
+3.1.1.3                    RECEITA DE VENDAS FILIAL;00455;;A;C;N
+3.1.1.4                    RECEITA DE SERVIÇOS;00663;;A;C;N
+3.1.2                    (-) DEDUÇÕES DAS RECEITAS;00460;;S;D;N
+3.1.2.1                    (-) ICMS S/VENDAS;00461;;A;D;N
+3.1.2.2                    (-) PIS;00462;;A;D;N
+3.1.2.3                    (-) ISSQN;00463;;A;D;N
+3.1.2.4                    (-) COFINS;00464;;A;D;N
+3.1.2.5                    (-) SIMPLES;00465;;A;D;N
+3.2                    TRANSF.P/APURAÇÃO DO RESULTADO;00470;;S;C;N
+3.2.1                    TRANSF.P/APURAÇÃO DO RESULTADO;00471;;S;C;N
+3.2.1.1                    TRANSF.P/APURAÇÃO DO RESULTADO;00472;;A;D;N
+3.3                    CUSTOS E DESPESAS;00490;;S;D;N
+3.3.1                    CUSTO DOS SERVIÇOS;00491;;S;D;N
+3.3.1.1                    CUSTO DAS MERCADORIAS E SERVIÇOS ;00492;;S;D;N
+3.3.1.1.1                    SERVIÇOS DE TERCEIROS;00493;;A;D;N
+3.3.1.1.2                    EMBALAGENS;00501;;A;D;N
+3.3.1.1.3                    COMPRAS A VISTA;00502;;A;D;N
+3.3.1.1.4                    COMPRAS A PRAZO;00503;;A;D;N
+3.3.1.1.5                    FRETES, CARRETOS E DESPACHOS;00504;;A;D;N
+3.3.1.1.6                    (-) ICMS S/COMPRAS;00505;;A;C;N
+3.3.1.1.7                    (-) ICMS S/FRETES;00506;;A;C;N
+3.3.1.1.8                    (-) DEVOLUÇÕES DE COMPRAS;00507;;A;C;N
+3.3.1.1.9                    APURAÇÃO DE ESTOQUES;00508;;A;D;N
+3.3.1.2                    DESPESAS COMERCIAL;00520;;S;D;N
+3.3.1.2.1                    DESPESA C/PESSOAL;00521;;S;D;N
+3.3.1.2.2                    SALARIOS;00560;;A;D;N
+3.3.1.2.3                    ABONO SALARIAL;00561;;A;D;N
+3.3.1.2.4                    ADICIONAL NOTURNO;00562;;A;D;N
+3.3.1.2.5                    AUXILIO CRECHE;00565;;A;D;N
+3.3.1.2.6                    ABONO DE FERIAS;00522;;A;D;N
+3.3.1.2.7                    AVISO PREVIO;00581;;A;D;N
+3.3.1.2.8                    AVISO PREVIO INDENIZADO;00582;;A;D;N
+3.3.1.2.9                    CONTRIBUIÇÃO FGTS;00573;;A;D;N
+3.3.1.2.10                   DISSIDIO SALARIAL;00532;;A;D;N
+3.3.1.2.11                   DESPESAS C/FARMACIA;00537;;A;D;N
+3.3.1.2.12                   13º SALARIO;00580;;A;D;N
+3.3.1.2.14                   FERIAS;00568;;A;D;N
+3.3.1.2.15                   FERIAS VENCIDAS;00569;;A;D;N
+3.3.1.2.16                   FERIAS INDENIZADAS;00570;;A;D;N
+3.3.1.2.17                   FERIAS PROPORCIONAIS;00571;;A;D;N
+3.3.1.2.18                   1/3 FERIAS;00572;;A;D;N
+3.3.1.2.19                   FGTS S/13º SALARIO;00574;;A;D;N
+3.3.1.2.20                   FGTS S/FERIAS + 1/3 DE FERIAS;00575;;A;D;N
+3.3.1.2.22                   FGTS S/FERIAS VENCIDAS;00576;;A;D;N
+3.3.1.2.23                   FGTS S/FERIAS INDENIZADAS;00577;;A;D;N
+3.3.1.2.24                   FGTS S/FERIAS PROPORCIONAIS;00578;;A;D;N
+3.3.1.2.25                   FGTS RESCISÓRIO;00579;;A;D;N
+3.3.1.2.26                   INSALUBRIDADE;00530;;A;D;N
+3.3.1.2.27                   INDENIZAÇÕES TRABALHISTAS;00564;;A;D;N
+3.3.1.2.28                   INSS S/PRO-LABORE;00583;;A;D;N
+3.3.1.2.29                   INSS SOCIOS;00584;;A;D;N
+3.3.1.2.30                   INSS S/SALARIOS;00585;;A;D;N
+3.3.1.2.31                   INSS S/COMISSOES;00586;;A;D;N
+3.3.1.2.32                   INSS S/FERIAS;00587;;A;D;N
+3.3.1.2.33                   INSS S/FERIAS VENCIDAS;00588;;A;D;N
+3.3.1.2.34                   INSS S/FERIAS PROPORCIONAIS;00589;;A;D;N
+3.3.1.2.35                   INSS S/ 1/3 FERIAS;00590;;A;D;N
+3.3.1.2.36                   INSS S/AUTONOMOS;00591;;A;D;N
+3.3.1.2.37                   INSS S/13º SALARIOS;00592;;A;D;N
+3.3.1.2.42                   PRO-LABORE;00557;;A;D;N
+3.3.1.2.43                   PROCESSOS TRABALHISTAS;00536;;A;D;N
+3.3.1.2.46                   RESCISÕES;00567;;A;D;N
+3.3.1.2.47                   SAT;00566;;A;D;N
+3.3.1.2.50                   VALE TRANSPORTE;00615;;A;D;N
+3.3.1.2.56                   ASSISTENCIA MEDICA;00594;;A;D;N
+3.3.1.3                    DESPESAS GERAIS COMERCIAIS;01179;;S;D;N
+3.3.1.3.1                    ALUGUEL DE VEICULOS;00554;;A;D;N
+3.3.1.3.2                    ALUGUEL DE IMOVEIS;00555;;A;D;N
+3.3.1.3.3                    ALUGUEIS DE EQUIPAMENTOS;00769;;A;D;N
+3.3.1.3.4                    DESPESAS COM MATERIAL DE LIMPEZA;00593;;A;D;N
+3.3.1.3.5                    CONTR.ASSISTENCIAL E DISSIDIO PATRONAL;00618;;A;D;N
+3.3.1.3.6                    COMBUSTIVEIS E LUBRIFICANTES;00599;;A;D;N
+3.3.1.3.7                    CONSUMO DE AGUA E LUZ;00601;;A;D;N
+3.3.1.3.8                    CORREIOS E TELEGRAFOS;00526;;A;D;N
+3.3.1.3.9                    CONTR SINDICAL PATRONAL;00551;;A;D;N
+3.3.1.3.11                   COMISSÕES S/VENDAS;00527;;A;D;N
+3.3.1.3.13                   DESP.MENSALID.SIND.EMPREGADOS;00611;;A;D;N
+3.3.1.3.14                   DESPESAS C/INTERNET;00610;;A;D;N
+3.3.1.3.15                   DESP.C/PEDAGIO E ESTAC.;00545;;A;D;N
+3.3.1.3.16                   DESPESAS LEGAIS E JUDICIAIS;00553;;A;D;N
+3.3.1.3.17                   DESPESAS DIVERSAS;00619;;A;D;N
+3.3.1.3.18                   DESPESAS C/ALIMENTACAO;00768;;A;D;N
+3.3.1.3.22                   ENCARGOS DE DEPRECIAÇÃO;00620;;A;D;N
+3.3.1.3.23                   HONORARIOS PROFISSIONAIS;00556;;A;D;N
+3.3.1.3.24                   ENCARGOS DE DEPRECIAÇÃO;00529;;A;D;N
+3.3.1.3.26                   LICENÇA DE VEICULOS;00549;;A;D;N
+3.3.1.3.27                   IMPOSTO SINDICAL PATRONAL;00596;;A;D;N
+3.3.1.3.28                   JORNAIS, LIVROS E REVISTAS;00533;;A;D;N
+3.3.1.3.36                   MANUTEÇÃO E CONSERVAÇÃO DE PREDIOS;00602;;A;D;N
+3.3.1.3.37                   MANUTENÇÃO E CONSERVAÇÃO DE VEICULOS;00597;;A;D;N
+3.3.1.3.38                   MANUTENÇÃO E CONSERVAÇÃO DE MAQUINARIOS;00598;;A;D;N
+3.3.1.3.39                   MANUTENÇÃO E CONSERVAÇÃO DE INSTALAÇÕES;00614;;A;D;N
+3.3.1.3.41                   MATERIAL DE LIMPEZA E HIGIENE;00595;;A;D;N
+3.3.1.3.42                   MATERIAL DE CONSUMO;00616;;A;D;N
+3.3.1.3.43                   MATERIAL DE EXPEDIENTE;00538;;A;D;N
+3.3.1.3.45                   PRÊMIOS DE SEGUROS;00603;;A;D;N
+3.3.1.3.46                   PROPAGANDA E PUBLICIDADE;00606;;A;D;N
+3.3.1.3.48                   SINDICATOS E ASSOCIAÇÕES;00559;;A;D;N
+3.3.1.3.49                   TELEFONE;00552;;A;D;N
+3.3.1.3.51                   SERVIÇOS DE TERCEIROS-PJ;00540;;A;D;N
+3.3.1.3.53                   SERVIÇOS DE TERCEIROS-PF;00539;;A;D;N
+3.3.1.3.55                   VIAGENS E ESTADIAS;00600;;A;D;N
+3.3.1.3.58                   DIFERENCIAL DE ALIQUOTAS;00544;;A;D;N
+3.3.1.3.59                   PRÊMIOS DE SEGUROS;00617;;A;D;N
+3.3.1.3.70                   CTA;00558;;A;D;N
+3.3.1.3.71                   JUROS PASSIVOS;00534;;A;D;N
+3.3.1.3.72                   JUROS S/EMPREST FINANCIAM;00607;;A;D;N
+3.3.1.3.73                   DESPESAS DE FINANCIAMENTO;00609;;A;D;N
+3.3.1.3.74                   MULTAS FISCAIS;00563;;A;D;N
+3.3.1.3.75                   MULTAS DE TRANSITO;00541;;A;D;N
+3.3.2                    DESPESAS ADMINISTRATIVAS;01499;;S;D;N
+3.3.2.1                    DESPESAS C/ PESSOAL;01500;;S;D;N
+3.3.2.1.1                    SALARIOS;01501;;A;D;N
+3.3.2.1.2                    ABONO SALARIAL;01502;;A;D;N
+3.3.2.1.3                    ADICIONAL INSALUBRIDADE;01503;;A;D;N
+3.3.2.1.4                    ADICIONAL NOTURNO;01504;;A;D;N
+3.3.2.1.5                    AVISO PREVIO INDENIZADO ;01505;;A;D;N
+3.3.2.1.6                    HORAS EXTRAS;01506;;A;D;N
+3.3.2.1.7                    13o.SALARIO;01507;;A;D;N
+3.3.2.1.8                    FERIAS;01508;;A;D;N
+3.3.2.1.9                    FGTS;01509;;A;D;N
+3.3.2.1.10                   INSS S/ SALARIOS;01510;;A;D;N
+3.3.2.1.11                   INSS S/ PRO-LABORES;01511;;A;D;N
+3.3.2.1.12                   PRO-LABORE;01512;;A;D;N
+3.3.2.1.13                   -;01513;;A;D;N
+3.3.2.1.14                   -;01514;;A;D;N
+3.3.2.1.15                   -;01515;;A;D;N
+3.3.2.1.17                   VALE REFEIÇÃO;01517;;A;D;N
+3.3.2.1.18                   VALE TRANSPORTE;01518;;A;D;N
+3.3.2.1.19                   UNIFORMES;01519;;A;D;N
+3.3.2.1.20                   -;01520;;A;D;N
+3.3.2.1.21                   -;01521;;A;D;N
+3.3.2.2                    DESPESAS GERAIS ADMINISTRATIVAS;01530;;S;D;N
+3.3.2.2.1                    AGUA E ESGOTO;01531;;A;D;N
+3.3.2.2.2                    ALUGUEIS;01532;;A;D;N
+3.3.2.2.3                    ALUGUEIS DE EQUIPAMENTOS;01533;;A;D;N
+3.3.2.2.4                    BENS DE PEQUENO VALOR;01534;;A;D;N
+3.3.2.2.5                    BRINDES E AMOSTRAS;01535;;A;D;N
+3.3.2.2.6                    COMBUSTIVEIS E LUBRIFICANTES;01536;;A;D;N
+3.3.2.2.7                    COMISSÕES S/ SERVIÇOS;01537;;A;D;N
+3.3.2.2.8                    CONTRIB SINDICAL/ASSOC CLASSE;01538;;A;D;N
+3.3.2.2.9                    DEPRECIAÇÕES;01539;;A;D;N
+3.3.2.2.10                   DESPESAS C/EXPORTAÇÃO;01540;;A;D;N
+3.3.2.2.11                   DESPESAS C/IMPORTAÇÃO;01541;;A;D;N
+3.3.2.2.12                   ENERGIA ELETRICA;01542;;A;D;N
+3.3.2.2.13                   FEIRAS/CONGRESSOS E CURSOS;01543;;A;D;N
+3.3.2.2.14                   FORMAÇÃO DE PESSOAL;01544;;A;D;N
+3.3.2.2.15                   FRETES E CARRETOS;01545;;A;D;N
+3.3.2.2.16                   JORNAIS E REV;01546;;A;D;N
+3.3.2.2.17                   LEASING;01547;;A;D;N
+3.3.2.2.18                   LOCAÇÃO DE EQUIPAMENTOS;01548;;A;D;N
+3.3.2.2.19                   MANUTENÇÃO DE EQUIPAMENTOS;01549;;A;D;N
+3.3.2.2.20                   MANUTENÇÃO DE PREDIOS;01550;;A;D;N
+3.3.2.2.21                   MANUTENÇÃO DE VEICULOS;01551;;A;D;N
+3.3.2.2.22                   MATERIAL CONSUMO;01552;;A;D;N
+3.3.2.2.23                   MATERIAL DE LIMPEZA;01553;;A;D;N
+3.3.2.2.24                   SEGUROS;01554;;A;D;N
+3.3.2.2.25                   SERVIÇOS DETERCEIROS-PF;01555;;A;D;N
+3.3.2.2.26                   SERVIÇOS DE TERCEIROS-PJ;01556;;A;D;N
+3.3.2.2.27                   TELEFONE;01557;;A;D;N
+3.3.2.2.28                   VIAGENS E ESTADIAS;01558;;A;D;N
+3.3.2.2.29                   (-) CREDITO PIS N/CUMULATIVO;01559;;A;D;N
+3.3.2.2.30                   (-) CREDITO COFINS N/CUMULATIVO;01560;;A;D;N
+3.3.2.2.31                   -;01561;;A;D;N
+3.3.2.2.32                   -;01562;;A;D;N
+3.3.2.2.33                   -;01563;;A;D;N
+3.3.2.3                    DESPESAS INDEDUTIVEIS;01630;;S;D;N
+3.3.2.3.9                    IMPOSTOS PAGOS FORA DO EXERCICIO;00531;;A;D;N
+3.3.2.3.20                   MULTAS FISCAIS INDEDUTIVEIS;00542;;A;D;N
+3.3.2.3.25                   ENCARGOS SOCIAIS INDEDUTIVEIS;00548;;A;D;N
+3.3.2.4                    DESPESAS FINANCEIRAS;01640;;S;D;N
+3.3.2.4.2                    DESPESAS BANCARIAS;00535;;A;D;N
+3.3.2.4.4                    DEBITO TARIFA TALAO;00613;;A;D;N
+3.3.2.4.5                    DEBITO TARIFA EXTRATOS;00612;;A;D;N
+3.3.2.4.7                    CPMF;00523;;A;D;N
+3.3.2.4.9                    VARIAÇÃO MONETARIA PASSIVA;00550;;A;D;N
+3.3.2.5                    DESPESAS TRIBUTARIAS;01656;;S;D;N
+3.3.2.5.3                    ALVARA DA PREFEITURA;00524;;A;D;N
+3.3.2.5.4                    ALVARA DO POSTO DE SAUDE;00525;;A;D;N
+3.3.2.5.5                    TAXAS E EMOLUMENTOS;00604;;A;D;N
+3.3.2.5.6                    IMPOSTO PREDIAL E TERRITORIAL;00605;;A;D;N
+3.3.2.5.9                    IMPOSTO DE RENDA;00546;;A;D;N
+3.3.2.5.10                   CONTR.SOCIAL LEI 7679;00547;;A;D;N
+3.3.2.6                    OUTRAS DESPESAS OPERACIONAIS;01675;;S;D;N
+3.3.2.6.2                    PREJ.DA VENDA DE BENS ATIVO IMOB.;00543;;A;D;N
+3.3.2.6.3                    PERDAS DIVERSAS;00608;;A;D;N
+3.4                    TRANSF.P/APURAÇÃO DO RESULTADO;00650;;S;C;N
+3.4.1                    TRANSF.P/APURAÇÃO DO RESULTADO;00651;;S;C;N
+3.4.1.1                    TRANSF.P/APURAÇÃO DO RESULTADO;00652;;A;C;N
+3.5                    OUTRAS RECEITAS;00653;;S;C;N
+3.5.1                    VENDAS NÃO OPERACIONAIS;00654;;S;C;N
+3.5.1.1                    VENDA DE BENS DO ATIVO IMOBILIZADO;00655;;A;C;N
+3.5.1.2                    VENDA DE MATERIAIS DIVERSOS;00656;;A;C;N
+3.5.2                    RECEITAS FINANCEIRAS;00670;;S;C;N
+3.5.2.1                    JUROS E BONIFICAÇÕES AUFERIDAS;00671;;A;C;N
+3.5.2.2                    DESCONTOS OBTIDOS;00672;;A;C;N
+3.5.2.3                    DIVIDENDOS RECEBIDOS;00673;;A;C;N
+3.5.2.4                    RECEITAS DIVERSAS;00674;;A;C;N
+3.5.2.5                    ALUGUEIS RECEBIDOS;00675;;A;C;N
+3.5.2.6                    BRINDES E AMOSTRAS;00676;;A;C;N
+3.5.2.7                    RECEITA DE APLIC.FINANCEIRAS;00677;;A;C;N
+3.5.3                    PROVISÕES REVERTIDAS;00700;;S;C;N
+3.5.3.1                    REVERSÃO P/PROVISÃO DEV.DUVIDOSOS;00701;;A;C;N
+3.6                    RESULTADO OPERACIONAL;00715;;S;C;N
+3.6.1                    RECEITA NÃO OPERACIONAL;00716;;S;C;N
+3.6.1.1                    LUCRO NA BAIXA DE INVESTIMENTOS;00717;;A;C;N
+3.6.1.2                    LUCRO NA BAIXA DO IMOBILIZADO;00718;;A;C;N
+3.6.1.3                    TABLITA P/PGTO EFETUADOS;00719;;A;C;N
+3.6.1.4                    RESULTADO DA CORREÇÃO MONETARIA;00720;;A;C;N
+3.7                    TRANSF.P/APURAÇÃO DO RESULTADO;00730;;S;C;N
+3.7.1                    TRANSF.P/APURAÇÃO DO RESULTADO;00731;;S;C;N
+3.7.1.1                    TRANSF.P/APURAÇÃO DO RESULTADO;00732;;A;C;N
+4                    CONTAS P/APURACAO DO RESULTADO;00750;;S;C;N
+4.1                    RESULTADO FINAL (APOS IR);00751;;S;C;N
+4.1.1                    RESULTADO ANTES DO IR;00752;;S;C;N
+4.1.1.1                    TRANSF.DAS DESPESAS;00753;;S;D;N
+4.1.1.1.1                    TRANSF.DAS DESPESAS;00754;;A;D;N
+4.1.1.2                    TRANSF.DAS RECEITAS;00755;;S;C;N
+4.1.1.2.1                    TRANSF.DAS RECEITAS;00756;;A;C;N
+4.1.2                    PROVISAO P/IR;00757;;S;C;N
+4.1.2.1                    DESPESAS C/PROVISAO;00758;;S;C;N
+4.1.2.1.1                    DESPESAS C/PROVISAO;00759;;A;C;N
+4.2                    TRANSF.P/PATRIMONIO LIQUIDO;00760;;S;C;N
+4.2.1                    TRANSF.P/LUCRO FINAL;00761;;S;C;N
+4.2.1.1                    TRANSF.P/LUCRO FINAL;00762;;A;C;N
+4.2.2                    TRANS.P/PREJUIZO FINAL;00763;;S;D;N
+4.2.2.1                    TRANSF.DO PREJUIZO FINAL;00764;;A;D;N

@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (19/07/2022  1.0.15)'
+  Caption = 'Menu    (05/08/2022  1.0.16)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -336,6 +336,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 18
       OnClick = btnAjustaNCM_CFOPClick
+    end
+    object btnGerarPlanoNovoSitema: TNxButton
+      Left = 36
+      Top = 391
+      Width = 302
+      Height = 33
+      Caption = 'Importar Plano Cont'#225'bil (Novo Sistema)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 19
+      OnClick = btnGerarPlanoNovoSitemaClick
     end
   end
 end

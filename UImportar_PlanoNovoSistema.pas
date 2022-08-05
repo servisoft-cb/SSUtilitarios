@@ -1,4 +1,4 @@
-unit UImportar_PlanoContas;
+unit UImportar_PlanoNovoSistema;
 
 interface
 
@@ -8,10 +8,9 @@ uses
   uDMCadPlano_Contabil;
 
 type
-  TfrmImportar_PlanoContas = class(TForm)
+  TfrmImportar_PlanoNovoSistema = class(TForm)
     Label1: TLabel;
     FilenameEdit1: TFilenameEdit;
-    BitBtn1: TBitBtn;
     Label2: TLabel;
     Label3: TLabel;
     qPlano: TSQLQuery;
@@ -39,7 +38,6 @@ type
     qPlano_ContabilDT_FINAL_VALIDADE: TDateField;
     qPlano_ContabilCODIGO_REDUZIDO: TIntegerField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure BitBtn1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
   private
@@ -57,7 +55,7 @@ type
   end;
 
 var
-  frmImportar_PlanoContas: TfrmImportar_PlanoContas;
+  frmImportar_PlanoNovoSistema: TfrmImportar_PlanoNovoSistema;
 
 implementation
 
@@ -66,89 +64,12 @@ uses
 
 {$R *.dfm}
 
-procedure TfrmImportar_PlanoContas.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfrmImportar_PlanoNovoSistema.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Action := Cafree;
 end;
 
-procedure TfrmImportar_PlanoContas.BitBtn1Click(Sender: TObject);
-var
-  vTexto1: string;
-  vContador: Integer;
-  vCodigo: string;
-  vSuperior: Integer;
-  vNome: string;
-begin
-  if trim(FilenameEdit1.Text) = '' then
-  begin
-    MessageDlg('*** Endereço do arquivo não informado!', mtError, [mbOk], 0);
-    exit;
-  end;
-  fDMCadPlano_Contas.cdsPlano_Contas.Close;
-  fDMCadPlano_Contas.cdsPlano_Contas.Open;
-  if not fDMCadPlano_Contas.cdsPlano_Contas.IsEmpty then
-  begin
-    MessageDlg('*** Plano de contas já gerado!', mtError, [mbOk], 0);
-    exit;
-  end;
-  vContador := 0;
-  try
-    vArquivo := FilenameEdit1.Text;
-    AssignFile(Txt, vArquivo);
-    Reset(Txt);
-    while not Eof(Txt) do
-    begin
-      ReadLn(Txt, vRegistro_CSV);
-
-      if (copy(vRegistro_CSV, 1, 6) <> 'versao') then
-      begin
-        vContador := vContador + 1;
-        Label3.Caption := IntToStr(vContador);
-        Label3.Refresh;
-
-        vCodigo := fnc_Montar_Campo;
-        vNome := fnc_Montar_Campo;
-        fDMCadPlano_Contas.prc_Inserir;
-        fDMCadPlano_Contas.cdsPlano_ContasCODIGO.AsString := vCodigo;
-        fDMCadPlano_Contas.cdsPlano_ContasNOME.AsString := vNome;
-        fDMCadPlano_Contas.cdsPlano_ContasDT_CADASTRO.AsDateTime := Date;
-        vTexto1 := fnc_Montar_Campo;
-        if trim(vTexto1) <> '' then
-        begin
-          vTexto1 := copy(vTexto1, 1, 2) + '/' + copy(vTexto1, 3, 2) + '/' + copy(vTexto1, 5, 4);
-          fDMCadPlano_Contas.cdsPlano_ContasDT_INICIO_VALIDADE.AsString := vTexto1;
-        end;
-        vTexto1 := fnc_Montar_Campo;
-        if trim(vTexto1) <> '' then
-        begin
-          vTexto1 := copy(vTexto1, 1, 2) + '/' + copy(vTexto1, 3, 2) + '/' + copy(vTexto1, 5, 4);
-          fDMCadPlano_Contas.cdsPlano_ContasDT_FINAL_VALIDADE.AsString := vTexto1;
-        end;
-        vTexto1 := fnc_Montar_Campo;
-        fDMCadPlano_Contas.cdsPlano_ContasTIPO_REG.AsString := fnc_Montar_Campo;
-        vTexto1 := fnc_Montar_Campo;
-        if trim(vTexto1) <> '' then
-        begin
-          qPlano.Close;
-          qPlano.ParamByName('CODIGO').AsString := vTexto1;
-          qPlano.Open;
-          fDMCadPlano_Contas.cdsPlano_ContasSUPERIOR.AsInteger := qPlanoID.AsInteger;
-        end;
-        fDMCadPlano_Contas.cdsPlano_ContasNIVEL.AsString := fnc_Montar_Campo;
-        fDMCadPlano_Contas.cdsPlano_ContasCOD_NATUREZA.AsString := fnc_Montar_Campo;
-        fDMCadPlano_Contas.cdsPlano_ContasINATIVO.AsString := 'N';
-        fDMCadPlano_Contas.cdsPlano_Contas.Post;
-        fDMCadPlano_Contas.cdsPlano_Contas.ApplyUpdates(0);
-      end;
-    end;
-  finally
-    CloseFile(Txt);
-  end;
-
-  ShowMessage('Geração concluída!');
-end;
-
-function TfrmImportar_PlanoContas.fnc_Montar_Campo: string;
+function TfrmImportar_PlanoNovoSistema.fnc_Montar_Campo: string;
 var
   i: Integer;
   vTexto: string;
@@ -163,13 +84,13 @@ begin
 
 end;
 
-procedure TfrmImportar_PlanoContas.FormShow(Sender: TObject);
+procedure TfrmImportar_PlanoNovoSistema.FormShow(Sender: TObject);
 begin
   fDMCadPlano_Contas := TDMCadPlano_Contas.Create(Self);
   fDMCadPlano_Contabil := TDMCadPlano_Contabil.Create(Self);
 end;
 
-procedure TfrmImportar_PlanoContas.BitBtn2Click(Sender: TObject);
+procedure TfrmImportar_PlanoNovoSistema.BitBtn2Click(Sender: TObject);
 var
   vTexto1: string;
   vContador: Integer;
@@ -180,6 +101,8 @@ var
   vNivel: Integer;
   vNatureza: string;
   vNivelSuperior: Integer;
+  vFlag: Boolean;
+  i: Integer;
 begin
   if trim(FilenameEdit1.Text) = '' then
   begin
@@ -195,29 +118,43 @@ begin
   end;
   vContador := 0;
   try
+    vFlag := False;
     vArquivo := FilenameEdit1.Text;
     AssignFile(Txt, vArquivo);
     Reset(Txt);
     while not Eof(Txt) do
     begin
       ReadLn(Txt, vRegistro_CSV);
-
-      if (UpperCase(copy(vRegistro_CSV, 1, 5)) <> 'CONTA') then
+      if not(vFlag) and (UpperCase(copy(vRegistro_CSV, 1, 5)) = 'CONTA') then
+        vFlag := True
+      else
+      if (UpperCase(copy(vRegistro_CSV, 1, 5)) <> 'CONTA') and (vFlag) then
       begin
         vContador := vContador + 1;
         Label3.Caption := IntToStr(vContador);
         Label3.Refresh;
-        vCodigo := fnc_Montar_Campo;
+        vTexto1 := fnc_Montar_Campo;
+        i := posex(' ',vTexto1);
+        if i > 0 then
+        begin
+          vCodigo := copy(vTexto1,1,i-1);
+          vNome   := TrimLeft(copy(vTexto1,i,Length(vTexto1) - (i - 1)));
+        end
+        else
+        begin
+          vCodigo := vTexto1;
+          vNome := fnc_Montar_Campo;
+        end;
         vNivel := (fnc_Conta_Nivel(vCodigo, '.') + 1);
-        vNome := fnc_Montar_Campo;
         vCod_Reduzido := StrToInt(fnc_Montar_Campo);
         fDMCadPlano_Contabil.prc_Inserir;
         fDMCadPlano_Contabil.cdsPlano_ContabilCODIGO.AsString := vCodigo;
         fDMCadPlano_Contabil.cdsPlano_ContabilNOME.AsString := vNome;
         fDMCadPlano_Contabil.cdsPlano_ContabilDT_CADASTRO.AsDateTime := Date;
         fDMCadPlano_Contabil.cdsPlano_ContabilCODIGO_REDUZIDO.AsInteger := vCod_Reduzido;
+        vTexto1 := fnc_Montar_Campo;
         fDMCadPlano_Contabil.cdsPlano_ContabilTIPO_REG.AsString := fnc_Montar_Campo;
-        fDMCadPlano_Contabil.cdsPlano_ContabilNIVEL.AsInteger := vNivel;
+        fDMCadPlano_Contabil.cdsPlano_ContabilNIVEL.AsInteger   := vNivel;
         vNatureza := Copy(vCodigo, 1, 1);
         if vNatureza = '1' then
           fDMCadPlano_Contabil.cdsPlano_ContabilCOD_NATUREZA.AsInteger := 1
@@ -243,7 +180,7 @@ begin
 
 end;
 
-function TfrmImportar_PlanoContas.fnc_Conta_Nivel(const Texto: string; Caracter: string): Integer;
+function TfrmImportar_PlanoNovoSistema.fnc_Conta_Nivel(const Texto: string; Caracter: string): Integer;
 var
   i, ivTot: Integer;
 begin
@@ -256,7 +193,7 @@ begin
   Result := ivTot;
 end;
 
-function TfrmImportar_PlanoContas.fnc_Nivel_Superior(Conta: string; Nivel: Integer): Integer;
+function TfrmImportar_PlanoNovoSistema.fnc_Nivel_Superior(Conta: string; Nivel: Integer): Integer;
 var
   i: Integer;
 begin

@@ -10,3 +10,8 @@ UGerarProdutoWeb.~dfm
 *.~pas
 UImportar_PlanoContas.~dfm
 UImportarXML.~ddp
+UImportar_PlanoContas.~ddp
+SSUtilitarios.~dpr
+UImportar_PlanoNovoSistema.~ddp
+UImportar_PlanoNovoSistema.~dfm
+SSUtilitarios.~dpr

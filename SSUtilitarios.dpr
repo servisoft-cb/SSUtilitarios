@@ -45,7 +45,8 @@ uses
   uUtilImpressao in '..\ssfacil\uUtilImpressao.pas',
   UAjustarCCustoNFe in 'UAjustarCCustoNFe.pas' {frmAjustarCCustoNFe},
   UAjusteNCMCFOP in 'UAjusteNCMCFOP.pas' {frmAjusteNCMCFOP},
-  UDMAjustarNCMCFOP in 'UDMAjustarNCMCFOP.pas' {DMAjustarNCMCFOP: TDataModule};
+  UDMAjustarNCMCFOP in 'UDMAjustarNCMCFOP.pas' {DMAjustarNCMCFOP: TDataModule},
+  UImportar_PlanoNovoSistema in 'UImportar_PlanoNovoSistema.pas' {frmImportar_PlanoNovoSistema};
 
 {$R *.res}
 
