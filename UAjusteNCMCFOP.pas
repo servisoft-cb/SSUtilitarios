@@ -20,6 +20,8 @@ type
     ceLidos: TCurrencyEdit;
     Label5: TLabel;
     FilenameEdit2: TFilenameEdit;
+    Label6: TLabel;
+    ceColuna: TCurrencyEdit;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure NxButton1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -30,6 +32,8 @@ type
     vArquivo_XLS : String;
     Linha : Integer;
     gGrid: TStringGrid;
+    vID_CFOP5405 : Integer;
+    vArqTxt: TStringList;
 
     function fnc_verifica_Arquivo(NomeArquivo, Le_Grava : String) : String;
     function XlsToStringGrid2(AGrid: TStringGrid; AXLSFile: string; WorkSheet: Integer): Boolean;
@@ -37,6 +41,7 @@ type
     procedure prc_Le_Arq_Planilha2;
     procedure prc_Le_Arquivo_CSV;
     function Monta_Numero(Campo: String; Tamanho: Integer): String;
+    procedure prc_Atualizar(NCM : String);
 
   public
     { Public declarations }
@@ -117,9 +122,7 @@ procedure TfrmAjusteNCMCFOP.prc_Le_Arq_Planilha;
 var
   vTexto1 : String;
   vCont : Integer;
-  vID_CBenef : Integer;
   sds: TSQLDataSet;
-  vID_CFOP5405 : Integer;
   Form: TForm;
 begin
   vTexto1 := SQLLocate('TAB_CFOP','CODCFOP','ID','5405');
@@ -264,9 +267,7 @@ var
   vCont : Integer;
   vID_CBenef : Integer;
   sds: TSQLDataSet;
-  vID_CFOP5405 : Integer;
   Form: TForm;
-  vArqTxt: TStringList;
 begin
   vTexto1 := SQLLocate('TAB_CFOP','CODCFOP','ID','5405');
   if trim(vTexto1) = '' then
@@ -292,45 +293,11 @@ begin
       ceLidos.AsInteger := Linha;
       Application.ProcessMessages;
       try
-        vTexto1 := gGrid.Cells[0,Linha];
+        //30/09/2022
+        //vTexto1 := gGrid.Cells[0,Linha];
+        vTexto1 := Monta_Numero(gGrid.Cells[ceColuna.AsInteger,Linha],0);
         if trim(vTexto1) <> '' then
-        begin
-          fDMAjustarNCMCFOP.cdsTab_NCM.Close;
-          fDMAjustarNCMCFOP.sdsTab_NCM.ParamByName('NCM').AsString := vTexto1 + '%';
-          fDMAjustarNCMCFOP.cdsTab_NCM.Open;
-          fDMAjustarNCMCFOP.cdsTab_NCM.First;
-          while not fDMAjustarNCMCFOP.cdsTab_NCM.Eof do
-          begin
-            fDMAjustarNCMCFOP.cdsProduto.Close;
-            fDMAjustarNCMCFOP.sdsProduto.ParamByName('ID_NCM').AsInteger := fDMAjustarNCMCFOP.cdsTab_NCMID.AsInteger;
-            fDMAjustarNCMCFOP.cdsProduto.Open;
-            fDMAjustarNCMCFOP.cdsProduto.First;
-            while not fDMAjustarNCMCFOP.cdsProduto.Eof do
-            begin
-              if fDMAjustarNCMCFOP.cdsProdutoID_CFOP_NFCE.AsInteger = vID_CFOP5405 then
-              begin
-                vArqTxt.Add('Produto: ' + fDMAjustarNCMCFOP.cdsProdutoID.AsString + '  CFOP: ' + '5405   foi deixada em branco' );
-                fDMAjustarNCMCFOP.cdsProduto.Edit;
-                fDMAjustarNCMCFOP.cdsProdutoID_CFOP_NFCE.Clear;
-                fDMAjustarNCMCFOP.cdsProdutoID_CSTICMS.Clear;
-                fDMAjustarNCMCFOP.cdsProduto.Post;
-                fDMAjustarNCMCFOP.cdsProduto.ApplyUpdates(0);
-              end;
-              fDMAjustarNCMCFOP.cdsProduto.Next;
-            end;
-            if fDMAjustarNCMCFOP.cdsTab_NCMID_CFOP.AsInteger = vID_CFOP5405 then
-            begin
-              vArqTxt.Add('NCM: ' + fDMAjustarNCMCFOP.cdsTab_NCMID.AsString  + '  NCM: ' + fDMAjustarNCMCFOP.cdsTab_NCMNCM.AsString + ' CFOP: ' + '5405   foi deixada em branco' );
-              sds.Close;
-              sds.CommandText := 'update TAB_NCM N set N.ID_CFOP = null, '
-                               + '    N.ID_CST_ICMS = null '
-                               + 'where N.ID = :ID ';
-              sds.ParamByName('ID').AsInteger := fDMAjustarNCMCFOP.cdsTab_NCMID.AsInteger;
-              sds.ExecSQL;
-            end;
-            fDMAjustarNCMCFOP.cdsTab_NCM.Next;
-          end;
-        end;
+          prc_Atualizar(trim(vTexto1));
       except
         on e: Exception do
         ShowMessage('Ocorreu o seguinte erro ao gravar, Produto / NCM ' + fDMAjustarNCMCFOP.cdsTab_NCMID.AsString  + ', na linha ' + IntToStr(linha) + ' :' + #13 + e.Message);
@@ -338,7 +305,9 @@ begin
     end;
   finally
     begin
-      vArqTxt.SaveToFile(DirectoryEdit1.Text + 'AjusteNCMCFOP.txt');
+      vTexto1 := DateTimeToStr(now);
+      vTexto1 := Monta_Numero(vTexto1,0);
+      vArqTxt.SaveToFile(DirectoryEdit1.Text + 'AjusteNCMCFOP_' + vTexto1 + '.txt');
       FreeAndNil(sds);
       FreeAndNil(Form);
       FreeAndNil(vArqTxt);
@@ -352,9 +321,7 @@ var
   vTexto1 : String;
   vCont : Integer;
   sds: TSQLDataSet;
-  vID_CFOP5405 : Integer;
   Form: TForm;
-  vArqTxt: TStringList;
   vArqCSV: TStringList;
   i: Integer;
 begin
@@ -385,44 +352,9 @@ begin
       Application.ProcessMessages;
       try
         vTexto1 := trim(vArqCSV.Strings[i]);
+        vTexto1 := Monta_Numero(vTexto1,0);
         if trim(vTexto1) <> '' then
-        begin
-          fDMAjustarNCMCFOP.cdsTab_NCM.Close;
-          fDMAjustarNCMCFOP.sdsTab_NCM.ParamByName('NCM').AsString := vTexto1 + '%';
-          fDMAjustarNCMCFOP.cdsTab_NCM.Open;
-          fDMAjustarNCMCFOP.cdsTab_NCM.First;
-          while not fDMAjustarNCMCFOP.cdsTab_NCM.Eof do
-          begin
-            fDMAjustarNCMCFOP.cdsProduto.Close;
-            fDMAjustarNCMCFOP.sdsProduto.ParamByName('ID_NCM').AsInteger := fDMAjustarNCMCFOP.cdsTab_NCMID.AsInteger;
-            fDMAjustarNCMCFOP.cdsProduto.Open;
-            fDMAjustarNCMCFOP.cdsProduto.First;
-            while not fDMAjustarNCMCFOP.cdsProduto.Eof do
-            begin
-              if fDMAjustarNCMCFOP.cdsProdutoID_CFOP_NFCE.AsInteger = vID_CFOP5405 then
-              begin
-                vArqTxt.Add('Produto: ' + fDMAjustarNCMCFOP.cdsProdutoID.AsString + '  CFOP: ' + '5405   foi deixada em branco' );
-                fDMAjustarNCMCFOP.cdsProduto.Edit;
-                fDMAjustarNCMCFOP.cdsProdutoID_CFOP_NFCE.Clear;
-                fDMAjustarNCMCFOP.cdsProdutoID_CSTICMS.Clear;
-                fDMAjustarNCMCFOP.cdsProduto.Post;
-                fDMAjustarNCMCFOP.cdsProduto.ApplyUpdates(0);
-              end;
-              fDMAjustarNCMCFOP.cdsProduto.Next;
-            end;
-            if fDMAjustarNCMCFOP.cdsTab_NCMID_CFOP.AsInteger = vID_CFOP5405 then
-            begin
-              vArqTxt.Add('NCM: ' + fDMAjustarNCMCFOP.cdsTab_NCMID.AsString  + '  NCM: ' + fDMAjustarNCMCFOP.cdsTab_NCMNCM.AsString + ' CFOP: ' + '5405   foi deixada em branco' );
-              sds.Close;
-              sds.CommandText := 'update TAB_NCM N set N.ID_CFOP = null, '
-                               + '    N.ID_CST_ICMS = null '
-                               + 'where N.ID = :ID ';
-              sds.ParamByName('ID').AsInteger := fDMAjustarNCMCFOP.cdsTab_NCMID.AsInteger;
-              sds.ExecSQL;
-            end;
-            fDMAjustarNCMCFOP.cdsTab_NCM.Next;
-          end;
-        end;
+          prc_Atualizar(trim(vTexto1));
       except
         on e: Exception do
         ShowMessage('Ocorreu o seguinte erro ao gravar, Produto / NCM ' + fDMAjustarNCMCFOP.cdsTab_NCMID.AsString  + ', na linha ' + IntToStr(linha) + ' :' + #13 + e.Message);
@@ -430,7 +362,9 @@ begin
     end;
   finally
     begin
-      vArqTxt.SaveToFile(DirectoryEdit1.Text + 'AjusteNCMCFOP.txt');
+      vTexto1 := DateTimeToStr(now);
+      vTexto1 := Monta_Numero(vTexto1,0);
+      vArqTxt.SaveToFile(DirectoryEdit1.Text + 'AjusteNCMCFOP_' + vTexto1 + '.txt');
       FreeAndNil(sds);
       FreeAndNil(Form);
       FreeAndNil(vArqTxt);
@@ -438,6 +372,56 @@ begin
     end;
   end;
   MessageDlg('NCM/CFOP Ajustados!', mtConfirmation, [mbOk], 0);
+end;
+
+procedure TfrmAjusteNCMCFOP.prc_Atualizar(NCM : String);
+begin
+  fDMAjustarNCMCFOP.cdsTab_NCM.Close;
+  fDMAjustarNCMCFOP.sdsTab_NCM.ParamByName('NCM').AsString := NCM + '%';
+  fDMAjustarNCMCFOP.cdsTab_NCM.Open;
+  fDMAjustarNCMCFOP.cdsTab_NCM.First;
+  while not fDMAjustarNCMCFOP.cdsTab_NCM.Eof do
+  begin
+    fDMAjustarNCMCFOP.cdsProduto.Close;
+    fDMAjustarNCMCFOP.sdsProduto.ParamByName('ID_NCM').AsInteger := fDMAjustarNCMCFOP.cdsTab_NCMID.AsInteger;
+    fDMAjustarNCMCFOP.cdsProduto.Open;
+    fDMAjustarNCMCFOP.cdsProduto.First;
+    while not fDMAjustarNCMCFOP.cdsProduto.Eof do
+    begin
+      if fDMAjustarNCMCFOP.cdsProdutoID_CFOP_NFCE.AsInteger = vID_CFOP5405 then
+      begin
+        vArqTxt.Add('Produto: ' + fDMAjustarNCMCFOP.cdsProdutoID.AsString +  ' ' + fDMAjustarNCMCFOP.cdsProdutoNOME.AsString + '  CFOP: ' + '5405   foi deixada em branco' );
+        fDMAjustarNCMCFOP.cdsProduto.Edit;
+        fDMAjustarNCMCFOP.cdsProdutoID_CFOP_NFCE.Clear;
+        fDMAjustarNCMCFOP.cdsProdutoID_CSTICMS.Clear;
+        fDMAjustarNCMCFOP.cdsProduto.Post;
+        fDMAjustarNCMCFOP.cdsProduto.ApplyUpdates(0);
+      end;
+      fDMAjustarNCMCFOP.cdsProduto.Next;
+    end;
+    fDMAjustarNCMCFOP.cdsTab_NCM.Edit;
+    if fDMAjustarNCMCFOP.cdsTab_NCMID_CFOP.AsInteger = vID_CFOP5405 then
+    begin
+      fDMAjustarNCMCFOP.cdsTab_NCMID_CFOP.Clear;
+      fDMAjustarNCMCFOP.cdsTab_NCMID_CST_ICMS.Clear;
+    end;
+    fDMAjustarNCMCFOP.cdsTab_NCMALTERADO.AsString := 'S';
+    fDMAjustarNCMCFOP.cdsTab_NCMGERAR_ST.AsString := 'N';
+    fDMAjustarNCMCFOP.cdsTab_NCM.Post;
+    {if fDMAjustarNCMCFOP.cdsTab_NCMID_CFOP.AsInteger = vID_CFOP5405 then
+    begin
+      vArqTxt.Add('NCM: ' + fDMAjustarNCMCFOP.cdsTab_NCMID.AsString  + '  NCM: ' + fDMAjustarNCMCFOP.cdsTab_NCMNCM.AsString + ' CFOP: ' + '5405   foi deixada em branco' );
+      sds.Close;
+      sds.CommandText := 'update TAB_NCM N set N.ID_CFOP = null, '
+                       + '    N.ID_CST_ICMS = null '
+                       + '  , N.ALTERADO = ' + QuotedStr('S')
+                       + ' where N.ID = :ID ';
+      sds.ParamByName('ID').AsInteger := fDMAjustarNCMCFOP.cdsTab_NCMID.AsInteger;
+      sds.ExecSQL;
+    end}
+    fDMAjustarNCMCFOP.cdsTab_NCM.Next;
+  end;
+  fDMAjustarNCMCFOP.cdsTab_NCM.ApplyUpdates(0);
 end;
 
 end.

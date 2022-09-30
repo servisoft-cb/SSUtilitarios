@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (05/08/2022  1.0.16)'
+  Caption = 'Menu    (30/09/2022  1.0.18)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -24,8 +24,8 @@ object fMenu: TfMenu
   object pnlPrincipal: TAdvPanel
     Left = 0
     Top = 0
-    Width = 793
-    Height = 619
+    Width = 785
+    Height = 611
     Align = alClient
     BevelWidth = 10
     Color = 15325901
@@ -327,7 +327,7 @@ object fMenu: TfMenu
       Top = 270
       Width = 281
       Height = 33
-      Caption = 'Ajustar NCM / CFOP 01/07/2022'
+      Caption = 'Ajustar NCM / CFOP 01/10/2022'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13

@@ -1,6 +1,6 @@
 object frmAjusteNCMCFOP: TfrmAjusteNCMCFOP
-  Left = 338
-  Top = 219
+  Left = 270
+  Top = 210
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'frmAjusteNCMCFOP'
@@ -88,6 +88,20 @@ object frmAjusteNCMCFOP: TfrmAjusteNCMCFOP
     Font.Style = []
     ParentFont = False
   end
+  object Label6: TLabel
+    Left = 106
+    Top = 182
+    Width = 101
+    Height = 14
+    Alignment = taRightJustify
+    Caption = 'Coluna do NCM:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+  end
   object FilenameEdit1: TFilenameEdit
     Left = 282
     Top = 3
@@ -156,5 +170,18 @@ object frmAjusteNCMCFOP: TfrmAjusteNCMCFOP
     NumGlyphs = 1
     ParentCtl3D = False
     TabOrder = 1
+  end
+  object ceColuna: TCurrencyEdit
+    Left = 208
+    Top = 174
+    Width = 74
+    Height = 21
+    AutoSize = False
+    Ctl3D = False
+    DecimalPlaces = 0
+    DisplayFormat = '0'
+    ParentCtl3D = False
+    TabOrder = 6
+    Value = 1.000000000000000000
   end
 end

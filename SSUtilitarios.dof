@@ -90,8 +90,8 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=C:\Delphi7\SSFacil\EXE
-UnitOutputDir=C:\Delphi7\SSFacil\DCU
+OutputDir=d:\Delphi7\SSFacil\EXE
+UnitOutputDir=d:\Delphi7\SSFacil\DCU
 PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=
@@ -135,21 +135,19 @@ ProductName=
 ProductVersion=1.0.0.0
 Comments=
 [Excluded Packages]
-c:\program files (x86)\borland\delphi7\Projects\Bpl\RLBoletoD7.bpl=RLBoleto (by Produsys Sistemas e Internet
-C:\Program Files (x86)\FastReports\FastReport 5\LibD7\dclfrxcs7.bpl=FastReport 5.0 Client/Server Components
-C:\Program Files (x86)\FastReports\FastReport 5\LibD7\dclfrxbde7.bpl=FastReport 5.0 BDE Components
-C:\Program Files (x86)\FastReports\FastReport 5\LibD7\dclfsbde7.bpl=FastScript 1.9 BDE Components
 c:\program files (x86)\borland\delphi7\Bin\DBWEBXPRT.BPL=Borland Web Wizard Package
 [HistoryLists\hlUnitAliases]
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlUnitOutputDirectory]
-Count=3
-Item0=C:\Delphi7\SSFacil\DCU
-Item1=C:\Delphi7\Locacao_Pontos\DCU
-Item2=C:\Delphi7\ServicoFacil\DCU
+Count=4
+Item0=d:\Delphi7\SSFacil\DCU
+Item1=C:\Delphi7\SSFacil\DCU
+Item2=C:\Delphi7\Locacao_Pontos\DCU
+Item3=C:\Delphi7\ServicoFacil\DCU
 [HistoryLists\hlOutputDirectorry]
-Count=3
-Item0=C:\Delphi7\SSFacil\EXE
-Item1=C:\Delphi7\Locacao_Pontos\EXE
-Item2=C:\Delphi7\ServicoFacil\EXE
+Count=4
+Item0=d:\Delphi7\SSFacil\EXE
+Item1=C:\Delphi7\SSFacil\EXE
+Item2=C:\Delphi7\Locacao_Pontos\EXE
+Item3=C:\Delphi7\ServicoFacil\EXE

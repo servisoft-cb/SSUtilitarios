@@ -9,8 +9,8 @@ object DMAjustarNCMCFOP: TDMAjustarNCMCFOP
     NoMetadata = True
     GetMetadata = False
     CommandText = 
-      'select N.ID, N.ID_CFOP, N.ID_CST_ICMS, N.NCM'#13#10'from TAB_NCM N'#13#10'wh' +
-      'ere NCM like :NCM '
+      'select N.ID, N.ID_CFOP, N.ID_CST_ICMS, N.NCM, N.ALTERADO,'#13#10'GERAR' +
+      '_ST'#13#10'from TAB_NCM N'#13#10'where NCM like :NCM '
     MaxBlobSize = -1
     Params = <
       item
@@ -36,6 +36,16 @@ object DMAjustarNCMCFOP: TDMAjustarNCMCFOP
       FieldName = 'NCM'
       Size = 10
     end
+    object sdsTab_NCMALTERADO: TStringField
+      FieldName = 'ALTERADO'
+      FixedChar = True
+      Size = 1
+    end
+    object sdsTab_NCMGERAR_ST: TStringField
+      FieldName = 'GERAR_ST'
+      FixedChar = True
+      Size = 1
+    end
   end
   object dspTab_NCM: TDataSetProvider
     DataSet = sdsTab_NCM
@@ -45,6 +55,7 @@ object DMAjustarNCMCFOP: TDMAjustarNCMCFOP
   end
   object cdsTab_NCM: TClientDataSet
     Aggregates = <>
+    IndexFieldNames = 'ID'
     Params = <>
     ProviderName = 'dspTab_NCM'
     Left = 137
@@ -64,13 +75,23 @@ object DMAjustarNCMCFOP: TDMAjustarNCMCFOP
       FieldName = 'NCM'
       Size = 10
     end
+    object cdsTab_NCMALTERADO: TStringField
+      FieldName = 'ALTERADO'
+      FixedChar = True
+      Size = 1
+    end
+    object cdsTab_NCMGERAR_ST: TStringField
+      FieldName = 'GERAR_ST'
+      FixedChar = True
+      Size = 1
+    end
   end
   object sdsProduto: TSQLDataSet
     NoMetadata = True
     GetMetadata = False
     CommandText = 
-      'select P.ID, P.ID_NCM, P.ID_CFOP_NFCE, P.ID_CSTICMS'#13#10'from PRODUT' +
-      'O P'#13#10'where P.ID_NCM = :ID_NCM'
+      'select P.ID, P.ID_NCM, P.ID_CFOP_NFCE, P.ID_CSTICMS, NOME'#13#10'from ' +
+      'PRODUTO P'#13#10'where P.ID_NCM = :ID_NCM'
     MaxBlobSize = -1
     Params = <
       item
@@ -95,6 +116,10 @@ object DMAjustarNCMCFOP: TDMAjustarNCMCFOP
     object sdsProdutoID_CSTICMS: TIntegerField
       FieldName = 'ID_CSTICMS'
     end
+    object sdsProdutoNOME: TStringField
+      FieldName = 'NOME'
+      Size = 100
+    end
   end
   object dspProduto: TDataSetProvider
     DataSet = sdsProduto
@@ -104,6 +129,7 @@ object DMAjustarNCMCFOP: TDMAjustarNCMCFOP
   end
   object cdsProduto: TClientDataSet
     Aggregates = <>
+    IndexFieldNames = 'ID'
     Params = <>
     ProviderName = 'dspProduto'
     Left = 137
@@ -121,6 +147,10 @@ object DMAjustarNCMCFOP: TDMAjustarNCMCFOP
     end
     object cdsProdutoID_CSTICMS: TIntegerField
       FieldName = 'ID_CSTICMS'
+    end
+    object cdsProdutoNOME: TStringField
+      FieldName = 'NOME'
+      Size = 100
     end
   end
 end

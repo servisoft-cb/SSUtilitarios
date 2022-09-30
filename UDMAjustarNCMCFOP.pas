@@ -29,6 +29,12 @@ type
     cdsProdutoID_CSTICMS: TIntegerField;
     sdsTab_NCMNCM: TStringField;
     cdsTab_NCMNCM: TStringField;
+    sdsTab_NCMALTERADO: TStringField;
+    cdsTab_NCMALTERADO: TStringField;
+    sdsProdutoNOME: TStringField;
+    cdsProdutoNOME: TStringField;
+    sdsTab_NCMGERAR_ST: TStringField;
+    cdsTab_NCMGERAR_ST: TStringField;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
