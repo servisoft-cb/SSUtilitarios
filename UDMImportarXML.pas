@@ -1152,6 +1152,12 @@ type
     cdsProdutoNOME_ORIGINAL: TStringField;
     cdsProdutoUNIDADE: TStringField;
     cdsProdutoSPED_TIPO_ITEM: TStringField;
+    sdsFornecedorCLIENTE_ESTOQUE: TStringField;
+    sdsFornecedorTP_PRODUTOR_RURAL: TStringField;
+    cdsFornecedorCLIENTE_ESTOQUE: TStringField;
+    cdsFornecedorTP_PRODUTOR_RURAL: TStringField;
+    sdsProdutoGERAR_WEB: TStringField;
+    cdsProdutoGERAR_WEB: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsNCMNewRecord(DataSet: TDataSet);
     procedure cdsProdutoNewRecord(DataSet: TDataSet);
@@ -1465,6 +1471,7 @@ begin
   cdsProdutoUSA_COR.AsString        := 'N';
   cdsProdutoUSA_GRADE.AsString      := 'N';
   cdsProdutoUSA_PRECO_COR.AsString  := 'N';
+  cdsProdutoGERAR_WEB.AsString      := 'N';
   cdsProduto.Post;
   cdsProduto.ApplyUpdates(0);
 

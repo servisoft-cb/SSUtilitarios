@@ -21,7 +21,7 @@ object frmImportarXML: TfrmImportarXML
     Left = 0
     Top = 0
     Width = 856
-    Height = 658
+    Height = 657
     ActivePage = TabSheet7
     Align = alClient
     TabOrder = 0
@@ -86,7 +86,7 @@ object frmImportarXML: TfrmImportarXML
       end
       object MemLista: TMemo
         Left = 0
-        Top = 82
+        Top = 81
         Width = 848
         Height = 346
         Align = alBottom
@@ -139,7 +139,7 @@ object frmImportarXML: TfrmImportarXML
       end
       object GroupBox5: TGroupBox
         Left = 0
-        Top = 428
+        Top = 427
         Width = 848
         Height = 202
         Align = alBottom
@@ -2363,7 +2363,7 @@ object frmImportarXML: TfrmImportarXML
         Left = 0
         Top = 0
         Width = 848
-        Height = 630
+        Height = 629
         Align = alClient
         Color = clMoneyGreen
         TabOrder = 0
@@ -2798,46 +2798,55 @@ object frmImportarXML: TfrmImportarXML
           item
             Expanded = False
             FieldName = 'Id'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'tpAmb'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'verAplic'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'chNFe'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'dhRecbto'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'nProt'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'digVal'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'cStat'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'xMotivo'
+            Width = 64
             Visible = True
           end>
       end

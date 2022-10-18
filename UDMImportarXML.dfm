@@ -2702,6 +2702,11 @@ object DMImportarXML: TDMImportarXML
       FieldName = 'SPED_TIPO_ITEM'
       Size = 2
     end
+    object sdsProdutoGERAR_WEB: TStringField
+      FieldName = 'GERAR_WEB'
+      FixedChar = True
+      Size = 1
+    end
   end
   object dspProduto: TDataSetProvider
     DataSet = sdsProduto
@@ -2868,6 +2873,11 @@ object DMImportarXML: TDMImportarXML
     object cdsProdutoSPED_TIPO_ITEM: TStringField
       FieldName = 'SPED_TIPO_ITEM'
       Size = 2
+    end
+    object cdsProdutoGERAR_WEB: TStringField
+      FieldName = 'GERAR_WEB'
+      FixedChar = True
+      Size = 1
     end
   end
   object dsProduto: TDataSource
@@ -3593,6 +3603,16 @@ object DMImportarXML: TDMImportarXML
     object sdsFornecedorTIPO_CONTRIBUINTE: TSmallintField
       FieldName = 'TIPO_CONTRIBUINTE'
     end
+    object sdsFornecedorCLIENTE_ESTOQUE: TStringField
+      FieldName = 'CLIENTE_ESTOQUE'
+      FixedChar = True
+      Size = 1
+    end
+    object sdsFornecedorTP_PRODUTOR_RURAL: TStringField
+      FieldName = 'TP_PRODUTOR_RURAL'
+      FixedChar = True
+      Size = 1
+    end
   end
   object dspFornecedor: TDataSetProvider
     DataSet = sdsFornecedor
@@ -3914,6 +3934,16 @@ object DMImportarXML: TDMImportarXML
     end
     object cdsFornecedorTIPO_CONTRIBUINTE: TSmallintField
       FieldName = 'TIPO_CONTRIBUINTE'
+    end
+    object cdsFornecedorCLIENTE_ESTOQUE: TStringField
+      FieldName = 'CLIENTE_ESTOQUE'
+      FixedChar = True
+      Size = 1
+    end
+    object cdsFornecedorTP_PRODUTOR_RURAL: TStringField
+      FieldName = 'TP_PRODUTOR_RURAL'
+      FixedChar = True
+      Size = 1
     end
   end
   object dsFornecedor: TDataSource

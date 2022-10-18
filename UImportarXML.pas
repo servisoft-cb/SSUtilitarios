@@ -726,7 +726,8 @@ begin
   fDMImportarXML.cdsFornecedorTP_EXPORTACAO.AsString     := 'N';
   fDMImportarXML.cdsFornecedorTP_PREPOSTO.AsString       := 'N';
   fDMImportarXML.cdsFornecedorTP_TRANSPORTADORA.AsString := 'N';
-
+  fDMImportarXML.cdsFornecedorCLIENTE_ESTOQUE.AsString   := 'N';
+  fDMImportarXML.cdsFornecedorTP_PRODUTOR_RURAL.AsString := 'N';
   //*******************
 
   fDMImportarXML.cdsFornecedor.Post;
@@ -1071,6 +1072,8 @@ begin
   fDMImportarXML.cdsFornecedorTP_EXPORTACAO.AsString     := 'N';
   fDMImportarXML.cdsFornecedorTP_PREPOSTO.AsString       := 'N';
   fDMImportarXML.cdsFornecedorTP_TRANSPORTADORA.AsString := 'N';
+  fDMImportarXML.cdsFornecedorTP_PRODUTOR_RURAL.AsString := 'N';
+  fDMImportarXML.cdsFornecedorCLIENTE_ESTOQUE.AsString   := 'N';
   //*******************
 
   fDMImportarXML.cdsFornecedor.Post;
