@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (18/10/2022  1.0.19)'
+  Caption = 'Menu    (07/03/2023  1.0.21)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -351,6 +351,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 19
       OnClick = btnGerarPlanoNovoSitemaClick
+    end
+    object btnGravarPrecoMedio: TNxButton
+      Left = 36
+      Top = 426
+      Width = 302
+      Height = 33
+      Caption = 'Gravar Pre'#231'o M'#233'dio (Produto_CMedio)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 20
+      OnClick = btnGravarPrecoMedioClick
     end
   end
 end

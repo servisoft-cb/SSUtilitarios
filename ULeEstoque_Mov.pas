@@ -41,7 +41,7 @@ end;
 
 procedure TfrmLeEstoque_Mov.BitBtn1Click(Sender: TObject);
 begin
-  if MessageDlg('Confirma a geração do Estoque?',mtConfirmation,[mbOk,mbNo],0) = mrNo then
+  if MessageDlg('Confirma a geração do Estoque?',mtConfirmation,[mbOk,mbNo],0) <> mrYes then
     exit;
 
   Label2.Caption := '... Aguarde, limpando a tabela ESTOQUE_ATUAL ...';

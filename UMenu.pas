@@ -30,6 +30,7 @@ type
     btnAjustarCCusto: TNxButton;
     btnAjustaNCM_CFOP: TNxButton;
     btnGerarPlanoNovoSitema: TNxButton;
+    btnGravarPrecoMedio: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -48,6 +49,7 @@ type
     procedure btnAjustarCCustoClick(Sender: TObject);
     procedure btnAjustaNCM_CFOPClick(Sender: TObject);
     procedure btnGerarPlanoNovoSitemaClick(Sender: TObject);
+    procedure btnGravarPrecoMedioClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -64,7 +66,7 @@ uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UImportar_PlanoContas, UCadContaOrc_Txt, UImportarArq, UConversor,
   UimportarRegras, ULeEstoque_Mov, uAjustaConOrcDuplicata, UGeraInventario,
   UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb, UAjustarCCustoNFe,
-  UAjusteNCMCFOP, UImportar_PlanoNovoSistema;//, UGerarTalao_Setor;
+  UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -198,6 +200,13 @@ begin
   frmImportar_PlanoNovoSistema := TfrmImportar_PlanoNovoSistema.Create(self);
   frmImportar_PlanoNovoSistema.ShowModal;
   FreeAndNil(frmImportar_PlanoNovoSistema);
+end;
+
+procedure TfMenu.btnGravarPrecoMedioClick(Sender: TObject);
+begin
+  frmProdutoCMedio := TfrmProdutoCMedio.Create(self);
+  frmProdutoCMedio.ShowModal;
+  FreeAndNil(frmProdutoCMedio);
 end;
 
 initialization
