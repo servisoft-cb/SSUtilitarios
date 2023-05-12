@@ -117,6 +117,7 @@ begin
       SMDBGrid1.ClearFilter;
       SMDBGrid1.UnSelectAllClick(Sender);
       FreeAndNil(Form);
+      FreeAndNil(sds);
       SMDBGrid1.EnableScroll;
     end;
   end;

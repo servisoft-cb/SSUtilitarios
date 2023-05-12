@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (07/03/2023  1.0.21)'
+  Caption = 'Menu    (12/05/2023  1.0.22)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -366,6 +366,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 20
       OnClick = btnGravarPrecoMedioClick
+    end
+    object btnGravarGruposWEB: TNxButton
+      Left = 429
+      Top = 305
+      Width = 281
+      Height = 33
+      Caption = 'Gravar Grupos na WEB / APP'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 21
+      OnClick = btnGravarGruposWEBClick
     end
   end
 end

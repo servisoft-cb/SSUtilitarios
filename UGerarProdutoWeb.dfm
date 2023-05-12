@@ -19,7 +19,7 @@ object frmGerarProdutoWeb: TfrmGerarProdutoWeb
   object NxPanel1: TNxPanel
     Left = 0
     Top = 0
-    Width = 1142
+    Width = 1134
     Height = 95
     Align = alTop
     UseDockManager = False
@@ -216,8 +216,8 @@ object frmGerarProdutoWeb: TfrmGerarProdutoWeb
   object SMDBGrid1: TSMDBGrid
     Left = 0
     Top = 95
-    Width = 1142
-    Height = 354
+    Width = 1134
+    Height = 346
     Align = alClient
     Ctl3D = False
     DataSource = dmCadProduto.dsProduto_Consulta

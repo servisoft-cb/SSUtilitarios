@@ -31,6 +31,7 @@ type
     btnAjustaNCM_CFOP: TNxButton;
     btnGerarPlanoNovoSitema: TNxButton;
     btnGravarPrecoMedio: TNxButton;
+    btnGravarGruposWEB: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -50,6 +51,7 @@ type
     procedure btnAjustaNCM_CFOPClick(Sender: TObject);
     procedure btnGerarPlanoNovoSitemaClick(Sender: TObject);
     procedure btnGravarPrecoMedioClick(Sender: TObject);
+    procedure btnGravarGruposWEBClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -66,7 +68,7 @@ uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UImportar_PlanoContas, UCadContaOrc_Txt, UImportarArq, UConversor,
   UimportarRegras, ULeEstoque_Mov, uAjustaConOrcDuplicata, UGeraInventario,
   UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb, UAjustarCCustoNFe,
-  UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio;//, UGerarTalao_Setor;
+  UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio, uUtilPadrao;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -207,6 +209,30 @@ begin
   frmProdutoCMedio := TfrmProdutoCMedio.Create(self);
   frmProdutoCMedio.ShowModal;
   FreeAndNil(frmProdutoCMedio);
+end;
+
+procedure TfMenu.btnGravarGruposWEBClick(Sender: TObject);
+var
+  sds: TSQLDataSet;
+  Form: TForm;
+begin
+  Form := TForm.Create(Application);
+  sds  := TSQLDataSet.Create(nil);
+  try
+    uUtilPadrao.prc_Form_Aguarde(Form);
+    sds.SQLConnection := dmDatabase.scoDados;
+    sds.NoMetadata    := True;
+    sds.GetMetadata   := False;
+    sds.Close;
+    sds.CommandText := 'update GRUPO set ID = ID ';
+    sds.ExecSQL;
+  finally
+    begin
+      FreeAndNil(Form);
+      FreeAndNil(sds);
+    end;
+  end;
+  MessageDlg('*** Geração concluída!', mtInformation, [mbOk], 0);
 end;
 
 initialization
