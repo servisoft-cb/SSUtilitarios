@@ -32,6 +32,7 @@ type
     btnGerarPlanoNovoSitema: TNxButton;
     btnGravarPrecoMedio: TNxButton;
     btnGravarGruposWEB: TNxButton;
+    btnImportarCTN: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -52,6 +53,7 @@ type
     procedure btnGerarPlanoNovoSitemaClick(Sender: TObject);
     procedure btnGravarPrecoMedioClick(Sender: TObject);
     procedure btnGravarGruposWEBClick(Sender: TObject);
+    procedure btnImportarCTNClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -68,7 +70,8 @@ uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UImportar_PlanoContas, UCadContaOrc_Txt, UImportarArq, UConversor,
   UimportarRegras, ULeEstoque_Mov, uAjustaConOrcDuplicata, UGeraInventario,
   UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb, UAjustarCCustoNFe,
-  UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio, uUtilPadrao;//, UGerarTalao_Setor;
+  UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio, uUtilPadrao,
+  UImportarCTN;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -233,6 +236,13 @@ begin
     end;
   end;
   MessageDlg('*** Geração concluída!', mtInformation, [mbOk], 0);
+end;
+
+procedure TfMenu.btnImportarCTNClick(Sender: TObject);
+begin
+  frmImportarCTN := TfrmImportarCTN.Create(self);
+  frmImportarCTN.ShowModal;
+  FreeAndNil(frmImportarCTN);
 end;
 
 initialization

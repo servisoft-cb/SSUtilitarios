@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (12/05/2023  1.0.22)'
+  Caption = 'Menu    (03/11/2023  1.0.24)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -381,6 +381,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 21
       OnClick = btnGravarGruposWEBClick
+    end
+    object btnImportarCTN: TNxButton
+      Left = 429
+      Top = 341
+      Width = 281
+      Height = 33
+      Caption = 'Importar CTN (Servi'#231'o Trib. Nacional)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 22
+      OnClick = btnImportarCTNClick
     end
   end
 end

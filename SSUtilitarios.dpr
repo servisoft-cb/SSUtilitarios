@@ -48,7 +48,9 @@ uses
   UDMAjustarNCMCFOP in 'UDMAjustarNCMCFOP.pas' {DMAjustarNCMCFOP: TDataModule},
   UImportar_PlanoNovoSistema in 'UImportar_PlanoNovoSistema.pas' {frmImportar_PlanoNovoSistema},
   UProdutoCMedio in 'UProdutoCMedio.pas' {frmProdutoCMedio},
-  UDMProdutoCMedio in 'UDMProdutoCMedio.pas' {DMProdutoCMedio: TDataModule};
+  UDMProdutoCMedio in 'UDMProdutoCMedio.pas' {DMProdutoCMedio: TDataModule},
+  UImportarCTN in 'UImportarCTN.pas' {frmImportarCTN},
+  UDMCadServico in '..\ssfacil\UDMCadServico.pas' {DMCadServico: TDataModule};
 
 {$R *.res}
 
