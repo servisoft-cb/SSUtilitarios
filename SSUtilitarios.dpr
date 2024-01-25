@@ -50,7 +50,9 @@ uses
   UProdutoCMedio in 'UProdutoCMedio.pas' {frmProdutoCMedio},
   UDMProdutoCMedio in 'UDMProdutoCMedio.pas' {DMProdutoCMedio: TDataModule},
   UImportarCTN in 'UImportarCTN.pas' {frmImportarCTN},
-  UDMCadServico in '..\ssfacil\UDMCadServico.pas' {DMCadServico: TDataModule};
+  UDMCadServico in '..\ssfacil\UDMCadServico.pas' {DMCadServico: TDataModule},
+  Classe.Retorno in '..\ssfacil\Classes\Classe.Retorno.pas',
+  UInformeEndereco in '..\ssfacil\UInformeEndereco.pas' {frmInformeEndereco};
 
 {$R *.res}
 
@@ -60,6 +62,7 @@ begin
     Application.Title := 'Utilitários';
   Application.CreateForm(TdmDatabase, dmDatabase);
   Application.CreateForm(TfMenu, fMenu);
+  Application.CreateForm(TfrmInformeEndereco, frmInformeEndereco);
   Application.Run;
   except
     on e: Exception do
