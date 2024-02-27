@@ -33,6 +33,7 @@ type
     btnGravarPrecoMedio: TNxButton;
     btnGravarGruposWEB: TNxButton;
     btnImportarCTN: TNxButton;
+    btnAjusteNomeClienteCupom: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -54,6 +55,7 @@ type
     procedure btnGravarPrecoMedioClick(Sender: TObject);
     procedure btnGravarGruposWEBClick(Sender: TObject);
     procedure btnImportarCTNClick(Sender: TObject);
+    procedure btnAjusteNomeClienteCupomClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -71,7 +73,7 @@ uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UimportarRegras, ULeEstoque_Mov, uAjustaConOrcDuplicata, UGeraInventario,
   UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb, UAjustarCCustoNFe,
   UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio, uUtilPadrao,
-  UImportarCTN;//, UGerarTalao_Setor;
+  UImportarCTN, UAjusteNomeClienteCF;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -243,6 +245,13 @@ begin
   frmImportarCTN := TfrmImportarCTN.Create(self);
   frmImportarCTN.ShowModal;
   FreeAndNil(frmImportarCTN);
+end;
+
+procedure TfMenu.btnAjusteNomeClienteCupomClick(Sender: TObject);
+begin
+  frmAjusteNomeClienteCF := TfrmAjusteNomeClienteCF.Create(self);
+  frmAjusteNomeClienteCF.ShowModal;
+  FreeAndNil(frmAjusteNomeClienteCF);
 end;
 
 initialization

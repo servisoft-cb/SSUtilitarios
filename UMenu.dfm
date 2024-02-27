@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (26/01/2024  1.0.26)'
+  Caption = 'Menu    (27/02/2024  1.0.27)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -396,6 +396,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 22
       OnClick = btnImportarCTNClick
+    end
+    object btnAjusteNomeClienteCupom: TNxButton
+      Left = 429
+      Top = 378
+      Width = 281
+      Height = 33
+      Caption = 'Ajustar Nome Cliente Cupom (Est.Mov)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 23
+      OnClick = btnAjusteNomeClienteCupomClick
     end
   end
 end

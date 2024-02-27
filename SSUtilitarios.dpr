@@ -52,7 +52,8 @@ uses
   UImportarCTN in 'UImportarCTN.pas' {frmImportarCTN},
   UDMCadServico in '..\ssfacil\UDMCadServico.pas' {DMCadServico: TDataModule},
   Classe.Retorno in '..\ssfacil\Classes\Classe.Retorno.pas',
-  UInformeEndereco in '..\ssfacil\UInformeEndereco.pas' {frmInformeEndereco};
+  UInformeEndereco in '..\ssfacil\UInformeEndereco.pas' {frmInformeEndereco},
+  UAjusteNomeClienteCF in 'UAjusteNomeClienteCF.pas' {frmAjusteNomeClienteCF};
 
 {$R *.res}
 
@@ -62,7 +63,6 @@ begin
     Application.Title := 'Utilitários';
   Application.CreateForm(TdmDatabase, dmDatabase);
   Application.CreateForm(TfMenu, fMenu);
-  Application.CreateForm(TfrmInformeEndereco, frmInformeEndereco);
   Application.Run;
   except
     on e: Exception do
