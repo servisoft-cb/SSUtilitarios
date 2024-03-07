@@ -1158,6 +1158,12 @@ type
     cdsFornecedorTP_PRODUTOR_RURAL: TStringField;
     sdsProdutoGERAR_WEB: TStringField;
     cdsProdutoGERAR_WEB: TStringField;
+    cdsDetalhedescANP: TStringField;
+    cdsDetalheICMS51_vICMSOp: TFloatField;
+    cdsDetalheICMS51_pDif: TFloatField;
+    cdsDetalheICMS60_vICMSSubstituto: TStringField;
+    cdsDetalheICMSST_vICMSSubstituto: TFloatField;
+    cdsDetalheICMSSN500_vICMSSubstituto: TFloatField;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsNCMNewRecord(DataSet: TDataSet);
     procedure cdsProdutoNewRecord(DataSet: TDataSet);
@@ -1181,6 +1187,7 @@ type
     vQtd_Adicao_Erro : Integer;
     vID_Produto : Integer;
     vCodFabricante : String;
+    vID_Fornecedor: Integer;
 
     procedure prc_Abrir_Produto(ID : Integer ; Referencia, Nome, CodBarra : String);
 
@@ -1199,10 +1206,9 @@ type
     procedure AbrirNFe(AXMLNFe: string);
     procedure Gravar_ClasFiscal;
     procedure Gravar_Unidade;
-    procedure Gravar_Produto(Usuario : String ; Gravar_Preco : Boolean);
+    procedure Gravar_Produto(Usuario : String ; Gravar_Preco, NotaEntrada : Boolean);
     procedure Busca_SitTrib(Codigo : String);
     procedure prc_Gravar_Produto_Forn;
-
     
   end;
 
@@ -1404,7 +1410,7 @@ begin
   end;
 end;
 
-procedure TDMImportarXML.Gravar_Produto(Usuario : String ; Gravar_Preco : Boolean);
+procedure TDMImportarXML.Gravar_Produto(Usuario : String ; Gravar_Preco, NotaEntrada : Boolean);
 var
   vAux, vAux2 : Integer;
   vTexto : String;
@@ -1416,6 +1422,8 @@ begin
   cdsProdutoID.AsInteger             := vAux;
   cdsProdutoNOME.AsString            := UpperCase(mItensNotaNomeProduto.AsString);
   cdsProdutoUNIDADE.AsString         := UpperCase(mItensNotaUnidade.AsString);
+  if mItensNotaCodBarra.AsString <> 'SEM GTIN' then
+    cdsProdutoCOD_BARRA.AsString := mItensNotaCodBarra.AsString;
   cdsProdutoID_NCM.AsInteger         := mItensNotaID_NCM.AsInteger;
   cdsProdutoINATIVO.AsString         := 'N';
   cdsProdutoPERC_IPI.AsFloat         := mItensNotaAliqIPI.AsFloat;
@@ -1436,6 +1444,9 @@ begin
   cdsProdutoPRECO_CUSTO.AsFloat := 0;
   if Gravar_Preco then
   begin
+    if NotaEntrada then
+      cdsProdutoPRECO_CUSTO.AsFloat      := mItensNotaVlrUnitario.AsFloat
+    else
     if cdsProdutoTIPO_REG.AsString = 'P' then
       cdsProdutoPRECO_VENDA.AsFloat      := mItensNotaVlrUnitario.AsFloat
     else
@@ -1478,7 +1489,7 @@ begin
   mItensNota.Edit;
   mItensNotaCodProdutoInterno.AsInteger := vAux;
   mItensNota.Post;
-
+                     
   prc_Gravar_Produto_Forn;
 end;
 
@@ -1540,26 +1551,29 @@ var
   vAux : String;
   vItem, vAux2 : Integer;
 begin
+  vAux2 := fnc_Abrir_Produto_Forn(mItensNotaCodProduto.AsString,vID_Fornecedor,'');
+  if vAux2 > 0 then
+    exit;
   vAux := '';
   if trim(mItensNotaCodProduto.AsString) <> '' then
     vAux := mItensNotaCodProduto.AsString;
-
   qProduto_Forn.Close;
   qProduto_Forn.ParamByName('ID').AsInteger := mItensNotaCodProdutoInterno.AsInteger;
   qProduto_Forn.Open;
   vItem := qProduto_FornITEM.AsInteger + 1;
-
   begin
-    if not cdsProduto_Forn.Active then
-      vAux2 := fnc_Abrir_Produto_Forn('',0);
     cdsProduto_Forn.Insert;
     cdsProduto_FornID.AsInteger   := mItensNotaCodProdutoInterno.AsInteger;
     cdsProduto_FornITEM.AsInteger := vItem;
-    cdsProduto_FornID_FORNECEDOR.AsInteger := mRegistroID.AsInteger;
+    if mRegistroID.AsInteger > 0 then
+      cdsProduto_FornID_FORNECEDOR.AsInteger := mRegistroID.AsInteger
+    else
+      cdsProduto_FornID_FORNECEDOR.AsInteger := vID_Fornecedor;
     cdsProduto_FornNOME_MATERIAL_FORN.AsString := mItensNotaNomeProduto.AsString;
     cdsProduto_FornCOD_MATERIAL_FORN.AsString  := vaux;
     cdsProduto_FornTAMANHO.AsString            := '';
-    cdsProduto_FornCOD_BARRA.AsString          := mItensNotaCodBarra.AsString;
+    if mItensNotaCodBarra.AsString <> 'SEM GTIN' then
+      cdsProduto_FornCOD_BARRA.AsString          := mItensNotaCodBarra.AsString;
     cdsProduto_FornPRECO_CUSTO.AsFloat         := mItensNotaVlrUnitario.AsFloat;
     cdsProduto_Forn.Post;
     cdsProduto_Forn.ApplyUpdates(0);

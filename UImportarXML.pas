@@ -5,7 +5,7 @@ interface
 uses
   inifiles, Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, xmldom, Grids, DBGrids,
   DB, Xmlxform, ExtCtrls, StdCtrls, ComCtrls, Mask, DBCtrls, RXDBCtrl, SMDBGrid, Buttons, DBTables, ToolEdit, RxLookup,
-  UDMImportarXML, UCBase, StrUtils, DBXpress, ShellApi, StdConvs, Contnrs;
+  UDMImportarXML, UCBase, StrUtils, DBXpress, ShellApi, StdConvs, Contnrs, SqlExpr;
 
 type
   TfrmImportarXML = class(TForm)
@@ -225,6 +225,7 @@ type
     RxDBLookupCombo1: TRxDBLookupCombo;
     Label48: TLabel;
     btnBuscaNCM: TButton;
+    ckNotaEntrada: TCheckBox;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtn2Click(Sender: TObject);
@@ -259,16 +260,13 @@ type
     procedure Gravar_Pais;
 
     procedure Verificar_Produto;
-
     procedure prc_Abrir_qFilial(CNPJ_CPF : String);
-
     function fnc_NumValido(Const S: String) : Integer;
-
     procedure ListarArquivos(Diretorio: string; Sub:Boolean);
-
     function TemAtributo(Attr, Val: Integer): Boolean;
-
     procedure Carrega_XML(Arquivo : String);
+
+    function Busca_IDProduto_Forn : Integer;
 
   public
     { Public declarations }
@@ -361,15 +359,12 @@ end;
 procedure TfrmImportarXML.Le_cdsDetalhe;
 begin
   fDMImportarXML.mItensNota.EmptyDataSet;
-
   fDMImportarXML.cdsDetalhe.First;
   while not fDMImportarXML.cdsDetalhe.Eof do
   begin
     Grava_mItensNota;
-
     fDMImportarXML.cdsDetalhe.Next;
   end;
-
 end;
 
 procedure TfrmImportarXML.Grava_mItensNota;
@@ -427,6 +422,7 @@ begin
 
   fDMImportarXML.vCSTInterno := 0;
   vTipoIcms   := '';
+  vContadorIcms := 0;
   case fDMImportarXML.cdsCabecalhoCRT.AsInteger of
     3 : vContadorIcms := 9;
     1,2 : vContadorIcms := 6;
@@ -450,19 +446,22 @@ begin
       fDMImportarXML.Busca_SitTrib(fDMImportarXML.cdsDetalhe.FieldByName(vTipoIcms+'CST').AsString);
       fDMImportarXML.mItensNotaCodSitTribInterno.AsInteger := fDMImportarXML.vCSTInterno;
       fDMImportarXML.mItensNotaCodSitTrib.AsString         := fDMImportarXML.cdsDetalhe.FieldByName(vTipoIcms+'CST').AsString;
-      Move_Campos(vTipoIcms+'ModBC','ModICMS','N');
-      Move_Campos(vTipoIcms+'vBC','BaseIcms','N');
-      Move_Campos(vTipoIcms+'pICMS','AliqIcms','N');
-      Move_Campos(vTipoIcms+'vICMS','VlrIcms','N');
-      Move_Campos(vTipoIcms+'ModBCST','ModIcmsST','N');
-      Move_Campos(vTipoIcms+'pMVAST','PercMVAST','N');
-      Move_Campos(vTipoIcms+'pRedBCST','PercRedBCST','N');
-      Move_Campos(vTipoIcms+'vBCST','BaseCST','N');
-      Move_Campos(vTipoIcms+'pICMSST','PercIcmsST','N');
-      Move_Campos(vTipoIcms+'vICMSST','VlrIcmsST','N');
-      Move_Campos(vTipoIcms+'pRedBC','PercRedIcms','N');
-      Move_Campos(vTipoIcms+'vBCSTRet','BaseCSTRet','N');
-      Move_Campos(vTipoIcms+'vICMSSTRet','VlrIcmsCSTRet','N');
+      try
+        Move_Campos(vTipoIcms+'ModBC','ModICMS','N');
+        Move_Campos(vTipoIcms+'vBC','BaseIcms','N');
+        Move_Campos(vTipoIcms+'pICMS','AliqIcms','N');
+        Move_Campos(vTipoIcms+'vICMS','VlrIcms','N');
+        Move_Campos(vTipoIcms+'ModBCST','ModIcmsST','N');
+        Move_Campos(vTipoIcms+'pMVAST','PercMVAST','N');
+        Move_Campos(vTipoIcms+'pRedBCST','PercRedBCST','N');
+        Move_Campos(vTipoIcms+'vBCST','BaseCST','N');
+        Move_Campos(vTipoIcms+'pICMSST','PercIcmsST','N');
+        Move_Campos(vTipoIcms+'vICMSST','VlrIcmsST','N');
+        Move_Campos(vTipoIcms+'pRedBC','PercRedIcms','N');
+        Move_Campos(vTipoIcms+'vBCSTRet','BaseCSTRet','N');
+        Move_Campos(vTipoIcms+'vICMSSTRet','VlrIcmsCSTRet','N');
+      except
+      end;
     end;
 
   end
@@ -477,16 +476,19 @@ begin
       fDMImportarXML.busca_SitTrib(fDMImportarXML.cdsDetalhe.FieldByName(vTipoIcms+'CSOSN').AsString);
       fDMImportarXML.mItensNotaCodSitTribInterno.AsInteger := fDMImportarXML.vCSTInterno;
       fDMImportarXML.mItensNotaCodSitTrib.AsString         := fDMImportarXML.cdsDetalhe.FieldByName(vTipoIcms+'CSOSN').AsString;
-      Move_Campos(vTipoIcms+'pCredSN','AliqIcms','N');
-      Move_Campos(vTipoIcms+'vCredIcmsSN','VlrIcms','N');
-      Move_Campos(vTipoIcms+'ModBCST','ModIcmsST','N');
-      Move_Campos(vTipoIcms+'pMVAST','PercMVAST','N');
-      Move_Campos(vTipoIcms+'pRedBCST','PercRedBCST','N');
-      Move_Campos(vTipoIcms+'vBCST','BaseCST','N');
-      Move_Campos(vTipoIcms+'pICMSST','PercIcmsST','N');
-      Move_Campos(vTipoIcms+'vICMSST','VlrIcmsST','N');
-      Move_Campos(vTipoIcms+'vBCSTRet','BaseCSTRet','N');
-      Move_Campos(vTipoIcms+'vICMSSTRet','VlrIcmsCSTRet','N');
+      try
+        Move_Campos(vTipoIcms+'pCredSN','AliqIcms','N');
+        Move_Campos(vTipoIcms+'vCredIcmsSN','VlrIcms','N');
+        Move_Campos(vTipoIcms+'ModBCST','ModIcmsST','N');
+        Move_Campos(vTipoIcms+'pMVAST','PercMVAST','N');
+        Move_Campos(vTipoIcms+'pRedBCST','PercRedBCST','N');
+        Move_Campos(vTipoIcms+'vBCST','BaseCST','N');
+        Move_Campos(vTipoIcms+'pICMSST','PercIcmsST','N');
+        Move_Campos(vTipoIcms+'vICMSST','VlrIcmsST','N');
+        Move_Campos(vTipoIcms+'vBCSTRet','BaseCSTRet','N');
+        Move_Campos(vTipoIcms+'vICMSSTRet','VlrIcmsCSTRet','N');
+      except
+      end;
     end;
   end;
 
@@ -506,6 +508,11 @@ begin
 end;
 
 procedure TfrmImportarXML.Procura_DadosCabecalho;
+var
+  vTipoAux: String;
+  vCNPJForn: String;
+  vCid: String;
+  cPais: string;
 begin
   vCodFornecedor     := 0;
   vCodFornecedor_2   := 0;
@@ -521,7 +528,11 @@ begin
     prc_Abrir_qFilial(fDMImportarXML.cdsCabecalhoemit_CNPJ.AsString);
 
   //Cliente
-  if fDMImportarXML.fnc_Abrir_Fornecedor(edCNPJDest.Text) then
+  vTipoAux  := 'C';
+  vCNPJForn := edCNPJDest.Text;
+  if ckNotaEntrada.Checked then
+    vCNPJForn := edCNPJEmitente.Text;
+  if fDMImportarXML.fnc_Abrir_Fornecedor(vCNPJForn,vTipoAux) then
   begin
     vCodFornecedor := fDMImportarXML.cdsFornecedorCODIGO.AsInteger;
     lbStatusForn.Caption := 'Encontrado - Código Interno: ' + fDMImportarXML.cdsFornecedorCODIGO.AsString;
@@ -535,7 +546,11 @@ begin
   if fDMImportarXML.fnc_Abrir_Fornecedor(edCNPJEmitente.Text) then
     vCodFornecedor_2 := fDMImportarXML.cdsFornecedorCODIGO.AsInteger;
 
-  if fDMImportarXML.fnc_Abrir_Cidade(fDMImportarXML.cdsCabecalhoenderDest_cMun.AsString) then
+  if ckNotaEntrada.Checked then
+    vCid := fDMImportarXML.cdsCabecalhoenderEmit_cMun.AsString
+  else
+    vCid := fDMImportarXML.cdsCabecalhoenderDest_cMun.AsString;
+  if fDMImportarXML.fnc_Abrir_Cidade(vCid) then
   begin
     vCodCidade := fDMImportarXML.cdsCidadeID.AsInteger;
     lbStatusCidade.Caption := 'Encontrada - Código Interno: ' + fDMImportarXML.cdsCidadeID.AsString;
@@ -548,7 +563,11 @@ begin
   if fDMImportarXML.fnc_Abrir_Cidade(fDMImportarXML.cdsCabecalhoenderEmit_cMun.AsString) then
     vCodCidade_2 := fDMImportarXML.cdsCidadeID.AsInteger;
 
-  if fDMImportarXML.fnc_Abrir_Pais(fDMImportarXML.cdsCabecalhoenderDest_cPais.AsString) then
+  if ckNotaEntrada.Checked then
+    cPais := fDMImportarXML.cdsCabecalhoenderEmit_cPais.AsString
+  else
+    cPais := fDMImportarXML.cdsCabecalhoenderDest_cPais.AsString;
+  if fDMImportarXML.fnc_Abrir_Pais(cPais) then
   begin
     vIDPais := fDMImportarXML.cdsPaisID.AsInteger;
     lbStatusPais.Caption := 'Encontrado - Código Interno: ' + fDMImportarXML.cdsPaisID.AsString;
@@ -622,19 +641,28 @@ var
   vAux: Integer;
 begin
   vAux := dmDatabase.ProximaSequencia('CIDADE',0);
-
   fDMImportarXML.cdsCidade.Insert;
   fDMImportarXML.cdsCidadeID.AsInteger          := vAux;
-  fDMImportarXML.cdsCidadeNOME.AsString         := fDMImportarXML.cdsCabecalhoenderDest_xMun.AsString;
-  fDMImportarXML.cdsCidadeUF.AsString           := fDMImportarXML.cdsCabecalhoenderDest_UF.AsString;
-  fDMImportarXML.cdsCidadeCODMUNICIPIO.AsString := fDMImportarXML.cdsCabecalhoenderDest_cMun.AsString;
+  if ckNotaEntrada.Checked then
+  begin
+    fDMImportarXML.cdsCidadeNOME.AsString         := fDMImportarXML.cdsCabecalhoenderEmit_xMun.AsString;
+    fDMImportarXML.cdsCidadeUF.AsString           := fDMImportarXML.cdsCabecalhoenderEmit_UF.AsString;
+    fDMImportarXML.cdsCidadeCODMUNICIPIO.AsString := fDMImportarXML.cdsCabecalhoenderEmit_cMun.AsString;
+  end
+  else
+  begin
+    fDMImportarXML.cdsCidadeNOME.AsString         := fDMImportarXML.cdsCabecalhoenderDest_xMun.AsString;
+    fDMImportarXML.cdsCidadeUF.AsString           := fDMImportarXML.cdsCabecalhoenderDest_UF.AsString;
+    fDMImportarXML.cdsCidadeCODMUNICIPIO.AsString := fDMImportarXML.cdsCabecalhoenderDest_cMun.AsString;
+  end;
   fDMImportarXML.cdsCidade.Post;
   fDMImportarXML.cdsCidade.ApplyUpdates(0);
-
   vCodCidade := vAux;
-
-  lbStatusCidade.Color := clMoneyGreen;
-  lbStatusCidade.Caption := 'Encontrada - Código Interno: ' + fDMImportarXML.cdsCabecalhoenderDest_xMun.AsString;
+  lbStatusCidade.Color   := clMoneyGreen;
+  if ckNotaEntrada.Checked then
+    lbStatusCidade.Caption := 'Encontrada - Código Interno: ' + fDMImportarXML.cdsCabecalhoenderEmit_xMun.AsString
+  else
+    lbStatusCidade.Caption := 'Encontrada - Código Interno: ' + fDMImportarXML.cdsCabecalhoenderDest_xMun.AsString;
 end;
 
 procedure TfrmImportarXML.Gravar_Pais;
@@ -680,8 +708,16 @@ begin
   fDMImportarXML.cdsFornecedorINSCR_EST.AsString     := edInscDest2.Text;
   fDMImportarXML.cdsFornecedorDTCADASTRO.AsDateTime  := Date;
   fDMImportarXML.cdsFornecedorFANTASIA.AsString      := fDMImportarXML.cdsFornecedorNOME.AsString;
-  fDMImportarXML.cdsFornecedorTP_FORNECEDOR.AsString := 'N';
-  fDMImportarXML.cdsFornecedorTP_CLIENTE.AsString    := 'S';
+  if ckNotaEntrada.Checked then
+  begin
+    fDMImportarXML.cdsFornecedorTP_FORNECEDOR.AsString := 'S';
+    fDMImportarXML.cdsFornecedorTP_CLIENTE.AsString    := 'N';
+  end
+  else
+  begin
+    fDMImportarXML.cdsFornecedorTP_FORNECEDOR.AsString := 'N';
+    fDMImportarXML.cdsFornecedorTP_CLIENTE.AsString    := 'S';
+  end;
   if vCodCidade < 1 then
     Gravar_Cidade;
   if vIDPais < 1 then
@@ -742,20 +778,23 @@ end;
 
 procedure TfrmImportarXML.Verificar_Produto;
 var
-  vExiste : Boolean;
+  vIDAux: Integer;
 begin
-  vExiste := False;
-  if (vBuscaNCM) and (trim(fDMImportarXML.mItensNotaCodBarra.AsString) <> '') then
+  vIDAux := 0;
+  if ckNotaEntrada.Checked then
+    vIDAux := Busca_IDProduto_Forn;
+  if vIDAux > 0 then
+    fDMImportarXML.prc_Abrir_Produto(vIDAux,'','','')
+  else
+  if not(vBuscaNCM) and (trim(fDMImportarXML.mItensNotaCodBarra.AsString) <> '') and (trim(fDMImportarXML.mItensNotaCodBarra.AsString) <> 'SEM GTIN') then
     fDMImportarXML.prc_Abrir_Produto(0,'','',fDMImportarXML.mItensNotaCodBarra.AsString)
   else
     fDMImportarXML.prc_Abrir_Produto(0,fDMImportarXML.mItensNotaCodProduto.AsString,'','');
   if fDMImportarXML.cdsProdutoID.AsInteger > 0 then
   begin
-    vExiste := True;
     fDMImportarXML.mItensNota.Edit;
     fDMImportarXML.mItensNotaCodProdutoInterno.AsInteger := fDMImportarXML.cdsProdutoID.AsInteger;
     fDMImportarXML.mItensNota.Post;
-
     if (vBuscaNCM) and (fDMImportarXML.cdsProdutoID_NCM.AsInteger <= 0) and (fDMImportarXML.mItensNotaID_NCM.AsInteger > 0) then
     begin
       fDMImportarXML.cdsProduto.Edit;
@@ -763,10 +802,13 @@ begin
       fDMImportarXML.cdsProduto.Post;
       fDMImportarXML.cdsProduto.ApplyUpdates(0);
     end;
-  end
+  end;
+  fDMImportarXML.vID_Fornecedor := vCodFornecedor_2;
+  if vIDAux <= 0 then
+    if not vBuscaNCM then
+      fDMImportarXML.Gravar_Produto('NFeXML',ckPreco.Checked,ckNotaEntrada.Checked)
   else
-  if not vBuscaNCM then
-    fDMImportarXML.Gravar_Produto('NFeXML',ckPreco.Checked);
+    fDMImportarXML.prc_Gravar_Produto_Forn;
 end;
 
 function TfrmImportarXML.fnc_NumValido(Const S: String) : Integer;
@@ -803,16 +845,12 @@ begin
     else
       vFilial := RxDBLookupCombo1.KeyValue;
   end;
-
   fDMImportarXML.mItensNota.First;
   while not fDMImportarXML.mItensNota.Eof do
   begin
     fDMImportarXML.Gravar_ClasFiscal;
-
     fDMImportarXML.Gravar_Unidade;
-
     Verificar_Produto;
-
     fDMImportarXML.mItensNota.Next;
   end;
 end;
@@ -847,6 +885,7 @@ begin
   end;
 
   memLista.Lines.Clear;
+  Memo1.Lines.Clear;
 
   ListarArquivos(edtDiretorio.Text, chkSub.Checked);
 
@@ -967,21 +1006,17 @@ begin
         try
           Carrega_XML(Diretorio+'\'+F.Name);
         except
+          memo1.Lines.Add(Diretorio+'\'+F.Name);
         end;
+        
         if vGravar then
         begin
-          if (ckCliente.Checked) and (not(vBuscaNCM)) then
-          begin
-            //pcDados.ActivePage := TabSheet3;
+          if (ckCliente.Checked) and (not(vBuscaNCM)) and (not(ckNotaEntrada.Checked)) then
             BitBtn2Click(frmImportarXML);
-          end;
-          if ckProduto.Checked then
-          begin
-            //pcDados.ActivePage := TabSheet3;
-            BitBtn4Click(frmImportarXML);
-          end;
           if (ckFornecedor.Checked) and (not(vBuscaNCM)) then
             Gravar_Fornecedor;
+          if ckProduto.Checked then
+            BitBtn4Click(frmImportarXML);
         end;
         
       end;
@@ -1045,14 +1080,11 @@ begin
     fDMImportarXML.cdsFornecedorPESSOA.AsString := 'F';
     fDMImportarXML.cdsFornecedorID_REGIME_TRIB.AsInteger := 1;
   end;
-
-  //03/06/2016
   if (fDMImportarXML.qParametrosUSAR_PESSOA_FILIAL.AsString = 'S') then
     fDMImportarXML.cdsFornecedorFILIAL.AsInteger       := vFilial;
   if (fDMImportarXML.cdsFornecedorINSCR_EST.AsString = 'ISENTO') and ((fDMImportarXML.cdsFornecedorUF.AsString = 'RS')
     or (fDMImportarXML.cdsFornecedorPESSOA.AsString = 'F')) then
     fDMImportarXML.cdsFornecedorINSCR_EST.AsString := '';
-    
   if fDMImportarXML.cdsFornecedorINSCR_EST.AsString = 'ISENTO' then
     fDMImportarXML.cdsFornecedorTIPO_CONTRIBUINTE.AsInteger := 2
   else
@@ -1064,7 +1096,6 @@ begin
     fDMImportarXML.cdsFornecedorTIPO_CONSUMIDOR.AsInteger := 0
   else
     fDMImportarXML.cdsFornecedorTIPO_CONSUMIDOR.AsInteger := 1;
-
   fDMImportarXML.cdsFornecedorINATIVO.AsString           := 'N';
   fDMImportarXML.cdsFornecedorTP_VENDEDOR.AsString       := 'N';
   fDMImportarXML.cdsFornecedorTP_FUNCIONARIO.AsString    := 'N';
@@ -1075,7 +1106,6 @@ begin
   fDMImportarXML.cdsFornecedorTP_PRODUTOR_RURAL.AsString := 'N';
   fDMImportarXML.cdsFornecedorCLIENTE_ESTOQUE.AsString   := 'N';
   //*******************
-
   fDMImportarXML.cdsFornecedor.Post;
   fDMImportarXML.cdsFornecedor.ApplyUpdates(0);
 
@@ -1117,6 +1147,26 @@ begin
   if ckProduto.Checked then
     vTexto := vTexto + '(Produto) ';
   ShowMessage('Arquivo de ' + vTexto +  ' Gerados!');
+end;
+
+function TfrmImportarXML.Busca_IDProduto_Forn: Integer;
+var
+  sds: TSQLDataSet;
+begin
+  sds := TSQLDataSet.Create(nil);
+  try
+    sds.SQLConnection := dmDatabase.scoDados;
+    sds.NoMetadata    := True;
+    sds.GetMetadata   := False;
+    sds.CommandText   := 'select F.ID from PRODUTO_FORN F '
+                       + 'where F.ID_FORNECEDOR = :ID_FORNECEDOR and  F.COD_MATERIAL_FORN = :COD_MATERIAL_FORN ';
+    sds.ParamByName('ID_FORNECEDOR').AsInteger    := vCodFornecedor_2;
+    sds.ParamByName('COD_MATERIAL_FORN').AsString := fDMImportarXML.mItensNotaCodProduto.AsString;
+    sds.Open;
+    Result := sds.FieldByName('ID').AsInteger;
+  finally
+    FreeAndNil(sds);
+  end;
 end;
 
 end.

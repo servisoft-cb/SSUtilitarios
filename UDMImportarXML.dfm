@@ -11,7 +11,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM TAB_CFOP'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 544
     Top = 32
     object sdsCFOPID: TIntegerField
@@ -243,15 +243,14 @@ object DMImportarXML: TDMImportarXML
     Top = 32
   end
   object XMLTransformProvider1: TXMLTransformProvider
-    TransformRead.TransformationFile = 'C:\Delphi7\SSFacil\EXE\nfe_v2.00_ToDp.xtr'
-    XMLDataFile = 
-      'C:\Users\cleomar\Desktop\NFe_COOPERATIVA SANTA CLARA LTDA_001_77' +
-      '9264.xml'
+    TransformRead.TransformationFile = 'D:\Delphi7\SSFacil\EXE\nfe_v2.00_ToDp.xtr'
+    XMLDataFile = 'D:\A\Supplier\NFe_UNIFI DO BRASIL LTDA_001_29272.xml'
     CacheData = True
     Left = 432
     Top = 232
   end
   object cdsCabecalho: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'XMLTransformProvider1'
@@ -901,6 +900,7 @@ object DMImportarXML: TDMImportarXML
     Top = 304
   end
   object cdsNFeRef: TClientDataSet
+    Active = True
     Aggregates = <>
     DataSetField = cdsCabecalhoNFref
     Params = <>
@@ -972,6 +972,7 @@ object DMImportarXML: TDMImportarXML
     end
   end
   object cdsNFeProtocolo: TClientDataSet
+    Active = True
     Aggregates = <>
     DataSetField = cdsCabecalhoprotNFe
     Params = <>
@@ -1035,6 +1036,7 @@ object DMImportarXML: TDMImportarXML
     Top = 368
   end
   object cdsParcelas: TClientDataSet
+    Active = True
     Aggregates = <>
     DataSetField = cdsCabecalhodup
     Params = <>
@@ -1052,6 +1054,7 @@ object DMImportarXML: TDMImportarXML
     end
   end
   object cdsDetalhe: TClientDataSet
+    Active = True
     Aggregates = <>
     DataSetField = cdsCabecalhodet
     Params = <>
@@ -1891,6 +1894,26 @@ object DMImportarXML: TDMImportarXML
       FieldName = 'DI'
       UnNamed = True
     end
+    object cdsDetalhedescANP: TStringField
+      FieldName = 'descANP'
+      Size = 95
+    end
+    object cdsDetalheICMS51_vICMSOp: TFloatField
+      FieldName = 'ICMS51_vICMSOp'
+    end
+    object cdsDetalheICMS51_pDif: TFloatField
+      FieldName = 'ICMS51_pDif'
+    end
+    object cdsDetalheICMS60_vICMSSubstituto: TStringField
+      FieldName = 'ICMS60_vICMSSubstituto'
+      Size = 31
+    end
+    object cdsDetalheICMSST_vICMSSubstituto: TFloatField
+      FieldName = 'ICMSST_vICMSSubstituto'
+    end
+    object cdsDetalheICMSSN500_vICMSSubstituto: TFloatField
+      FieldName = 'ICMSSN500_vICMSSubstituto'
+    end
   end
   object dsDetalhe: TDataSource
     DataSet = cdsDetalhe
@@ -2546,7 +2569,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM PRODUTO'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 97
     Top = 16
     object sdsProdutoID: TIntegerField
@@ -2897,7 +2920,7 @@ object DMImportarXML: TDMImportarXML
       'SELECT *'
       'FROM TAB_CFOP'
       'WHERE CODCFOP = :CODCFOP')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 832
     Top = 32
     object qCFOPID: TIntegerField
@@ -3031,7 +3054,7 @@ object DMImportarXML: TDMImportarXML
         'D = :ID)'
       'FROM PARAMETROS P'
       'WHERE P.ID = :ID')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 840
     Top = 80
     object qParametrosID: TIntegerField
@@ -3180,7 +3203,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM CIDADE'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 96
     Top = 96
     object sdsCidadeID: TIntegerField
@@ -3240,7 +3263,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM PAIS'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 96
     Top = 152
     object sdsPaisID: TIntegerField
@@ -3291,7 +3314,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM PESSOA'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 96
     Top = 208
     object sdsFornecedorCODIGO: TIntegerField
@@ -3957,7 +3980,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM TAB_CSTICMS'#13#10#13#10
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 128
     Top = 418
     object sdsTab_CSTICMSID: TIntegerField
@@ -4041,7 +4064,7 @@ object DMImportarXML: TDMImportarXML
       'SELECT *'
       'FROM UNIDADE'
       'WHERE '#9'UNIDADE = :UNIDADE')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 840
     Top = 128
     object qUnidadeUNIDADE: TStringField
@@ -4069,7 +4092,7 @@ object DMImportarXML: TDMImportarXML
       'SELECT *'
       'FROM FILIAL'
       'WHERE '#9'CNPJ_CPF = :CNPJ_CPF')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 840
     Top = 184
     object qFilialID: TIntegerField
@@ -4246,7 +4269,7 @@ object DMImportarXML: TDMImportarXML
         Name = 'NCM'
         ParamType = ptInput
       end>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 120
     Top = 474
     object sdsNCMID: TIntegerField
@@ -4320,7 +4343,7 @@ object DMImportarXML: TDMImportarXML
         Name = 'UNIDADE'
         ParamType = ptInput
       end>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 128
     Top = 362
     object sdsUnidadeUNIDADE: TStringField
@@ -4373,7 +4396,7 @@ object DMImportarXML: TDMImportarXML
       'SELECT *'
       'FROM FILIAL'
       '')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 840
     Top = 232
     object qFilial2ID: TIntegerField
@@ -4399,7 +4422,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM PESSOA'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 96
     Top = 264
   end
@@ -4895,7 +4918,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM PRODUTO_FORN'#13#10
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 120
     Top = 528
     object sdsProduto_FornID: TIntegerField
@@ -4994,7 +5017,7 @@ object DMImportarXML: TDMImportarXML
       'FROM TAB_NCM'
       'WHERE ID = :ID'
       '')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 840
     Top = 280
     object qNCMID: TIntegerField
@@ -5019,7 +5042,7 @@ object DMImportarXML: TDMImportarXML
       'FROM TAB_CSTICMS'
       'WHERE COD_CST = :COD_CST'
       '')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 720
     Top = 88
     object qCSTIcmsID: TIntegerField
@@ -5047,7 +5070,7 @@ object DMImportarXML: TDMImportarXML
       'FROM TAB_CSTIPI'
       'WHERE COD_IPI = :COD_IPI'
       '')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 720
     Top = 136
     object qCSTIpiID: TIntegerField
@@ -5072,7 +5095,7 @@ object DMImportarXML: TDMImportarXML
       'FROM TAB_COFINS'
       'WHERE CODIGO = :CODIGO'
       '')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 720
     Top = 184
     object qCofinsID: TIntegerField
@@ -5097,7 +5120,7 @@ object DMImportarXML: TDMImportarXML
       'FROM TAB_PIS'
       'WHERE CODIGO = :CODIGO'
       '')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 720
     Top = 240
     object qPisID: TIntegerField
@@ -5122,7 +5145,7 @@ object DMImportarXML: TDMImportarXML
       'FROM PRODUTO_FORN'
       'WHERE ID = :ID'
       '')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 888
     Top = 320
     object qProduto_FornITEM: TIntegerField
@@ -5135,7 +5158,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT ID, NOME, NOME_INTERNO, CNPJ_CPF'#13#10'FROM FILIAL'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 120
     Top = 584
   end

@@ -203,7 +203,16 @@ object frmImportarXML: TfrmImportarXML
         ParentShowHint = False
         ShowHint = True
         TabOrder = 11
+        Visible = False
         OnClick = btnBuscaNCMClick
+      end
+      object ckNotaEntrada: TCheckBox
+        Left = 168
+        Top = 56
+        Width = 97
+        Height = 17
+        Caption = 'Notas Entrada'
+        TabOrder = 12
       end
     end
     object TabSheet1: TTabSheet
@@ -2798,55 +2807,46 @@ object frmImportarXML: TfrmImportarXML
           item
             Expanded = False
             FieldName = 'Id'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'tpAmb'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'verAplic'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'chNFe'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'dhRecbto'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'nProt'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'digVal'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'cStat'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'xMotivo'
-            Width = 64
             Visible = True
           end>
       end
