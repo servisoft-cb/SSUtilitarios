@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (06/03/2024  1.0.28)'
+  Caption = 'Menu    (12/03/2024  1.1.29)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -54,7 +54,7 @@ object fMenu: TfMenu
     StatusBar.Font.Style = []
     FullHeight = 0
     object btnLocalizar: TNxButton
-      Left = 37
+      Left = 36
       Top = 32
       Width = 302
       Height = 33
@@ -69,7 +69,7 @@ object fMenu: TfMenu
       OnClick = btnLocalizarClick
     end
     object NxButton1: TNxButton
-      Left = 37
+      Left = 36
       Top = 65
       Width = 302
       Height = 33
@@ -84,7 +84,7 @@ object fMenu: TfMenu
       OnClick = NxButton1Click
     end
     object NxButton2: TNxButton
-      Left = 37
+      Left = 36
       Top = 98
       Width = 302
       Height = 33
@@ -114,7 +114,7 @@ object fMenu: TfMenu
       OnClick = NxButton3Click
     end
     object btnImportar_PlanoSped: TNxButton
-      Left = 37
+      Left = 36
       Top = 164
       Width = 302
       Height = 33
@@ -129,7 +129,7 @@ object fMenu: TfMenu
       OnClick = btnImportar_PlanoSpedClick
     end
     object btnImportar_ContasOrcamento: TNxButton
-      Left = 37
+      Left = 36
       Top = 197
       Width = 302
       Height = 33
@@ -144,7 +144,7 @@ object fMenu: TfMenu
       OnClick = btnImportar_ContasOrcamentoClick
     end
     object NxButton4: TNxButton
-      Left = 37
+      Left = 36
       Top = 230
       Width = 302
       Height = 33
@@ -160,7 +160,7 @@ object fMenu: TfMenu
     end
     object NxButton5: TNxButton
       Left = 428
-      Top = 33
+      Top = 32
       Width = 281
       Height = 33
       Caption = 'Importar Impostos/CFOP Paradox'
@@ -174,7 +174,7 @@ object fMenu: TfMenu
       OnClick = NxButton4Click
     end
     object NxButton6: TNxButton
-      Left = 37
+      Left = 36
       Top = 262
       Width = 302
       Height = 33
@@ -189,7 +189,7 @@ object fMenu: TfMenu
       OnClick = NxButton3Click
     end
     object NxButton7: TNxButton
-      Left = 37
+      Left = 36
       Top = 294
       Width = 302
       Height = 33
@@ -205,7 +205,7 @@ object fMenu: TfMenu
     end
     object NxButton8: TNxButton
       Left = 428
-      Top = 65
+      Top = 64
       Width = 281
       Height = 33
       Caption = 'Gerar Setor nos Tal'#245'es (Calcado)'
@@ -220,7 +220,7 @@ object fMenu: TfMenu
     end
     object NxButton9: TNxButton
       Left = 428
-      Top = 99
+      Top = 97
       Width = 281
       Height = 33
       Caption = 'Ajusta Contas de Orc. nas Duplicatas'
@@ -234,7 +234,7 @@ object fMenu: TfMenu
       OnClick = NxButton9Click
     end
     object NxButton10: TNxButton
-      Left = 37
+      Left = 36
       Top = 326
       Width = 302
       Height = 33
@@ -265,7 +265,7 @@ object fMenu: TfMenu
     end
     object NxButton11: TNxButton
       Left = 428
-      Top = 131
+      Top = 129
       Width = 281
       Height = 33
       Caption = 'Ajusta Produto_Processo'
@@ -279,8 +279,8 @@ object fMenu: TfMenu
       OnClick = NxButton11Click
     end
     object btnAtualizarNCMUnidTrib: TNxButton
-      Left = 429
-      Top = 166
+      Left = 428
+      Top = 162
       Width = 281
       Height = 33
       Caption = 'Atualizar NCM Unidade Tribut'#225'vel (Servidor)'
@@ -293,8 +293,8 @@ object fMenu: TfMenu
       TabOrder = 15
     end
     object btnGravarProdutosWeb: TNxButton
-      Left = 429
-      Top = 201
+      Left = 428
+      Top = 195
       Width = 281
       Height = 33
       Caption = 'Gravar Produtos na WEB / APP'
@@ -308,8 +308,8 @@ object fMenu: TfMenu
       OnClick = btnGravarProdutosWebClick
     end
     object btnAjustarCCusto: TNxButton
-      Left = 429
-      Top = 235
+      Left = 428
+      Top = 227
       Width = 281
       Height = 33
       Caption = 'Ajustar Centro de Custo nos itens da NFe'
@@ -323,8 +323,8 @@ object fMenu: TfMenu
       OnClick = btnAjustarCCustoClick
     end
     object btnAjustaNCM_CFOP: TNxButton
-      Left = 429
-      Top = 270
+      Left = 428
+      Top = 260
       Width = 281
       Height = 33
       Caption = 'Ajustar NCM / CFOP 01/10/2022'
@@ -369,7 +369,7 @@ object fMenu: TfMenu
     end
     object btnGravarGruposWEB: TNxButton
       Left = 429
-      Top = 305
+      Top = 293
       Width = 281
       Height = 33
       Caption = 'Gravar Grupos na WEB / APP'
@@ -383,8 +383,8 @@ object fMenu: TfMenu
       OnClick = btnGravarGruposWEBClick
     end
     object btnImportarCTN: TNxButton
-      Left = 429
-      Top = 341
+      Left = 428
+      Top = 325
       Width = 281
       Height = 33
       Caption = 'Importar CTN (Servi'#231'o Trib. Nacional)'
@@ -398,8 +398,8 @@ object fMenu: TfMenu
       OnClick = btnImportarCTNClick
     end
     object btnAjusteNomeClienteCupom: TNxButton
-      Left = 429
-      Top = 378
+      Left = 428
+      Top = 358
       Width = 281
       Height = 33
       Caption = 'Ajustar Nome Cliente Cupom (Est.Mov)'
@@ -411,6 +411,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 23
       OnClick = btnAjusteNomeClienteCupomClick
+    end
+    object btnGerarPlanoDominio: TNxButton
+      Left = 428
+      Top = 391
+      Width = 281
+      Height = 33
+      Caption = 'Importar Plano Cont'#225'bil (Dominio)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 24
+      OnClick = btnGerarPlanoDominioClick
     end
   end
 end

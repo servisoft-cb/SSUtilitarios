@@ -53,7 +53,8 @@ uses
   UDMCadServico in '..\ssfacil\UDMCadServico.pas' {DMCadServico: TDataModule},
   Classe.Retorno in '..\ssfacil\Classes\Classe.Retorno.pas',
   UInformeEndereco in '..\ssfacil\UInformeEndereco.pas' {frmInformeEndereco},
-  UAjusteNomeClienteCF in 'UAjusteNomeClienteCF.pas' {frmAjusteNomeClienteCF};
+  UAjusteNomeClienteCF in 'UAjusteNomeClienteCF.pas' {frmAjusteNomeClienteCF},
+  UImportar_PlanoDominio in 'UImportar_PlanoDominio.pas' {frmImportar_PlanoDominio};
 
 {$R *.res}
 

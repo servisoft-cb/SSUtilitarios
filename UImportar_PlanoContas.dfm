@@ -1,6 +1,6 @@
 object frmImportar_PlanoContas: TfrmImportar_PlanoContas
-  Left = 308
-  Top = 146
+  Left = 312
+  Top = 208
   Width = 695
   Height = 308
   Caption = 'frmImportar_PlanoContas'
@@ -87,7 +87,7 @@ object frmImportar_PlanoContas: TfrmImportar_PlanoContas
       'SELECT *'
       'FROM PLANO_CONTAS'
       'WHERE CODIGO = :CODIGO')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 496
     Top = 64
     object qPlanoID: TIntegerField
@@ -131,7 +131,7 @@ object frmImportar_PlanoContas: TfrmImportar_PlanoContas
     SQL.Strings = (
       'SELECT *'
       'FROM PLANO_CONTABIL')
-    SQLConnection = dmDatabase.scoDados
+    SQLConnection = DmDatabase.scoDados
     Left = 496
     Top = 120
     object qPlano_ContabilID: TIntegerField
