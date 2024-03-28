@@ -271,6 +271,8 @@ var
 begin
   vcod_Reduzido := Monta_Numero(gGrid.Cells[1,Linha],0);
   vCod_Contabil := gGrid.Cells[0,Linha];
+  if trim(vCod_Contabil) = '' then
+    exit;
   if trim(SQLLocate('PLANO_CONTABIL','CODIGO','NOME',vCod_Contabil)) <> '' then
     exit;
   fDMCadPlano_Contabil.prc_Inserir;
