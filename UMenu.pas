@@ -35,6 +35,7 @@ type
     btnImportarCTN: TNxButton;
     btnAjusteNomeClienteCupom: TNxButton;
     btnGerarPlanoDominio: TNxButton;
+    btnGerarPlanoSage: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -58,6 +59,7 @@ type
     procedure btnImportarCTNClick(Sender: TObject);
     procedure btnAjusteNomeClienteCupomClick(Sender: TObject);
     procedure btnGerarPlanoDominioClick(Sender: TObject);
+    procedure btnGerarPlanoSageClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -75,7 +77,8 @@ uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UimportarRegras, ULeEstoque_Mov, uAjustaConOrcDuplicata, UGeraInventario,
   UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb, UAjustarCCustoNFe,
   UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio, uUtilPadrao,
-  UImportarCTN, UAjusteNomeClienteCF, UImportar_PlanoDominio;//, UGerarTalao_Setor;
+  UImportarCTN, UAjusteNomeClienteCF, UImportar_PlanoDominio,
+  UImportar_PlanoSage;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -261,6 +264,13 @@ begin
   frmImportar_PlanoDominio := TfrmImportar_PlanoDominio.Create(self);
   frmImportar_PlanoDominio.ShowModal;
   FreeAndNil(frmImportar_PlanoDominio);
+end;
+
+procedure TfMenu.btnGerarPlanoSageClick(Sender: TObject);
+begin
+  frmImportar_PlanoSage := TfrmImportar_PlanoSage.Create(self);
+  frmImportar_PlanoSage.ShowModal;
+  FreeAndNil(frmImportar_PlanoSage);
 end;
 
 initialization

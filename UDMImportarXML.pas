@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, FMTBcd, DB, DBClient, Provider, SqlExpr, xmldom,
-  Xmlxform;
+  Xmlxform, dialogs;
 
 type
   TDMImportarXML = class(TDataModule)

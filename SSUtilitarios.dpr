@@ -54,7 +54,8 @@ uses
   Classe.Retorno in '..\ssfacil\Classes\Classe.Retorno.pas',
   UInformeEndereco in '..\ssfacil\UInformeEndereco.pas' {frmInformeEndereco},
   UAjusteNomeClienteCF in 'UAjusteNomeClienteCF.pas' {frmAjusteNomeClienteCF},
-  UImportar_PlanoDominio in 'UImportar_PlanoDominio.pas' {frmImportar_PlanoDominio};
+  UImportar_PlanoDominio in 'UImportar_PlanoDominio.pas' {frmImportar_PlanoDominio},
+  UImportar_PlanoSage in 'UImportar_PlanoSage.pas' {frmImportar_PlanoSage};
 
 {$R *.res}
 

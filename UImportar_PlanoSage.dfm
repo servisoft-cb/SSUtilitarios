@@ -1,9 +1,9 @@
-object frmImportar_PlanoDominio: TfrmImportar_PlanoDominio
-  Left = 308
-  Top = 146
+object frmImportar_PlanoSage: TfrmImportar_PlanoSage
+  Left = 349
+  Top = 225
   Width = 652
   Height = 258
-  Caption = 'frmImportar_PlanoDominio'
+  Caption = 'frmImportar_PlanoSage'
   Color = 16769734
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText

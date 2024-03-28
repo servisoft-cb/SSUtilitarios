@@ -300,13 +300,10 @@ begin
   end;
 end;
 
-
 procedure TfrmImportarXML.FormShow(Sender: TObject);
 begin
   fDMImportarXML     := TDMImportarXML.Create(Self);
-
   oDBUtils.SetDataSourceProperties(Self,fDMImportarXML);
-
   fDMImportarXML.cdsFilial.Close;
   fDMImportarXML.cdsFilial.Open;
   fDMImportarXML.qParametros.Close;

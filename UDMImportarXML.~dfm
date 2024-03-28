@@ -1,8 +1,8 @@
 object DMImportarXML: TDMImportarXML
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 61
-  Top = 35
+  Left = 212
+  Top = 47
   Height = 691
   Width = 1014
   object sdsCFOP: TSQLDataSet
@@ -250,7 +250,6 @@ object DMImportarXML: TDMImportarXML
     Top = 232
   end
   object cdsCabecalho: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'XMLTransformProvider1'
@@ -900,7 +899,6 @@ object DMImportarXML: TDMImportarXML
     Top = 304
   end
   object cdsNFeRef: TClientDataSet
-    Active = True
     Aggregates = <>
     DataSetField = cdsCabecalhoNFref
     Params = <>
@@ -972,7 +970,6 @@ object DMImportarXML: TDMImportarXML
     end
   end
   object cdsNFeProtocolo: TClientDataSet
-    Active = True
     Aggregates = <>
     DataSetField = cdsCabecalhoprotNFe
     Params = <>
@@ -1036,7 +1033,6 @@ object DMImportarXML: TDMImportarXML
     Top = 368
   end
   object cdsParcelas: TClientDataSet
-    Active = True
     Aggregates = <>
     DataSetField = cdsCabecalhodup
     Params = <>
@@ -1054,7 +1050,6 @@ object DMImportarXML: TDMImportarXML
     end
   end
   object cdsDetalhe: TClientDataSet
-    Active = True
     Aggregates = <>
     DataSetField = cdsCabecalhodet
     Params = <>

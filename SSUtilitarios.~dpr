@@ -54,7 +54,8 @@ uses
   Classe.Retorno in '..\ssfacil\Classes\Classe.Retorno.pas',
   UInformeEndereco in '..\ssfacil\UInformeEndereco.pas' {frmInformeEndereco},
   UAjusteNomeClienteCF in 'UAjusteNomeClienteCF.pas' {frmAjusteNomeClienteCF},
-  UImportar_PlanoDominio in 'UImportar_PlanoDominio.pas' {frmImportar_PlanoDominio};
+  UImportar_PlanoDominio in 'UImportar_PlanoDominio.pas' {frmImportar_PlanoDominio},
+  UImportar_PlanoSage in 'UImportar_PlanoSage.pas' {frmImportar_PlanoSage};
 
 {$R *.res}
 
@@ -64,7 +65,7 @@ begin
     Application.Title := 'Utilitários';
   Application.CreateForm(TdmDatabase, dmDatabase);
   Application.CreateForm(TfMenu, fMenu);
-  Application.CreateForm(TfrmImportar_PlanoDominio, frmImportar_PlanoDominio);
+  Application.CreateForm(TfrmImportar_PlanoSage, frmImportar_PlanoSage);
   Application.Run;
   except
     on e: Exception do

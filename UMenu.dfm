@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (12/03/2024  1.1.29)'
+  Caption = 'Menu    (22/03/2024  1.1.30)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -426,6 +426,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 24
       OnClick = btnGerarPlanoDominioClick
+    end
+    object btnGerarPlanoSage: TNxButton
+      Left = 428
+      Top = 425
+      Width = 281
+      Height = 33
+      Caption = 'Importar Plano Cont'#225'bil (Sage OA3)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 25
+      OnClick = btnGerarPlanoSageClick
     end
   end
 end
