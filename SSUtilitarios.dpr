@@ -55,7 +55,8 @@ uses
   UInformeEndereco in '..\ssfacil\UInformeEndereco.pas' {frmInformeEndereco},
   UAjusteNomeClienteCF in 'UAjusteNomeClienteCF.pas' {frmAjusteNomeClienteCF},
   UImportar_PlanoDominio in 'UImportar_PlanoDominio.pas' {frmImportar_PlanoDominio},
-  UImportar_PlanoSage in 'UImportar_PlanoSage.pas' {frmImportar_PlanoSage};
+  UImportar_PlanoSage in 'UImportar_PlanoSage.pas' {frmImportar_PlanoSage},
+  UImportar_PlanoNovoSistema_Excel in 'UImportar_PlanoNovoSistema_Excel.pas' {frmImportar_PlanoNovoSistema_Excel};
 
 {$R *.res}
 

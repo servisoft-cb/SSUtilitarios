@@ -36,6 +36,7 @@ type
     btnAjusteNomeClienteCupom: TNxButton;
     btnGerarPlanoDominio: TNxButton;
     btnGerarPlanoSage: TNxButton;
+    NxButton12: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -60,6 +61,7 @@ type
     procedure btnAjusteNomeClienteCupomClick(Sender: TObject);
     procedure btnGerarPlanoDominioClick(Sender: TObject);
     procedure btnGerarPlanoSageClick(Sender: TObject);
+    procedure NxButton12Click(Sender: TObject);
   private
     { Private declarations }
 
@@ -78,7 +80,7 @@ uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UGeraCBenef, UConvProdutoProc, UGerarProdutoWeb, UAjustarCCustoNFe,
   UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio, uUtilPadrao,
   UImportarCTN, UAjusteNomeClienteCF, UImportar_PlanoDominio,
-  UImportar_PlanoSage;//, UGerarTalao_Setor;
+  UImportar_PlanoSage, UImportar_PlanoNovoSistema_Excel;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -271,6 +273,13 @@ begin
   frmImportar_PlanoSage := TfrmImportar_PlanoSage.Create(self);
   frmImportar_PlanoSage.ShowModal;
   FreeAndNil(frmImportar_PlanoSage);
+end;
+
+procedure TfMenu.NxButton12Click(Sender: TObject);
+begin
+  frmImportar_PlanoNovoSistema_Excel := TfrmImportar_PlanoNovoSistema_Excel.Create(self);
+  frmImportar_PlanoNovoSistema_Excel.ShowModal;
+  FreeAndNil(frmImportar_PlanoNovoSistema_Excel);
 end;
 
 initialization

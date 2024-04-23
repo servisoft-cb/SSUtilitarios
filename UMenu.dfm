@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (22/03/2024  1.1.30)'
+  Caption = 'Menu    (23/03/2024  1.1.31)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -442,5 +442,20 @@ object fMenu: TfMenu
       TabOrder = 25
       OnClick = btnGerarPlanoSageClick
     end
+  end
+  object NxButton12: TNxButton
+    Left = 36
+    Top = 461
+    Width = 302
+    Height = 33
+    Caption = 'Importar Plano Contas Excel (Novo Sistema)'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    OnClick = NxButton12Click
   end
 end
