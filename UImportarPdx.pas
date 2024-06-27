@@ -794,10 +794,6 @@ var
   vExiste : Boolean;
   vaux2 : Integer;
 begin
-  if fDMImportarPdx.tFornecedoresCodForn.AsInteger = 457 then
-    ShowMessage('aqui');
-  if fDMImportarPdx.tFornecedoresCodForn.AsInteger = 1502 then
-    ShowMessage('aqui 1502 parte 2');
   fDMImportarPdx.qCodAnt.Close;
   fDMImportarPdx.qCodAnt.ParamByName('COD_ANT').AsInteger := fDMImportarPdx.tFornecedoresCodForn.AsInteger;
   fDMImportarPdx.qCodAnt.Open;

@@ -119,7 +119,7 @@ object frmImportarXML: TfrmImportarXML
       object ckPreco: TCheckBox
         Left = 8
         Top = 59
-        Width = 169
+        Width = 154
         Height = 16
         Caption = 'Gravar Pre'#231'o no Produto'
         Checked = True
@@ -207,7 +207,7 @@ object frmImportarXML: TfrmImportarXML
         OnClick = btnBuscaNCMClick
       end
       object ckNotaEntrada: TCheckBox
-        Left = 168
+        Left = 176
         Top = 56
         Width = 97
         Height = 17
