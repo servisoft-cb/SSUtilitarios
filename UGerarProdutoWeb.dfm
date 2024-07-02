@@ -220,7 +220,6 @@ object frmGerarProdutoWeb: TfrmGerarProdutoWeb
     Height = 346
     Align = alClient
     Ctl3D = False
-    DataSource = dmCadProduto.dsProduto_Consulta
     Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
     ParentCtl3D = False
     ReadOnly = True
@@ -306,7 +305,6 @@ object frmGerarProdutoWeb: TfrmGerarProdutoWeb
         Title.Alignment = taCenter
         Title.Caption = 'Unid.'
         Title.Color = 14930369
-        Width = 64
         Visible = True
       end
       item

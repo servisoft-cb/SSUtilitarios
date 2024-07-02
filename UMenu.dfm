@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (23/03/2024  1.1.31)'
+  Caption = 'Menu    (01/07/2024  1.1.32)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -441,6 +441,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 25
       OnClick = btnGerarPlanoSageClick
+    end
+    object NxButton13: TNxButton
+      Left = 428
+      Top = 460
+      Width = 281
+      Height = 33
+      Caption = 'Importar As Notas pelo XML (Sa'#237'da)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 26
+      OnClick = NxButton13Click
     end
   end
   object NxButton12: TNxButton

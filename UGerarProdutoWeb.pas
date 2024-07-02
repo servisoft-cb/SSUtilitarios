@@ -67,8 +67,8 @@ begin
     3 : vComando := vComando + ' AND PRO.TIPO_REG = ' + QuotedStr('I');
     4 : vComando := vComando + ' AND PRO.TIPO_REG = ' + QuotedStr('S');
   end;
-  fDMCadProduto.sdsProduto_Consulta.CommandText := fDMCadProduto.ctConsulta + vComando;
-  fDMCadProduto.cdsProduto_Consulta.Open;
+  fDMCadProduto.sdsConsulta.CommandText := fDMCadProduto.ctConsulta2 + vComando;
+  fDMCadProduto.cdsConsulta.Open;
 end;
 
 procedure TfrmGerarProdutoWeb.NxButton2Click(Sender: TObject);
@@ -77,7 +77,7 @@ var
   vContador: Integer;
   sds: TSQLDataSet;
 begin
-  if not(fDMCadProduto.cdsProduto_Consulta.Active) or (fDMCadProduto.cdsProduto_Consulta.IsEmpty) then
+  if not(fDMCadProduto.cdsConsulta.Active) or (fDMCadProduto.cdsConsulta.IsEmpty) then
   begin
     MessageDlg('*** Fazer primeiro a consulta!', mtInformation, [mbOk], 0);
     exit;
@@ -94,22 +94,22 @@ begin
     sds.NoMetadata    := True;
     sds.GetMetadata   := False;
     uUtilPadrao.prc_Form_Aguarde(Form);
-    fDMCadProduto.cdsProduto_Consulta.First;
-    while not fDMCadProduto.cdsProduto_Consulta.Eof do
+    fDMCadProduto.cdsConsulta.First;
+    while not fDMCadProduto.cdsConsulta.Eof do
     begin
-      if (SMDBGrid1.SelectedRows.CurrentRowSelected) and (StrToFloat(FormatFloat('0.000',fDMCadProduto.cdsProduto_ConsultaPRECO_VENDA.AsFloat)) > 0) then
+      if (SMDBGrid1.SelectedRows.CurrentRowSelected) and (StrToFloat(FormatFloat('0.000',fDMCadProduto.cdsConsultaPRECO_VENDA.AsFloat)) > 0) then
       begin
-        fDMCadProduto.prc_Localizar(fDMCadProduto.cdsProduto_ConsultaID.AsInteger);
+        fDMCadProduto.prc_Localizar(fDMCadProduto.cdsConsultaID.AsInteger);
         if fDMCadProduto.cdsProdutoGERAR_WEB.AsString <> 'S' then
         begin
           sds.Close;
           sds.CommandText := 'update PRODUTO P set P.GERAR_WEB = ' + QuotedStr('S') + ' where P.ID = :ID ';
-          sds.ParamByName('ID').AsInteger := fDMCadProduto.cdsProduto_ConsultaID.AsInteger;
+          sds.ParamByName('ID').AsInteger := fDMCadProduto.cdsConsultaID.AsInteger;
           sds.ExecSQL;
           vContador := vContador + 1;
         end;
       end;
-      fDMCadProduto.cdsProduto_Consulta.Next;
+      fDMCadProduto.cdsConsulta.Next;
     end;
   finally
     begin

@@ -56,7 +56,15 @@ uses
   UAjusteNomeClienteCF in 'UAjusteNomeClienteCF.pas' {frmAjusteNomeClienteCF},
   UImportar_PlanoDominio in 'UImportar_PlanoDominio.pas' {frmImportar_PlanoDominio},
   UImportar_PlanoSage in 'UImportar_PlanoSage.pas' {frmImportar_PlanoSage},
-  UImportar_PlanoNovoSistema_Excel in 'UImportar_PlanoNovoSistema_Excel.pas' {frmImportar_PlanoNovoSistema_Excel};
+  UImportar_PlanoNovoSistema_Excel in 'UImportar_PlanoNovoSistema_Excel.pas' {frmImportar_PlanoNovoSistema_Excel},
+  UDMRecebeXML in 'nfevisualizador\UDMRecebeXML.pas' {DMRecebeXML: TDataModule},
+  UDMRecebeXMLNovo_ListarXML in 'nfevisualizador\UDMRecebeXMLNovo_ListarXML.pas' {DMRecebeXMLNovo_ListarXML: TDataModule},
+  uRecebeXMLNovo in 'nfevisualizador\URecebeXMLNovo.pas' {frmRecebeXMLNovo},
+  URecebeXMLNovo_ListarXML in 'nfevisualizador\URecebeXMLNovo_ListarXML.pas' {frmRecebeXMLNovo_ListarXML},
+  uUtilProduto in 'uUtilProduto.pas',
+  UDMConsProduto in '..\ssfacil\UDMConsProduto.pas' {DMConsProduto: TDataModule},
+  uUtil_RecebeXML in 'nfevisualizador\uUtil_RecebeXML.pas',
+  UDMGravarFinanceiro in '..\ssfacil\UDMGravarFinanceiro.pas' {DMGravarFinanceiro: TDataModule};
 
 {$R *.res}
 
