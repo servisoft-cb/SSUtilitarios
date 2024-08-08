@@ -2406,8 +2406,7 @@ begin
   Result := False;
   cdsFornecedor.Close;
   sdsFornecedor.CommandText := 'SELECT * FROM PESSOA '
-                             + ' WHERE CNPJ_CPF =  ' + QuotedStr(CNPJ)
-                             + ' and INATIVO = ' + QuotedStr('N');
+                             + ' WHERE CNPJ_CPF =  ' + QuotedStr(CNPJ);
   cdsFornecedor.Open;
   if not(cdsFornecedor.IsEmpty) or (cdsFornecedorCNPJ_CPF.AsString = CNPJ) then
     Result := True;

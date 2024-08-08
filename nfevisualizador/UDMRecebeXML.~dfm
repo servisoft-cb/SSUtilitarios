@@ -8835,24 +8835,6 @@ object DMRecebeXML: TDMRecebeXML
       FieldName = 'Adiantamento'
       Size = 1
     end
-    object mParclkNomeConta: TStringField
-      FieldKind = fkLookup
-      FieldName = 'lkNomeConta'
-      LookupKeyFields = 'ID'
-      LookupResultField = 'NOME'
-      KeyFields = 'ID_Conta'
-      Size = 40
-      Lookup = True
-    end
-    object mParclkNomeTipoCobranca: TStringField
-      FieldKind = fkLookup
-      FieldName = 'lkNomeTipoCobranca'
-      LookupKeyFields = 'ID'
-      LookupResultField = 'NOME'
-      KeyFields = 'ID_TipoCobranca'
-      Size = 60
-      Lookup = True
-    end
   end
   object dsmParc: TDataSource
     DataSet = mParc

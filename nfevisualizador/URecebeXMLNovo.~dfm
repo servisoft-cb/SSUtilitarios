@@ -2746,16 +2746,6 @@ object frmRecebeXMLNovo: TfrmRecebeXMLNovo
           ReadOnly = True
           TabOrder = 18
         end
-        object BitBtn2: TBitBtn
-          Left = 1068
-          Top = 26
-          Width = 123
-          Height = 25
-          Hint = 'Gravar fornecedor no sistema'
-          Anchors = [akTop, akRight]
-          Caption = 'Gravar Fornecedor'
-          TabOrder = 19
-        end
         object BitBtn1: TBitBtn
           Left = 1139
           Top = 459
@@ -2763,7 +2753,7 @@ object frmRecebeXMLNovo: TfrmRecebeXMLNovo
           Height = 25
           Anchors = [akTop, akRight]
           Caption = 'Mostrar Dados Originais'
-          TabOrder = 20
+          TabOrder = 19
           Visible = False
         end
       end
