@@ -814,15 +814,6 @@ type
     tProdutoObs: TMemoField;
     tProdutoEndEtiq: TStringField;
     tProdutoLancaCor: TBooleanField;
-    tProdutoPercComissaoVend: TFloatField;
-    tProdutoCodCSTIPI: TStringField;
-    tProdutoComplemento: TStringField;
-    tProdutoQtdEmbalagem: TIntegerField;
-    tProdutoPrecoVenda: TFloatField;
-    tProdutoProdMat: TStringField;
-    tProdutoOrigemProd: TStringField;
-    tProdutoImpMatTalao: TBooleanField;
-    tProdutoNCM_Ex: TStringField;
     tProdutoCorCodProduto: TIntegerField;
     tProdutoCorCodCor: TIntegerField;
     tCorPantone: TStringField;
@@ -844,18 +835,6 @@ type
     tVendedorPercImpRenda: TFloatField;
     tVendedorSelecionado: TBooleanField;
     tVendedorContato: TStringField;
-    tVendedorCaixaPostal: TStringField;
-    tVendedorInativo: TBooleanField;
-    tProdutoGrade: TTable;
-    dsProdutoGrade: TDataSource;
-    tProdutoGradeCodProduto: TIntegerField;
-    tProdutoGradeCodGrade: TIntegerField;
-    tProdutoTam: TTable;
-    tProdutoTamCodProduto: TIntegerField;
-    tProdutoTamCodGrade: TIntegerField;
-    tProdutoTamPosicao: TIntegerField;
-    tProdutoTamTamanho: TStringField;
-    tProdutoTamQtdEmbalagem: TIntegerField;
     tProdutoMat: TTable;
     dsProdutoCor: TDataSource;
     dsProdutoMat: TDataSource;
@@ -1109,7 +1088,6 @@ type
     cdsProdutoID_GRADE: TIntegerField;
     cdsProdutoUSA_COR: TStringField;
     cdsProdutoBAIXA_ESTOQUE_MAT: TStringField;
-    cdsProdutoID_FORMA: TIntegerField;
     cdsProdutoID_CSTICMS: TIntegerField;
     sdsCombinacao: TSQLDataSet;
     dspCombinacao: TDataSetProvider;
@@ -1162,26 +1140,12 @@ type
     tGrupo: TTable;
     tGrupoCodigo: TIntegerField;
     tGrupoNome: TStringField;
-    tGrupoSeparaCor: TBooleanField;
-    tGrupoSeparaTam: TBooleanField;
-    tGrupoGeraOC: TBooleanField;
     tMateriallkNomeGrupo: TStringField;
     tTamanhos: TTable;
     tTamanhosCodGrade: TIntegerField;
     tTamanhosPosicao: TIntegerField;
     tTamanhosTamanho: TStringField;
     tTamanhosMarcarTam: TStringField;
-    tTamanhosQtdPar: TIntegerField;
-    tTamanhosTamDebrum: TStringField;
-    tTamanhosTamBiqueira: TStringField;
-    tTamanhosTamPalmInterna: TStringField;
-    tTamanhosTamForro: TStringField;
-    tTamanhosTamAvesso: TStringField;
-    tTamanhosTamCapaPlataforma: TStringField;
-    tTamanhosTamCapaSalto: TStringField;
-    tTamanhosTamPre: TStringField;
-    tTamanhosTamTaloneira: TStringField;
-    tTamanhosTamEspuma: TStringField;
     sdsTamanho: TSQLDataSet;
     dspTamanho: TDataSetProvider;
     cdsTamanho: TClientDataSet;
@@ -1310,7 +1274,6 @@ type
     tClienteCodCidadeE: TIntegerField;
     tClienteCodCidadeP: TIntegerField;
     tClienteEmail: TStringField;
-    tClienteMercado: TStringField;
     tClienteNumEnd: TStringField;
     tClienteNumEndEntrega: TStringField;
     tClienteEmailNfe: TStringField;
@@ -1326,7 +1289,6 @@ type
     tClienteDDDFax: TIntegerField;
     tClienteIDPais: TIntegerField;
     tClienteEmailNFe2: TStringField;
-    tClienteNomeSemAcento: TStringField;
     tClienteTipo_Consumidor: TIntegerField;
     tClienteTIPO_CONTRIBUINTE: TIntegerField;
     tClientePessoaEntrega: TStringField;
@@ -1353,17 +1315,11 @@ type
     tFornecedoresFornecedorOutros: TStringField;
     tFornecedoresCodCidade: TIntegerField;
     tFornecedoresIDPais: TIntegerField;
-    tFornecedoresUsuario: TStringField;
-    tFornecedoresDtCad: TDateField;
-    tFornecedoresHrCad: TTimeField;
-    tFornecedoresCliente: TBooleanField;
-    tFornecedoresEndComplemento: TStringField;
     tFornecedoresDDDFone1: TIntegerField;
     tFornecedoresDDDFone2: TIntegerField;
     tFornecedoresDDDFax: TIntegerField;
     tFornecedoresNumEnd: TStringField;
     tFornecedoresPessoa: TStringField;
-    tFornecedoresTipoMat: TStringField;
     tFornecedoresTIPO_CONSUMIDOR: TIntegerField;
     tFornecedoresTIPO_CONTRIBUINTE: TIntegerField;
     sdsCONVERSOR_COD_ANT: TSQLDataSet;
@@ -1462,7 +1418,6 @@ type
     sdsProdutoUSA_PRECO_COR: TStringField;
     sdsProdutoTRANSFER: TStringField;
     cdsProdutoUSA_PRECO_COR: TStringField;
-    cdsProdutoTRANSFER: TStringField;
     qTam: TSQLQuery;
     qTamCONTADOR: TIntegerField;
     sdsProdutoID_FORNECEDOR: TIntegerField;
@@ -1474,6 +1429,7 @@ type
     qCodAnt2ID_PESSOA: TIntegerField;
     qCodAnt2COD_ANT: TIntegerField;
     qCodAnt2TIPO: TStringField;
+    tFornecedoresCustoFixo: TBooleanField;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsNCMNewRecord(DataSet: TDataSet);
     procedure cdsProdutoNewRecord(DataSet: TDataSet);
@@ -1816,13 +1772,11 @@ begin
     else
       cdsProdutoUSA_COR.AsString := 'N';
     cdsProdutoBAIXA_ESTOQUE_MAT.AsString := 'N';
-    cdsProdutoID_FORMA.Clear;
     cdsProdutoID_CSTICMS.Clear;
     if tMaterialPrecoCor.AsBoolean then
       cdsProdutoUSA_PRECO_COR.AsString := 'S'
     else
       cdsProdutoUSA_PRECO_COR.AsString := 'N';
-    cdsProdutoTRANSFER.AsString := 'N';
     cdsProduto.Post;
 
     if tMaterialCor.RecordCount > 0 then

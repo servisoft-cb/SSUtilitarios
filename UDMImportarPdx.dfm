@@ -12,7 +12,7 @@ object DMImportarPdx: TDMImportarPdx
     MaxBlobSize = -1
     Params = <>
     SQLConnection = DmDatabase.scoDados
-    Left = 544
+    Left = 456
     Top = 32
     object sdsCFOPID: TIntegerField
       FieldName = 'ID'
@@ -119,7 +119,7 @@ object DMImportarPdx: TDMImportarPdx
   end
   object dspCFOP: TDataSetProvider
     DataSet = sdsCFOP
-    Left = 616
+    Left = 528
     Top = 32
   end
   object cdsCFOP: TClientDataSet
@@ -127,7 +127,7 @@ object DMImportarPdx: TDMImportarPdx
     IndexFieldNames = 'ID'
     Params = <>
     ProviderName = 'dspCFOP'
-    Left = 680
+    Left = 592
     Top = 32
     object cdsCFOPID: TIntegerField
       FieldName = 'ID'
@@ -239,7 +239,7 @@ object DMImportarPdx: TDMImportarPdx
   end
   object dsCFOP: TDataSource
     DataSet = cdsCFOP
-    Left = 752
+    Left = 664
     Top = 32
   end
   object sdsProduto: TSQLDataSet
@@ -539,19 +539,11 @@ object DMImportarPdx: TDMImportarPdx
       FixedChar = True
       Size = 1
     end
-    object cdsProdutoID_FORMA: TIntegerField
-      FieldName = 'ID_FORMA'
-    end
     object cdsProdutoID_CSTICMS: TIntegerField
       FieldName = 'ID_CSTICMS'
     end
     object cdsProdutoUSA_PRECO_COR: TStringField
       FieldName = 'USA_PRECO_COR'
-      FixedChar = True
-      Size = 1
-    end
-    object cdsProdutoTRANSFER: TStringField
-      FieldName = 'TRANSFER'
       FixedChar = True
       Size = 1
     end
@@ -3358,6 +3350,7 @@ object DMImportarPdx: TDMImportarPdx
   end
   object Tabelas: TDatabase
     AliasName = 'Lotus'
+    Connected = True
     DatabaseName = 'Tabelas'
     SessionName = 'Default'
     Left = 976
@@ -3525,10 +3518,6 @@ object DMImportarPdx: TDMImportarPdx
       FieldName = 'Email'
       Size = 50
     end
-    object tClienteMercado: TStringField
-      FieldName = 'Mercado'
-      Size = 1
-    end
     object tClienteNumEnd: TStringField
       FieldName = 'NumEnd'
       Size = 15
@@ -3581,10 +3570,6 @@ object DMImportarPdx: TDMImportarPdx
       FieldName = 'EmailNFe2'
       Size = 150
     end
-    object tClienteNomeSemAcento: TStringField
-      FieldName = 'NomeSemAcento'
-      Size = 40
-    end
     object tClienteTipo_Consumidor: TIntegerField
       FieldName = 'Tipo_Consumidor'
     end
@@ -3597,6 +3582,7 @@ object DMImportarPdx: TDMImportarPdx
     end
   end
   object tFornecedores: TTable
+    Active = True
     DatabaseName = 'Tabelas'
     TableName = 'DBFORNECEDORES.DB'
     Left = 896
@@ -3688,23 +3674,6 @@ object DMImportarPdx: TDMImportarPdx
     object tFornecedoresIDPais: TIntegerField
       FieldName = 'IDPais'
     end
-    object tFornecedoresUsuario: TStringField
-      FieldName = 'Usuario'
-      Size = 15
-    end
-    object tFornecedoresDtCad: TDateField
-      FieldName = 'DtCad'
-    end
-    object tFornecedoresHrCad: TTimeField
-      FieldName = 'HrCad'
-    end
-    object tFornecedoresCliente: TBooleanField
-      FieldName = 'Cliente'
-    end
-    object tFornecedoresEndComplemento: TStringField
-      FieldName = 'EndComplemento'
-      Size = 60
-    end
     object tFornecedoresDDDFone1: TIntegerField
       FieldName = 'DDDFone1'
     end
@@ -3722,15 +3691,14 @@ object DMImportarPdx: TDMImportarPdx
       FieldName = 'Pessoa'
       Size = 1
     end
-    object tFornecedoresTipoMat: TStringField
-      FieldName = 'TipoMat'
-      Size = 1
-    end
     object tFornecedoresTIPO_CONSUMIDOR: TIntegerField
       FieldName = 'TIPO_CONSUMIDOR'
     end
     object tFornecedoresTIPO_CONTRIBUINTE: TIntegerField
       FieldName = 'TIPO_CONTRIBUINTE'
+    end
+    object tFornecedoresCustoFixo: TBooleanField
+      FieldName = 'CustoFixo'
     end
   end
   object tTransportadora: TTable
@@ -3918,38 +3886,6 @@ object DMImportarPdx: TDMImportarPdx
     end
     object tProdutoLancaCor: TBooleanField
       FieldName = 'LancaCor'
-    end
-    object tProdutoPercComissaoVend: TFloatField
-      FieldName = 'PercComissaoVend'
-    end
-    object tProdutoCodCSTIPI: TStringField
-      FieldName = 'CodCSTIPI'
-      Size = 2
-    end
-    object tProdutoComplemento: TStringField
-      FieldName = 'Complemento'
-      Size = 40
-    end
-    object tProdutoQtdEmbalagem: TIntegerField
-      FieldName = 'QtdEmbalagem'
-    end
-    object tProdutoPrecoVenda: TFloatField
-      FieldName = 'PrecoVenda'
-    end
-    object tProdutoProdMat: TStringField
-      FieldName = 'ProdMat'
-      Size = 1
-    end
-    object tProdutoOrigemProd: TStringField
-      FieldName = 'OrigemProd'
-      Size = 1
-    end
-    object tProdutoImpMatTalao: TBooleanField
-      FieldName = 'ImpMatTalao'
-    end
-    object tProdutoNCM_Ex: TStringField
-      FieldName = 'NCM_Ex'
-      Size = 2
     end
   end
   object tCidade: TTable
@@ -4275,13 +4211,6 @@ object DMImportarPdx: TDMImportarPdx
     object tVendedorContato: TStringField
       FieldName = 'Contato'
       Size = 50
-    end
-    object tVendedorCaixaPostal: TStringField
-      FieldName = 'CaixaPostal'
-      Size = 10
-    end
-    object tVendedorInativo: TBooleanField
-      FieldName = 'Inativo'
     end
   end
   object dsCondPgtoPdx: TDataSource
@@ -4668,51 +4597,6 @@ object DMImportarPdx: TDMImportarPdx
       FieldName = 'GERAR_CUSTO'
       FixedChar = True
       Size = 1
-    end
-  end
-  object tProdutoGrade: TTable
-    DatabaseName = 'Tabelas'
-    IndexFieldNames = 'CodProduto;CodGrade'
-    MasterFields = 'Codigo'
-    MasterSource = dsProdutoPdx
-    TableName = 'dbProdutoGrade.db'
-    Left = 576
-    Top = 536
-    object tProdutoGradeCodProduto: TIntegerField
-      FieldName = 'CodProduto'
-    end
-    object tProdutoGradeCodGrade: TIntegerField
-      FieldName = 'CodGrade'
-    end
-  end
-  object dsProdutoGrade: TDataSource
-    DataSet = tProdutoGrade
-    Left = 624
-    Top = 536
-  end
-  object tProdutoTam: TTable
-    DatabaseName = 'Tabelas'
-    IndexFieldNames = 'CodProduto;CodGrade;Posicao'
-    MasterFields = 'CodProduto;CodGrade'
-    MasterSource = dsProdutoGrade
-    TableName = 'dbProdutoTam.db'
-    Left = 584
-    Top = 584
-    object tProdutoTamCodProduto: TIntegerField
-      FieldName = 'CodProduto'
-    end
-    object tProdutoTamCodGrade: TIntegerField
-      FieldName = 'CodGrade'
-    end
-    object tProdutoTamPosicao: TIntegerField
-      FieldName = 'Posicao'
-    end
-    object tProdutoTamTamanho: TStringField
-      FieldName = 'Tamanho'
-      Size = 3
-    end
-    object tProdutoTamQtdEmbalagem: TIntegerField
-      FieldName = 'QtdEmbalagem'
     end
   end
   object tProdutoMat: TTable
@@ -5258,15 +5142,6 @@ object DMImportarPdx: TDMImportarPdx
       FieldName = 'Nome'
       Size = 30
     end
-    object tGrupoSeparaCor: TBooleanField
-      FieldName = 'SeparaCor'
-    end
-    object tGrupoSeparaTam: TBooleanField
-      FieldName = 'SeparaTam'
-    end
-    object tGrupoGeraOC: TBooleanField
-      FieldName = 'GeraOC'
-    end
   end
   object tTamanhos: TTable
     DatabaseName = 'Tabelas'
@@ -5285,49 +5160,6 @@ object DMImportarPdx: TDMImportarPdx
     end
     object tTamanhosMarcarTam: TStringField
       FieldName = 'MarcarTam'
-      Size = 3
-    end
-    object tTamanhosQtdPar: TIntegerField
-      FieldName = 'QtdPar'
-    end
-    object tTamanhosTamDebrum: TStringField
-      FieldName = 'TamDebrum'
-      Size = 3
-    end
-    object tTamanhosTamBiqueira: TStringField
-      FieldName = 'TamBiqueira'
-      Size = 3
-    end
-    object tTamanhosTamPalmInterna: TStringField
-      FieldName = 'TamPalmInterna'
-      Size = 3
-    end
-    object tTamanhosTamForro: TStringField
-      FieldName = 'TamForro'
-      Size = 3
-    end
-    object tTamanhosTamAvesso: TStringField
-      FieldName = 'TamAvesso'
-      Size = 3
-    end
-    object tTamanhosTamCapaPlataforma: TStringField
-      FieldName = 'TamCapaPlataforma'
-      Size = 3
-    end
-    object tTamanhosTamCapaSalto: TStringField
-      FieldName = 'TamCapaSalto'
-      Size = 3
-    end
-    object tTamanhosTamPre: TStringField
-      FieldName = 'TamPre'
-      Size = 3
-    end
-    object tTamanhosTamTaloneira: TStringField
-      FieldName = 'TamTaloneira'
-      Size = 3
-    end
-    object tTamanhosTamEspuma: TStringField
-      FieldName = 'TamEspuma'
       Size = 3
     end
   end

@@ -38,8 +38,8 @@ object frmImportarPdx: TfrmImportarPdx
     OnClick = BitBtn1Click
   end
   object BitBtn4: TBitBtn
-    Left = 248
-    Top = 22
+    Left = 289
+    Top = 146
     Width = 201
     Height = 25
     Caption = 'Gravar Produtos (Cor Novo Produto)'
@@ -47,11 +47,11 @@ object frmImportarPdx: TfrmImportarPdx
     OnClick = BitBtn4Click
   end
   object BitBtn6: TBitBtn
-    Left = 49
-    Top = 10
+    Left = 25
+    Top = 114
     Width = 129
     Height = 25
-    Caption = '1) Cond. de Pagamento'
+    Caption = 'Cond. de Pagamento'
     TabOrder = 3
     OnClick = BitBtn6Click
   end
@@ -65,7 +65,7 @@ object frmImportarPdx: TfrmImportarPdx
   end
   object BitBtn3: TBitBtn
     Left = 289
-    Top = 113
+    Top = 114
     Width = 129
     Height = 25
     Caption = 'Gravar Fornecedores'
@@ -99,7 +99,7 @@ object frmImportarPdx: TfrmImportarPdx
   end
   object BitBtn9: TBitBtn
     Left = 556
-    Top = 77
+    Top = 78
     Width = 129
     Height = 25
     Caption = '2) Gravar Material'
@@ -135,7 +135,7 @@ object frmImportarPdx: TfrmImportarPdx
   end
   object BitBtn13: TBitBtn
     Left = 425
-    Top = 113
+    Top = 114
     Width = 152
     Height = 25
     Caption = 'Ajustar Email Fornecedor'

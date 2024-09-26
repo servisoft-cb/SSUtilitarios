@@ -208,8 +208,10 @@ begin
     else
     begin
       //vAux := dmDatabase.ProximaSequencia('PESSOA',0);
+      vAux := dmDatabase.ProximaSequencia('PESSOA',0);
       fDMImportarPdx.cdsFornecedor.Insert;
-      fDMImportarPdx.cdsFornecedorCODIGO.AsInteger  := fDMImportarPdx.tClienteCodigo.AsInteger;
+      fDMImportarPdx.cdsFornecedorCODIGO.AsInteger  := vAux;
+//      fDMImportarPdx.cdsFornecedorCODIGO.AsInteger  := fDMImportarPdx.tClienteCodigo.AsInteger;
       fDMImportarPdx.cdsFornecedorNOME.AsString     := fDMImportarPdx.tClienteNome.AsString;
       fDMImportarPdx.cdsFornecedorFANTASIA.AsString := fDMImportarPdx.tClienteFantasia.AsString;
       fDMImportarPdx.cdsFornecedorCNPJ_CPF.AsString := fDMImportarPdx.tClienteCgcCpf.AsString;
@@ -443,14 +445,10 @@ begin
     fDMImportarPdx.cdsProdutoINATIVO.AsString := 'N';
 
   vAux := 0;
-  if trim(fDMImportarPdx.tProdutoCodCSTIPI.AsString) <> '' then
-    vAux := fDMImportarPdx.fnc_Abrir_CSTIPI(fDMImportarPdx.tProdutoCodCSTIPI.AsString);
-  if vAux > 0 then
-    fDMImportarPdx.cdsProdutoID_CSTIPI.AsInteger := vAux;
   fDMImportarPdx.cdsProdutoPERC_IPI.AsFloat    := fDMImportarPdx.tProdutoAliqIPI.AsFloat;
   //fDMImportarPdx.cdsProdutoPRECO_CUSTO.AsFloat := fDMImportarPdx.tProdutoPrecoCusto.AsFloat;
-  fDMImportarPdx.cdsProdutoPRECO_VENDA.AsFloat := fDMImportarPdx.tProdutoPrecoVenda.AsFloat;
-  fDMImportarPdx.cdsProdutoTIPO_REG.AsString   := fDMImportarPdx.tProdutoProdMat.AsString;
+//  fDMImportarPdx.cdsProdutoPRECO_VENDA.AsFloat := fDMImportarPdx.tProdutoPrecoVenda.AsFloat;
+  fDMImportarPdx.cdsProdutoTIPO_REG.AsString   := 'P';
   fDMImportarPdx.cdsProdutoPOSSE_MATERIAL.AsString := 'E';
   //if fDMImportarPdx.tProdutoEstoque.AsBoolean then
     fDMImportarPdx.cdsProdutoESTOQUE.AsString := 'S';
@@ -461,7 +459,7 @@ begin
   fDMImportarPdx.cdsProdutoDTCAD.AsDateTime := Date;
   fDMImportarPdx.cdsProdutoHRCAD.AsDateTime := Now;
   fDMImportarPdx.cdsProdutoCA.AsString      := '';
-  fDMImportarPdx.cdsProdutoCOMPLEMENTO.AsString := fDMImportarPdx.tProdutoComplemento.AsString;
+//  fDMImportarPdx.cdsProdutoCOMPLEMENTO.AsString := fDMImportarPdx.tProdutoComplemento.AsString;
 
   fDMImportarPdx.vIDNCM := 0;
   if (trim(fDMImportarPdx.tProdutoCodClasFiscal.AsString) <> '') and (fDMImportarPdx.tClasFiscal.Locate('ClasFiscal',fDMImportarPdx.tProdutoCodClasFiscal.AsString,([LocaseInsensitive]))) then
@@ -473,7 +471,7 @@ begin
   if fDMImportarPdx.vIDNCM > 0 then
     fDMImportarPdx.cdsProdutoID_NCM.AsInteger := fDMImportarPdx.vIDNCM;
 
-  fDMImportarPdx.cdsProdutoORIGEM_PROD.AsString := fDMImportarPdx.tProdutoOrigemProd.AsString;
+  fDMImportarPdx.cdsProdutoORIGEM_PROD.AsString := '0';
   fDMImportarPdx.cdsProdutoOBS.Value            := fDMImportarPdx.tProdutoObs.Value;
   fDMImportarPdx.cdsProdutoCODSITCF.AsString    := '';
   fDMImportarPdx.cdsProdutoPERC_REDUCAOICMS.AsFloat := 0;
