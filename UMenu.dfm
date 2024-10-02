@@ -3,7 +3,7 @@ object fMenu: TfMenu
   Top = 43
   Width = 801
   Height = 650
-  Caption = 'Menu    (02/07/2024  1.1.33)'
+  Caption = 'Menu    (02/10/2024  1.1.34)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -429,7 +429,7 @@ object fMenu: TfMenu
     end
     object btnGerarPlanoSage: TNxButton
       Left = 428
-      Top = 425
+      Top = 461
       Width = 281
       Height = 33
       Caption = 'Importar Plano Cont'#225'bil (Sage OA3)'
@@ -444,7 +444,7 @@ object fMenu: TfMenu
     end
     object NxButton13: TNxButton
       Left = 428
-      Top = 460
+      Top = 496
       Width = 281
       Height = 33
       Caption = 'Importar As Notas pelo XML (Sa'#237'da)'
@@ -456,6 +456,21 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 26
       OnClick = NxButton13Click
+    end
+    object NxButton14: TNxButton
+      Left = 428
+      Top = 425
+      Width = 281
+      Height = 33
+      Caption = 'Importar Balancete para Plano (Dominio)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 27
+      OnClick = NxButton14Click
     end
   end
   object NxButton12: TNxButton

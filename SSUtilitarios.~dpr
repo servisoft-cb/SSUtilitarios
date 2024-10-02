@@ -64,7 +64,9 @@ uses
   uUtilProduto in 'uUtilProduto.pas',
   UDMConsProduto in '..\ssfacil\UDMConsProduto.pas' {DMConsProduto: TDataModule},
   uUtil_RecebeXML in 'nfevisualizador\uUtil_RecebeXML.pas',
-  UDMGravarFinanceiro in '..\ssfacil\UDMGravarFinanceiro.pas' {DMGravarFinanceiro: TDataModule};
+  UDMGravarFinanceiro in '..\ssfacil\UDMGravarFinanceiro.pas' {DMGravarFinanceiro: TDataModule},
+  UImportar_BalanceteDominio in 'UImportar_BalanceteDominio.pas' {frmImportar_BalanceteDominio},
+  UCadInicial in '..\ssfacil\UCadInicial.pas' {frmCadInicial};
 
 {$R *.res}
 
@@ -74,12 +76,7 @@ begin
     Application.Title := 'Utilitários';
   Application.CreateForm(TdmDatabase, dmDatabase);
   Application.CreateForm(TfMenu, fMenu);
-  Application.CreateForm(TDMRecebeXML, DMRecebeXML);
-  Application.CreateForm(TDMRecebeXMLNovo_ListarXML, DMRecebeXMLNovo_ListarXML);
-  Application.CreateForm(TfrmRecebeXMLNovo, frmRecebeXMLNovo);
-  Application.CreateForm(TfrmRecebeXMLNovo_ListarXML, frmRecebeXMLNovo_ListarXML);
-  Application.CreateForm(TDMConsProduto, DMConsProduto);
-  Application.CreateForm(TDMGravarFinanceiro, DMGravarFinanceiro);
+  Application.CreateForm(TfrmCadInicial, frmCadInicial);
   Application.Run;
   except
     on e: Exception do
