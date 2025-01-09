@@ -78,8 +78,6 @@ begin
     Application.Title := 'Utilitários';
   Application.CreateForm(TdmDatabase, dmDatabase);
   Application.CreateForm(TfMenu, fMenu);
-  Application.CreateForm(TfrmCadInicial, frmCadInicial);
-  Application.CreateForm(TDMCadFilial, DMCadFilial);
   Application.Run;
   except
     on e: Exception do
