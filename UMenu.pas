@@ -36,9 +36,10 @@ type
     btnAjusteNomeClienteCupom: TNxButton;
     btnGerarPlanoDominio: TNxButton;
     btnGerarPlanoSage: TNxButton;
-    NxButton12: TNxButton;
     NxButton13: TNxButton;
     NxButton14: TNxButton;
+    NxButton12: TNxButton;
+    btnCBenefSC: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -66,6 +67,7 @@ type
     procedure NxButton12Click(Sender: TObject);
     procedure NxButton13Click(Sender: TObject);
     procedure NxButton14Click(Sender: TObject);
+    procedure btnCBenefSCClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -85,7 +87,7 @@ uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio, uUtilPadrao,
   UImportarCTN, UAjusteNomeClienteCF, UImportar_PlanoDominio,
   UImportar_PlanoSage, UImportar_PlanoNovoSistema_Excel,
-  URecebeXMLNovo_ListarXML, UImportar_BalanceteDominio;//, UGerarTalao_Setor;
+  URecebeXMLNovo_ListarXML, UImportar_BalanceteDominio, UGeraCBenefSC;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -299,6 +301,13 @@ begin
   frmImportar_BalanceteDominio := TfrmImportar_BalanceteDominio.Create(self);
   frmImportar_BalanceteDominio.ShowModal;
   FreeAndNil(frmImportar_BalanceteDominio);
+end;
+
+procedure TfMenu.btnCBenefSCClick(Sender: TObject);
+begin
+  frmGeraCBenefSC := TfrmGeraCBenefSC.Create(self);
+  frmGeraCBenefSC.ShowModal;
+  FreeAndNil(frmGeraCBenefSC);
 end;
 
 initialization

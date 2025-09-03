@@ -68,7 +68,9 @@ uses
   UImportar_BalanceteDominio in 'UImportar_BalanceteDominio.pas' {frmImportar_BalanceteDominio},
   UCadInicial in '..\ssfacil\UCadInicial.pas' {frmCadInicial},
   UDMCadFilial in '..\ssfacil\UDMCadFilial.pas' {DMCadFilial: TDataModule},
-  uPessoa in '..\ssfacil\Classes\uPessoa.pas';
+  uPessoa in '..\ssfacil\Classes\uPessoa.pas',
+  UGeraCBenefSC in 'UGeraCBenefSC.pas' {frmGeraCBenefSC},
+  EstoqueAppUtils in '..\ssfacil\Classes\EstoqueAppUtils.pas';
 
 {$R *.res}
 

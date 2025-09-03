@@ -44,7 +44,7 @@ var
 implementation
 
 uses
-  rsDBUtils, DBClient, pcnNFe, ACBrNFeNotasFiscais, uUtil_RecebeXML,
+  rsDBUtils, DBClient, ACBrNFeNotasFiscais, uUtil_RecebeXML,
   uRecebeXMLNovo, uUtilPadrao;
 
 {$R *.dfm}

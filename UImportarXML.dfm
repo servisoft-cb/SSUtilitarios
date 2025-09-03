@@ -22,7 +22,7 @@ object frmImportarXML: TfrmImportarXML
     Top = 0
     Width = 856
     Height = 657
-    ActivePage = TabSheet7
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet7: TTabSheet
@@ -412,7 +412,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 47
           Top = 23
           Width = 54
-          Height = 26
+          Height = 19
           TabStop = False
           Ctl3D = False
           DataField = 'serie'
@@ -431,7 +431,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 163
           Top = 23
           Width = 94
-          Height = 26
+          Height = 19
           TabStop = False
           Ctl3D = False
           DataField = 'nNF'
@@ -450,7 +450,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 353
           Top = 23
           Width = 94
-          Height = 26
+          Height = 19
           TabStop = False
           Ctl3D = False
           DataField = 'ide_dEmi'
@@ -469,7 +469,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 548
           Top = 23
           Width = 94
-          Height = 26
+          Height = 19
           TabStop = False
           Ctl3D = False
           DataField = 'dSaiEnt'
@@ -488,7 +488,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 747
           Top = 23
           Width = 94
-          Height = 26
+          Height = 19
           TabStop = False
           Ctl3D = False
           DataField = 'hSaiEnt'
@@ -507,7 +507,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 47
           Top = 57
           Width = 54
-          Height = 26
+          Height = 19
           TabStop = False
           Ctl3D = False
           DataField = 'mod'
@@ -526,7 +526,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 317
           Top = 56
           Width = 129
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -542,7 +542,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 518
           Top = 56
           Width = 129
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -558,7 +558,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 747
           Top = 56
           Width = 94
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -574,7 +574,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 317
           Top = 82
           Width = 129
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -590,7 +590,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 7
           Top = 127
           Width = 224
-          Height = 26
+          Height = 19
           TabStop = False
           Ctl3D = False
           DataField = 'dhCont'
@@ -609,7 +609,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 7
           Top = 170
           Width = 834
-          Height = 26
+          Height = 19
           TabStop = False
           Ctl3D = False
           DataField = 'xJust'
@@ -628,7 +628,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 518
           Top = 82
           Width = 323
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -713,7 +713,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 66
           Top = 21
           Width = 631
-          Height = 26
+          Height = 19
           TabStop = False
           Ctl3D = False
           DataField = 'emit_xNome'
@@ -732,7 +732,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 66
           Top = 39
           Width = 164
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -748,7 +748,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 314
           Top = 39
           Width = 129
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -764,7 +764,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 645
           Top = 39
           Width = 52
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -781,7 +781,7 @@ object frmImportarXML: TfrmImportarXML
         Left = 0
         Top = 458
         Width = 848
-        Height = 172
+        Height = 171
         Align = alClient
         Caption = 'Destinat'#225'rio'
         Color = clMoneyGreen
@@ -849,7 +849,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 66
           Top = 21
           Width = 631
-          Height = 26
+          Height = 19
           TabStop = False
           Ctl3D = False
           DataField = 'dest_xNome'
@@ -868,7 +868,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 66
           Top = 39
           Width = 164
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -884,7 +884,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 314
           Top = 39
           Width = 129
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -900,7 +900,7 @@ object frmImportarXML: TfrmImportarXML
           Left = 645
           Top = 39
           Width = 52
-          Height = 26
+          Height = 19
           Ctl3D = False
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText

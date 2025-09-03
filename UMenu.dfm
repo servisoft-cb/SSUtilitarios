@@ -1,9 +1,9 @@
 object fMenu: TfMenu
-  Left = 258
-  Top = 43
+  Left = 273
+  Top = 59
   Width = 801
   Height = 650
-  Caption = 'Menu    (02/10/2024  1.1.34)'
+  Caption = 'Menu    (03/09/2025  1.1.34)'
   Color = clSilver
   Constraints.MinHeight = 650
   Constraints.MinWidth = 780
@@ -37,7 +37,7 @@ object fMenu: TfMenu
     ParentFont = False
     TabOrder = 0
     UseDockManager = True
-    Version = '1.6.0.3'
+    Version = '2.0.1.0'
     Caption.Color = clHighlight
     Caption.ColorTo = clNone
     Caption.Font.Charset = DEFAULT_CHARSET
@@ -253,7 +253,7 @@ object fMenu: TfMenu
       Top = 358
       Width = 302
       Height = 33
-      Caption = 'Carregar Tabela C'#243'd. Benef'#237'cio Fiscal'
+      Caption = 'Carregar Tabela C'#243'd. Benef'#237'cio Fiscal (RS)'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -13
@@ -339,7 +339,7 @@ object fMenu: TfMenu
     end
     object btnGerarPlanoNovoSitema: TNxButton
       Left = 36
-      Top = 391
+      Top = 423
       Width = 302
       Height = 33
       Caption = 'Importar Plano Cont'#225'bil (Novo Sistema)'
@@ -354,7 +354,7 @@ object fMenu: TfMenu
     end
     object btnGravarPrecoMedio: TNxButton
       Left = 36
-      Top = 426
+      Top = 458
       Width = 302
       Height = 33
       Caption = 'Gravar Pre'#231'o M'#233'dio (Produto_CMedio)'
@@ -379,7 +379,7 @@ object fMenu: TfMenu
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 21
+      TabOrder = 22
       OnClick = btnGravarGruposWEBClick
     end
     object btnImportarCTN: TNxButton
@@ -394,7 +394,7 @@ object fMenu: TfMenu
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 22
+      TabOrder = 23
       OnClick = btnImportarCTNClick
     end
     object btnAjusteNomeClienteCupom: TNxButton
@@ -409,7 +409,7 @@ object fMenu: TfMenu
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 23
+      TabOrder = 24
       OnClick = btnAjusteNomeClienteCupomClick
     end
     object btnGerarPlanoDominio: TNxButton
@@ -424,7 +424,7 @@ object fMenu: TfMenu
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 24
+      TabOrder = 25
       OnClick = btnGerarPlanoDominioClick
     end
     object btnGerarPlanoSage: TNxButton
@@ -439,7 +439,7 @@ object fMenu: TfMenu
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 25
+      TabOrder = 26
       OnClick = btnGerarPlanoSageClick
     end
     object NxButton13: TNxButton
@@ -454,7 +454,7 @@ object fMenu: TfMenu
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 26
+      TabOrder = 27
       OnClick = NxButton13Click
     end
     object NxButton14: TNxButton
@@ -469,23 +469,38 @@ object fMenu: TfMenu
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 27
+      TabOrder = 28
       OnClick = NxButton14Click
     end
-  end
-  object NxButton12: TNxButton
-    Left = 36
-    Top = 461
-    Width = 302
-    Height = 33
-    Caption = 'Importar Plano Contas Excel (Novo Sistema)'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -13
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 1
-    OnClick = NxButton12Click
+    object NxButton12: TNxButton
+      Left = 36
+      Top = 493
+      Width = 302
+      Height = 33
+      Caption = 'Importar Plano Contas Excel (Novo Sistema)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 21
+      OnClick = NxButton12Click
+    end
+    object btnCBenefSC: TNxButton
+      Left = 36
+      Top = 390
+      Width = 302
+      Height = 33
+      Caption = 'Carregar Tabela C'#243'd. Benef'#237'cio Fiscal (SC)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 29
+      OnClick = btnCBenefSCClick
+    end
   end
 end

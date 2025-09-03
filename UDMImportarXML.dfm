@@ -11,7 +11,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM TAB_CFOP'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 544
     Top = 32
     object sdsCFOPID: TIntegerField
@@ -2564,7 +2564,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM PRODUTO'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 97
     Top = 16
     object sdsProdutoID: TIntegerField
@@ -2915,7 +2915,7 @@ object DMImportarXML: TDMImportarXML
       'SELECT *'
       'FROM TAB_CFOP'
       'WHERE CODCFOP = :CODCFOP')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 832
     Top = 32
     object qCFOPID: TIntegerField
@@ -3049,7 +3049,7 @@ object DMImportarXML: TDMImportarXML
         'D = :ID)'
       'FROM PARAMETROS P'
       'WHERE P.ID = :ID')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 840
     Top = 80
     object qParametrosID: TIntegerField
@@ -3191,6 +3191,1028 @@ object DMImportarXML: TDMImportarXML
       FixedChar = True
       Size = 1
     end
+    object qParametrosUSA_VENDEDOR: TStringField
+      FieldName = 'USA_VENDEDOR'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_CONSUMO: TStringField
+      FieldName = 'USA_CONSUMO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMP_CODPRODCLI_DANFE: TStringField
+      FieldName = 'IMP_CODPRODCLI_DANFE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_DESCRICAODANOTA: TStringField
+      FieldName = 'USA_DESCRICAODANOTA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_OPERACAO_BENEF_RET: TIntegerField
+      FieldName = 'ID_OPERACAO_BENEF_RET'
+    end
+    object qParametrosID_OPERACAO_MAOOBRA: TIntegerField
+      FieldName = 'ID_OPERACAO_MAOOBRA'
+    end
+    object qParametrosCONFECCAO: TStringField
+      FieldName = 'CONFECCAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_OPERACAO_TRIANGULAR: TIntegerField
+      FieldName = 'ID_OPERACAO_TRIANGULAR'
+    end
+    object qParametrosCADASTRAR_REF_DUP: TStringField
+      FieldName = 'CADASTRAR_REF_DUP'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_NO_CONSUMO: TStringField
+      FieldName = 'MOSTRAR_NO_CONSUMO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_COD_BARRAS: TStringField
+      FieldName = 'USA_COD_BARRAS'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_ID_PRODUTO: TStringField
+      FieldName = 'USA_ID_PRODUTO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_AGENDA_POR_FUNC: TStringField
+      FieldName = 'USA_AGENDA_POR_FUNC'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosEMPRESA_VEICULO: TStringField
+      FieldName = 'EMPRESA_VEICULO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_CONTA_PADRAO: TIntegerField
+      FieldName = 'ID_CONTA_PADRAO'
+    end
+    object qParametrosID_TIPO_COBRANCA_PADRAO: TIntegerField
+      FieldName = 'ID_TIPO_COBRANCA_PADRAO'
+    end
+    object qParametrosPERMITE_QTDMAIOR_PEDIDO: TStringField
+      FieldName = 'PERMITE_QTDMAIOR_PEDIDO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_TAB_PRECO: TStringField
+      FieldName = 'USA_TAB_PRECO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosENDXML_NOTAENTRADA: TStringField
+      FieldName = 'ENDXML_NOTAENTRADA'
+      Size = 250
+    end
+    object qParametrosPERMITE_MESMA_OC: TStringField
+      FieldName = 'PERMITE_MESMA_OC'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosEMAIL_CONTADOR: TStringField
+      FieldName = 'EMAIL_CONTADOR'
+      Size = 250
+    end
+    object qParametrosID_BANCO_REMESSA: TIntegerField
+      FieldName = 'ID_BANCO_REMESSA'
+    end
+    object qParametrosENDXMLNFSE: TStringField
+      FieldName = 'ENDXMLNFSE'
+      Size = 250
+    end
+    object qParametrosENDPDFNFSE: TStringField
+      FieldName = 'ENDPDFNFSE'
+      Size = 250
+    end
+    object qParametrosUSA_SERVICO: TStringField
+      FieldName = 'USA_SERVICO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_CFOP_REQ: TIntegerField
+      FieldName = 'ID_CFOP_REQ'
+    end
+    object qParametrosID_CFOP_REQ2: TIntegerField
+      FieldName = 'ID_CFOP_REQ2'
+    end
+    object qParametrosUSA_PROJETO_OC: TStringField
+      FieldName = 'USA_PROJETO_OC'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_CONSULTA: TStringField
+      FieldName = 'MOSTRAR_CONSULTA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_CLIENTE_CONSUMIDOR: TIntegerField
+      FieldName = 'ID_CLIENTE_CONSUMIDOR'
+    end
+    object qParametrosIMPRESSORA_FISCAL: TStringField
+      FieldName = 'IMPRESSORA_FISCAL'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosQUITAR_AVISTA_AUT: TStringField
+      FieldName = 'QUITAR_AVISTA_AUT'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMPRESSAO_MATRICIAL: TStringField
+      FieldName = 'IMPRESSAO_MATRICIAL'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosEMPRESA_RH: TStringField
+      FieldName = 'EMPRESA_RH'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMPRESSORA_CAMINHO: TStringField
+      FieldName = 'IMPRESSORA_CAMINHO'
+      Size = 100
+    end
+    object qParametrosGRAVAR_NA_REF_CODPRODFORN: TStringField
+      FieldName = 'GRAVAR_NA_REF_CODPRODFORN'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosGRAVAR_PROD_MAT_RECXML: TStringField
+      FieldName = 'GRAVAR_PROD_MAT_RECXML'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosNOTA_ENTRADA_MOSTRAR_PROD: TStringField
+      FieldName = 'NOTA_ENTRADA_MOSTRAR_PROD'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosATUALIZAR_PRECO_DOC: TStringField
+      FieldName = 'ATUALIZAR_PRECO_DOC'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosBAIXAR_REQ_AUTOMATICO: TStringField
+      FieldName = 'BAIXAR_REQ_AUTOMATICO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosDESTACAR_IMPOSTO_NOTA: TStringField
+      FieldName = 'DESTACAR_IMPOSTO_NOTA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosCONTROLAR_PEDIDO_LIBERACAO: TStringField
+      FieldName = 'CONTROLAR_PEDIDO_LIBERACAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_GRADE: TStringField
+      FieldName = 'USA_GRADE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosTIPO_GRADE_REG: TStringField
+      FieldName = 'TIPO_GRADE_REG'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosINFORMA_MAT_PEDIDO: TStringField
+      FieldName = 'INFORMA_MAT_PEDIDO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_NOME_ETIQUETA: TStringField
+      FieldName = 'MOSTRAR_NOME_ETIQUETA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_MATERIAL_PED: TStringField
+      FieldName = 'MOSTRAR_MATERIAL_PED'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_CFOP_PEDIDO: TStringField
+      FieldName = 'MOSTRAR_CFOP_PEDIDO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosDIGITACAO_PED_ITENS: TStringField
+      FieldName = 'DIGITACAO_PED_ITENS'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_CLIENTE_ESTOQUE: TIntegerField
+      FieldName = 'ID_CLIENTE_ESTOQUE'
+    end
+    object qParametrosUSA_LOTE: TStringField
+      FieldName = 'USA_LOTE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_POSICAO_CONSUMO: TStringField
+      FieldName = 'USA_POSICAO_CONSUMO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosGRAVAR_INF_ADICIONAIS_NTE: TStringField
+      FieldName = 'GRAVAR_INF_ADICIONAIS_NTE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_AMOSTRA_GRATIS: TStringField
+      FieldName = 'USA_AMOSTRA_GRATIS'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosCALCULAR_PESO_CONSUMO: TStringField
+      FieldName = 'CALCULAR_PESO_CONSUMO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosTIPO_REL_PEDIDO: TStringField
+      FieldName = 'TIPO_REL_PEDIDO'
+      FixedChar = True
+      Size = 2
+    end
+    object qParametrosUSA_CARIMBO: TStringField
+      FieldName = 'USA_CARIMBO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_MAT_LOTE: TStringField
+      FieldName = 'MOSTRAR_MAT_LOTE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_CONTA_FECHAMENTO: TIntegerField
+      FieldName = 'ID_CONTA_FECHAMENTO'
+    end
+    object qParametrosEMPRESA_INJETADO: TStringField
+      FieldName = 'EMPRESA_INJETADO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosEMPRESA_TRANSPASS: TStringField
+      FieldName = 'EMPRESA_TRANSPASS'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_TAMANHO_AGRUPADO_NFE: TStringField
+      FieldName = 'USA_TAMANHO_AGRUPADO_NFE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosEMPRESA_CARTONAGEM: TStringField
+      FieldName = 'EMPRESA_CARTONAGEM'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_DTPRODUCAO: TStringField
+      FieldName = 'USA_DTPRODUCAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosEMPRESA_NAVALHA: TStringField
+      FieldName = 'EMPRESA_NAVALHA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMP_PRECO_PED: TStringField
+      FieldName = 'IMP_PRECO_PED'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_NUM_SERIE_PROD: TStringField
+      FieldName = 'USA_NUM_SERIE_PROD'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosPERC_IPI_PADRAO: TFloatField
+      FieldName = 'PERC_IPI_PADRAO'
+    end
+    object qParametrosID_NCM_PADRAO: TIntegerField
+      FieldName = 'ID_NCM_PADRAO'
+    end
+    object qParametrosUSA_CONTA_ORCAMENTO: TStringField
+      FieldName = 'USA_CONTA_ORCAMENTO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_CONTA_ORC_SERVICO: TIntegerField
+      FieldName = 'ID_CONTA_ORC_SERVICO'
+    end
+    object qParametrosID_CONTA_ORC_COMISSAO: TIntegerField
+      FieldName = 'ID_CONTA_ORC_COMISSAO'
+    end
+    object qParametrosTIPO_LEI_TRANSPARENCIA: TStringField
+      FieldName = 'TIPO_LEI_TRANSPARENCIA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_PRECO_FORN: TStringField
+      FieldName = 'USA_PRECO_FORN'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosEND_IMPRESSORA_DOS: TStringField
+      FieldName = 'END_IMPRESSORA_DOS'
+      Size = 200
+    end
+    object qParametrosIMP_PESO_PED: TStringField
+      FieldName = 'IMP_PESO_PED'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_EDI: TStringField
+      FieldName = 'USA_EDI'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_OPERACAO_VENDA: TIntegerField
+      FieldName = 'ID_OPERACAO_VENDA'
+    end
+    object qParametrosUSA_FAIXA_SIMPLES: TStringField
+      FieldName = 'USA_FAIXA_SIMPLES'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosESCOLA: TStringField
+      FieldName = 'ESCOLA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosALTURA_ETIQ_ROT: TIntegerField
+      FieldName = 'ALTURA_ETIQ_ROT'
+    end
+    object qParametrosEMPRESA_SUCATA: TStringField
+      FieldName = 'EMPRESA_SUCATA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosBAIXA_ESTOQUE_MP: TStringField
+      FieldName = 'BAIXA_ESTOQUE_MP'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMP_MESANO_REF_NOITEM_NFSE: TStringField
+      FieldName = 'IMP_MESANO_REF_NOITEM_NFSE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_LIMITE_CREDITO: TStringField
+      FieldName = 'USA_LIMITE_CREDITO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosSENHA_CREDITO: TStringField
+      FieldName = 'SENHA_CREDITO'
+      Size = 15
+    end
+    object qParametrosUSA_SPED: TStringField
+      FieldName = 'USA_SPED'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosTIPO_COMISSAO_NFSE: TStringField
+      FieldName = 'TIPO_COMISSAO_NFSE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosTIPO_COMISSAO_PROD: TStringField
+      FieldName = 'TIPO_COMISSAO_PROD'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosOBS_EXPORTACAO_EXCEL: TMemoField
+      FieldName = 'OBS_EXPORTACAO_EXCEL'
+      BlobType = ftMemo
+      Size = 1
+    end
+    object qParametrosEND_SALVAR_EXCEL_EXP: TStringField
+      FieldName = 'END_SALVAR_EXCEL_EXP'
+      Size = 250
+    end
+    object qParametrosUSA_PEDIDO_CONTROLE_MOBRA: TStringField
+      FieldName = 'USA_PEDIDO_CONTROLE_MOBRA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMP_NFE_REF_PROD: TStringField
+      FieldName = 'IMP_NFE_REF_PROD'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_OBS_LEI_SIMPLES: TIntegerField
+      FieldName = 'ID_OBS_LEI_SIMPLES'
+    end
+    object qParametrosPERC_JUROS_PADRAO: TFloatField
+      FieldName = 'PERC_JUROS_PADRAO'
+    end
+    object qParametrosUSA_FCI: TStringField
+      FieldName = 'USA_FCI'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosARREDONDAR_5: TStringField
+      FieldName = 'ARREDONDAR_5'
+      Size = 1
+    end
+    object qParametrosLEI_TRANSPARENCIA_IMP_ITEM: TStringField
+      FieldName = 'LEI_TRANSPARENCIA_IMP_ITEM'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosLEI_TRANSPARENCIA_TEXTO_ITEM: TStringField
+      FieldName = 'LEI_TRANSPARENCIA_TEXTO_ITEM'
+      Size = 150
+    end
+    object qParametrosLEI_TRANSPARENCIA_PERC_ADIC: TStringField
+      FieldName = 'LEI_TRANSPARENCIA_PERC_ADIC'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosLEI_TRANSPARENCIA_SERVICO: TStringField
+      FieldName = 'LEI_TRANSPARENCIA_SERVICO'
+      FixedChar = True
+      Size = 2
+    end
+    object qParametrosUSA_VALE: TStringField
+      FieldName = 'USA_VALE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosSENHA_EXCLUIR_VALE: TStringField
+      FieldName = 'SENHA_EXCLUIR_VALE'
+      Size = 15
+    end
+    object qParametrosIMP_MEIA_FOLHA_PED: TStringField
+      FieldName = 'IMP_MEIA_FOLHA_PED'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_PRODUTO_CLIENTE: TStringField
+      FieldName = 'USA_PRODUTO_CLIENTE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosSOMAR_PIS_COFINS_IMP: TStringField
+      FieldName = 'SOMAR_PIS_COFINS_IMP'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_CUPOM_FISCAL: TStringField
+      FieldName = 'USA_CUPOM_FISCAL'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosALERTA_VALE: TStringField
+      FieldName = 'ALERTA_VALE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosPRODUTO_PRECO_POR_FINALIDADE: TStringField
+      FieldName = 'PRODUTO_PRECO_POR_FINALIDADE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosSENHA_PEDIDO: TStringField
+      FieldName = 'SENHA_PEDIDO'
+      Size = 10
+    end
+    object qParametrosALERTA_VLR_ATRASO: TStringField
+      FieldName = 'ALERTA_VLR_ATRASO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_CONTA_ORC_JUROS_REC: TIntegerField
+      FieldName = 'ID_CONTA_ORC_JUROS_REC'
+    end
+    object qParametrosID_CONTA_ORC_TAXA_BANCARIA_REC: TIntegerField
+      FieldName = 'ID_CONTA_ORC_TAXA_BANCARIA_REC'
+    end
+    object qParametrosID_CONTA_ORC_DESPESA_REC: TIntegerField
+      FieldName = 'ID_CONTA_ORC_DESPESA_REC'
+    end
+    object qParametrosID_CONTA_ORC_JUROS_PAG: TIntegerField
+      FieldName = 'ID_CONTA_ORC_JUROS_PAG'
+    end
+    object qParametrosID_CONTA_ORC_DESPESA_PAG: TIntegerField
+      FieldName = 'ID_CONTA_ORC_DESPESA_PAG'
+    end
+    object qParametrosTIPO_REL_OC: TStringField
+      FieldName = 'TIPO_REL_OC'
+      FixedChar = True
+      Size = 2
+    end
+    object qParametrosUSA_PERC_MARGEM_RECEPCAO: TStringField
+      FieldName = 'USA_PERC_MARGEM_RECEPCAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_BOLETO_ACBR: TStringField
+      FieldName = 'USA_BOLETO_ACBR'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_PREVISAO: TStringField
+      FieldName = 'USA_PREVISAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_ENVIO_EMAIL_CATEGORIA: TStringField
+      FieldName = 'USA_ENVIO_EMAIL_CATEGORIA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_DANFE_FLEXDOCS: TStringField
+      FieldName = 'USA_DANFE_FLEXDOCS'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_DESONERACAO: TStringField
+      FieldName = 'USA_DESONERACAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosTIPO_REG_PRODUTO_PADRAO: TStringField
+      FieldName = 'TIPO_REG_PRODUTO_PADRAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosTIPO_CONSULTA_PRODUTO_PADRAO: TStringField
+      FieldName = 'TIPO_CONSULTA_PRODUTO_PADRAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosABRIR_NFECONFIG: TStringField
+      FieldName = 'ABRIR_NFECONFIG'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosCADASTRA_ORGAO_PUBLICO: TStringField
+      FieldName = 'CADASTRA_ORGAO_PUBLICO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosCONTROLAR_NOTIFICACAO: TStringField
+      FieldName = 'CONTROLAR_NOTIFICACAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_RECIBO_NFSE: TStringField
+      FieldName = 'USA_RECIBO_NFSE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosINFORMAR_COR_MATERIAL: TStringField
+      FieldName = 'INFORMAR_COR_MATERIAL'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosNFSE_RETEN_PIS: TStringField
+      FieldName = 'NFSE_RETEN_PIS'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosNUMERO_SERIE_INTERNO: TStringField
+      FieldName = 'NUMERO_SERIE_INTERNO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_PEDIDO_FUT: TStringField
+      FieldName = 'USA_PEDIDO_FUT'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_OPERACAO_PED_FUT: TIntegerField
+      FieldName = 'ID_OPERACAO_PED_FUT'
+    end
+    object qParametrosUSA_COPIA_OS_NOTA: TStringField
+      FieldName = 'USA_COPIA_OS_NOTA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosEMPRESA_CONTABIL: TStringField
+      FieldName = 'EMPRESA_CONTABIL'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_COND_PGTO_NFSE: TIntegerField
+      FieldName = 'ID_COND_PGTO_NFSE'
+    end
+    object qParametrosIMP_TIPO_TRIBUTOS_ITENS: TStringField
+      FieldName = 'IMP_TIPO_TRIBUTOS_ITENS'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMP_TIPO_TRIBUTOS: TStringField
+      FieldName = 'IMP_TIPO_TRIBUTOS'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMP_PERC_TRIB_DADOS_ADIC: TStringField
+      FieldName = 'IMP_PERC_TRIB_DADOS_ADIC'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMP_PERC_TRIB_ITENS: TStringField
+      FieldName = 'IMP_PERC_TRIB_ITENS'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMP_TIPO_TRIBUTOS_SERVICO: TStringField
+      FieldName = 'IMP_TIPO_TRIBUTOS_SERVICO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMP_PERC_TRIB_SERVICO: TStringField
+      FieldName = 'IMP_PERC_TRIB_SERVICO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosIMP_NOME_POSICAO: TStringField
+      FieldName = 'IMP_NOME_POSICAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosPROCURAR_POR_REF_XML: TStringField
+      FieldName = 'PROCURAR_POR_REF_XML'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosQTD_DIG_COD_CLI_CTB: TIntegerField
+      FieldName = 'QTD_DIG_COD_CLI_CTB'
+    end
+    object qParametrosEMPRESA_AMBIENTES: TStringField
+      FieldName = 'EMPRESA_AMBIENTES'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosINFORMAR_COR_PROD: TStringField
+      FieldName = 'INFORMAR_COR_PROD'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosINV_TRAZER_QTD_ZERADA: TStringField
+      FieldName = 'INV_TRAZER_QTD_ZERADA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_MARCAR_PROD: TStringField
+      FieldName = 'MOSTRAR_MARCAR_PROD'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_LINHA_PROD: TStringField
+      FieldName = 'MOSTRAR_LINHA_PROD'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_EMBALAGEM: TStringField
+      FieldName = 'MOSTRAR_EMBALAGEM'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosCONTROLAR_FAT_SEPARADO: TStringField
+      FieldName = 'CONTROLAR_FAT_SEPARADO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosCONTROLAR_DUP_PEDIDO: TStringField
+      FieldName = 'CONTROLAR_DUP_PEDIDO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_RESP_SUPORTE: TIntegerField
+      FieldName = 'ID_RESP_SUPORTE'
+    end
+    object qParametrosCONTROLAR_ISSQN_RET: TStringField
+      FieldName = 'CONTROLAR_ISSQN_RET'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosOBS_SIMPLES2: TStringField
+      FieldName = 'OBS_SIMPLES2'
+      Size = 250
+    end
+    object qParametrosPERC_COMISSAO_PAGA_NOTA: TFloatField
+      FieldName = 'PERC_COMISSAO_PAGA_NOTA'
+    end
+    object qParametrosUSA_SETOR_CONSUMO: TStringField
+      FieldName = 'USA_SETOR_CONSUMO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_ATELIER_PROD: TStringField
+      FieldName = 'MOSTRAR_ATELIER_PROD'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosGERAR_TALAO_AUXILIAR: TStringField
+      FieldName = 'GERAR_TALAO_AUXILIAR'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosTIPO_ESTOQUE: TStringField
+      FieldName = 'TIPO_ESTOQUE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_COD_BARRAS_PROPRIO: TStringField
+      FieldName = 'USA_COD_BARRAS_PROPRIO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_ETIQUETA_IND: TStringField
+      FieldName = 'USA_ETIQUETA_IND'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_NFCE: TStringField
+      FieldName = 'USA_NFCE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosENDXMLNFCE: TStringField
+      FieldName = 'ENDXMLNFCE'
+      Size = 250
+    end
+    object qParametrosENDPDFNFCE: TStringField
+      FieldName = 'ENDPDFNFCE'
+      Size = 250
+    end
+    object qParametrosCALC_VOLUME_EMB: TStringField
+      FieldName = 'CALC_VOLUME_EMB'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosGERAR_ROTULO_EMB: TStringField
+      FieldName = 'GERAR_ROTULO_EMB'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_ENVIO_NOVO_NFE: TStringField
+      FieldName = 'USA_ENVIO_NOVO_NFE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosOPCAO_ESCOLHER_PRECO_COR: TStringField
+      FieldName = 'OPCAO_ESCOLHER_PRECO_COR'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosCONTROLAR_ESTOQUE_SAIDA: TStringField
+      FieldName = 'CONTROLAR_ESTOQUE_SAIDA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosSENHA_LIBERA_ESTOQUE: TStringField
+      FieldName = 'SENHA_LIBERA_ESTOQUE'
+      Size = 10
+    end
+    object qParametrosOPCAO_REL_PED_AGRUPADO: TStringField
+      FieldName = 'OPCAO_REL_PED_AGRUPADO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosGERAR_NUM_AUT_CONTRATO: TStringField
+      FieldName = 'GERAR_NUM_AUT_CONTRATO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_ANO_CONTRATO: TStringField
+      FieldName = 'USA_ANO_CONTRATO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_COPIA_PEDIDO_ITEM: TStringField
+      FieldName = 'USA_COPIA_PEDIDO_ITEM'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_COPIA_OS_NFSE: TStringField
+      FieldName = 'USA_COPIA_OS_NFSE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_COPIA_PEDIDO: TStringField
+      FieldName = 'USA_COPIA_PEDIDO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosSOMAR_SISCOMEX_IMP: TStringField
+      FieldName = 'SOMAR_SISCOMEX_IMP'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosSOMAR_IPI_IMP: TStringField
+      FieldName = 'SOMAR_IPI_IMP'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosSOMAR_II_IMP: TStringField
+      FieldName = 'SOMAR_II_IMP'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosSOMAR_SEGURO_IMP: TStringField
+      FieldName = 'SOMAR_SEGURO_IMP'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosSOMAR_ADUANEIRA_IMP: TStringField
+      FieldName = 'SOMAR_ADUANEIRA_IMP'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosCONTRATO_CONSUMO: TStringField
+      FieldName = 'CONTRATO_CONSUMO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_SERVICO_MOTOR: TStringField
+      FieldName = 'USA_SERVICO_MOTOR'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosCONTROLAR_MENSAL_CSRF: TStringField
+      FieldName = 'CONTROLAR_MENSAL_CSRF'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosGRAVAR_CONSUMO_NOTA: TStringField
+      FieldName = 'GRAVAR_CONSUMO_NOTA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_ATELIER_ADEFINIR: TIntegerField
+      FieldName = 'ID_ATELIER_ADEFINIR'
+    end
+    object qParametrosINFORMAR_COR_MATERIAL_RZ: TStringField
+      FieldName = 'INFORMAR_COR_MATERIAL_RZ'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosGRAVAR_FINANCEIRO_ATELIER: TStringField
+      FieldName = 'GRAVAR_FINANCEIRO_ATELIER'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_CONTA_ORC_ATELIER: TIntegerField
+      FieldName = 'ID_CONTA_ORC_ATELIER'
+    end
+    object qParametrosUSA_ICMSOPERACAO_CST51: TStringField
+      FieldName = 'USA_ICMSOPERACAO_CST51'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_PRODUTO_FORNECEDOR: TStringField
+      FieldName = 'USA_PRODUTO_FORNECEDOR'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_PRODUTO_LOCALIZACAO: TStringField
+      FieldName = 'USA_PRODUTO_LOCALIZACAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_TOTAL_ACUMULADO_DUP: TStringField
+      FieldName = 'MOSTRAR_TOTAL_ACUMULADO_DUP'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_CONTA_ORC_DESCONTADA: TIntegerField
+      FieldName = 'ID_CONTA_ORC_DESCONTADA'
+    end
+    object qParametrosREPETIR_ULTIMO_ITEM_PED: TStringField
+      FieldName = 'REPETIR_ULTIMO_ITEM_PED'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUNIDADE_PECA: TStringField
+      FieldName = 'UNIDADE_PECA'
+      Size = 6
+    end
+    object qParametrosDECISAO: TStringField
+      FieldName = 'DECISAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosEMPRESA_LIVRARIA: TStringField
+      FieldName = 'EMPRESA_LIVRARIA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_LOCAL_ESTOQUE: TStringField
+      FieldName = 'USA_LOCAL_ESTOQUE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosFUSOHORARIO: TStringField
+      FieldName = 'FUSOHORARIO'
+      Size = 6
+    end
+    object qParametrosFUSOHORARIO_VERAO: TStringField
+      FieldName = 'FUSOHORARIO_VERAO'
+      Size = 6
+    end
+    object qParametrosUSA_APROVACAO_PED: TStringField
+      FieldName = 'USA_APROVACAO_PED'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_ROTULO2: TStringField
+      FieldName = 'USA_ROTULO2'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_LOTE_CONTROLE: TStringField
+      FieldName = 'USA_LOTE_CONTROLE'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_PERC_ORGAO_PUBLICO: TStringField
+      FieldName = 'USA_PERC_ORGAO_PUBLICO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_PERC_ORGAO_PUBLICO_IMP: TStringField
+      FieldName = 'USA_PERC_ORGAO_PUBLICO_IMP'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_APROVACAO_OC_FORN: TStringField
+      FieldName = 'USA_APROVACAO_OC_FORN'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_LOCAL_ESTOQUE_NTE: TIntegerField
+      FieldName = 'ID_LOCAL_ESTOQUE_NTE'
+    end
+    object qParametrosUSA_ADIANTAMENTO_PEDIDO: TStringField
+      FieldName = 'USA_ADIANTAMENTO_PEDIDO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_CONTA_PADRAO_ADI: TIntegerField
+      FieldName = 'ID_CONTA_PADRAO_ADI'
+    end
+    object qParametrosID_TIPO_COBRANCA_PADRAO_ADI: TIntegerField
+      FieldName = 'ID_TIPO_COBRANCA_PADRAO_ADI'
+    end
+    object qParametrosSOMAR_BASE_ICMS_SISCOMEX: TStringField
+      FieldName = 'SOMAR_BASE_ICMS_SISCOMEX'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosCONTROLAR_SERIE_OPERACAO: TStringField
+      FieldName = 'CONTROLAR_SERIE_OPERACAO'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMOSTRAR_END_ENTREGA_DADOS_ADI: TStringField
+      FieldName = 'MOSTRAR_END_ENTREGA_DADOS_ADI'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosMSG_PADRAO_NOTA: TMemoField
+      FieldName = 'MSG_PADRAO_NOTA'
+      BlobType = ftMemo
+      Size = 1
+    end
+    object qParametrosALERTA_FRETE_DEST: TStringField
+      FieldName = 'ALERTA_FRETE_DEST'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosUSA_OBS_PEDIDO_NOTA: TStringField
+      FieldName = 'USA_OBS_PEDIDO_NOTA'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosID_LOCAL_ESTOQUE_PROD: TIntegerField
+      FieldName = 'ID_LOCAL_ESTOQUE_PROD'
+    end
+    object qParametrosEMPRESA_CAMABOX: TStringField
+      FieldName = 'EMPRESA_CAMABOX'
+      FixedChar = True
+      Size = 1
+    end
+    object qParametrosVERSAO_LEIAUTE_SPED: TIntegerField
+      FieldName = 'VERSAO_LEIAUTE_SPED'
+    end
   end
   object sdsCidade: TSQLDataSet
     NoMetadata = True
@@ -3198,7 +4220,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM CIDADE'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 96
     Top = 96
     object sdsCidadeID: TIntegerField
@@ -3258,7 +4280,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM PAIS'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 96
     Top = 152
     object sdsPaisID: TIntegerField
@@ -3309,7 +4331,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM PESSOA'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 96
     Top = 208
     object sdsFornecedorCODIGO: TIntegerField
@@ -3975,7 +4997,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM TAB_CSTICMS'#13#10#13#10
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 128
     Top = 418
     object sdsTab_CSTICMSID: TIntegerField
@@ -4059,7 +5081,7 @@ object DMImportarXML: TDMImportarXML
       'SELECT *'
       'FROM UNIDADE'
       'WHERE '#9'UNIDADE = :UNIDADE')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 840
     Top = 128
     object qUnidadeUNIDADE: TStringField
@@ -4087,7 +5109,7 @@ object DMImportarXML: TDMImportarXML
       'SELECT *'
       'FROM FILIAL'
       'WHERE '#9'CNPJ_CPF = :CNPJ_CPF')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 840
     Top = 184
     object qFilialID: TIntegerField
@@ -4264,7 +5286,7 @@ object DMImportarXML: TDMImportarXML
         Name = 'NCM'
         ParamType = ptInput
       end>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 120
     Top = 474
     object sdsNCMID: TIntegerField
@@ -4338,7 +5360,7 @@ object DMImportarXML: TDMImportarXML
         Name = 'UNIDADE'
         ParamType = ptInput
       end>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 128
     Top = 362
     object sdsUnidadeUNIDADE: TStringField
@@ -4391,7 +5413,7 @@ object DMImportarXML: TDMImportarXML
       'SELECT *'
       'FROM FILIAL'
       '')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 840
     Top = 232
     object qFilial2ID: TIntegerField
@@ -4417,7 +5439,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM PESSOA'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 96
     Top = 264
   end
@@ -4913,7 +5935,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT *'#13#10'FROM PRODUTO_FORN'#13#10
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 120
     Top = 528
     object sdsProduto_FornID: TIntegerField
@@ -5012,7 +6034,7 @@ object DMImportarXML: TDMImportarXML
       'FROM TAB_NCM'
       'WHERE ID = :ID'
       '')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 840
     Top = 280
     object qNCMID: TIntegerField
@@ -5037,7 +6059,7 @@ object DMImportarXML: TDMImportarXML
       'FROM TAB_CSTICMS'
       'WHERE COD_CST = :COD_CST'
       '')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 720
     Top = 88
     object qCSTIcmsID: TIntegerField
@@ -5065,7 +6087,7 @@ object DMImportarXML: TDMImportarXML
       'FROM TAB_CSTIPI'
       'WHERE COD_IPI = :COD_IPI'
       '')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 720
     Top = 136
     object qCSTIpiID: TIntegerField
@@ -5090,7 +6112,7 @@ object DMImportarXML: TDMImportarXML
       'FROM TAB_COFINS'
       'WHERE CODIGO = :CODIGO'
       '')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 720
     Top = 184
     object qCofinsID: TIntegerField
@@ -5115,7 +6137,7 @@ object DMImportarXML: TDMImportarXML
       'FROM TAB_PIS'
       'WHERE CODIGO = :CODIGO'
       '')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 720
     Top = 240
     object qPisID: TIntegerField
@@ -5140,7 +6162,7 @@ object DMImportarXML: TDMImportarXML
       'FROM PRODUTO_FORN'
       'WHERE ID = :ID'
       '')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 888
     Top = 320
     object qProduto_FornITEM: TIntegerField
@@ -5153,7 +6175,7 @@ object DMImportarXML: TDMImportarXML
     CommandText = 'SELECT ID, NOME, NOME_INTERNO, CNPJ_CPF'#13#10'FROM FILIAL'
     MaxBlobSize = -1
     Params = <>
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 120
     Top = 584
   end
