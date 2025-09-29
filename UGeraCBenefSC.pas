@@ -70,6 +70,8 @@ type
     cdsCBenefCST_53: TStringField;
     cdsCBenefCST_61: TStringField;
     cdsCBenefBENEFICIO: TStringField;
+    sdsCBenefMOSTRAR_CFOP: TStringField;
+    cdsCBenefMOSTRAR_CFOP: TStringField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure NxButton1Click(Sender: TObject);
   private
@@ -131,10 +133,13 @@ end;
 procedure TfrmGeraCBenefSC.NxButton1Click(Sender: TObject);
 begin
   gGrid := TStringGrid.Create(gGrid);
-  vArquivo_XLS := fnc_verifica_Arquivo(FilenameEdit1.Text,'L');
-  XlsToStringGrid2(gGrid,vArquivo_XLS,1);
-  prc_Le_Arq_Planilha;
-  FreeAndNil(gGrid);
+  try
+    vArquivo_XLS := fnc_verifica_Arquivo(FilenameEdit1.Text,'L');
+    XlsToStringGrid2(gGrid,vArquivo_XLS,1);
+    prc_Le_Arq_Planilha;
+  finally
+    FreeAndNil(gGrid);
+  end;
 end;
 
 procedure TfrmGeraCBenefSC.prc_Le_Arq_Planilha;
@@ -144,6 +149,7 @@ var
   vID_CBenef : Integer;
   sds: TSQLDataSet;
   i: Integer;
+  vBeneficio: String;
 begin
   vCont := 0;
   Linha := 0;
@@ -156,7 +162,7 @@ begin
     sds.SQLConnection := dmDatabase.scoDados;
     sds.NoMetadata    := True;
     sds.GetMetadata   := False;
-    sds.CommandText   := 'DELETE FROM CBENEF';
+    sds.CommandText   := 'DELETE FROM CBENEF where UF = ' + QuotedStr('SC');
     sds.ExecSQL;
   finally
     FreeAndNil(sds);
@@ -169,6 +175,7 @@ begin
     begin
       try
         vTexto1 := gGrid.Cells[20,Linha];
+        vBeneficio := gGrid.Cells[0,Linha];
         //if trim(copy(vTexto1,1,2)) = 'RS' then
         begin
           vCont := vCont + 1;
@@ -206,36 +213,43 @@ begin
           cdsCBenefBENEFICIO.AsString := gGrid.Cells[0,Linha];
           cdsCBenefTRIBUTO.AsString   := gGrid.Cells[1,Linha];
           cdsCBenefAPLICA_SIMPLES.AsString   := gGrid.Cells[3,Linha];
-          if UpperCase(trim(gGrid.Cells[4,Linha])) = 'SIM' then
-            cdsCBenefCST_00.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[4,Linha])) = 'SIM' then
-            cdsCBenefCST_02.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[6,Linha])) = 'SIM' then
-            cdsCBenefCST_10.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[7,Linha])) = 'SIM' then
-            cdsCBenefCST_15.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[8,Linha])) = 'SIM' then
-            cdsCBenefCST_20.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[9,Linha])) = 'SIM' then
-            cdsCBenefCST_30.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[10,Linha])) = 'SIM' then
-            cdsCBenefCST_40.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[11,Linha])) = 'SIM' then
-            cdsCBenefCST_41.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[12,Linha])) = 'SIM' then
-            cdsCBenefCST_50.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[13,Linha])) = 'SIM' then
-            cdsCBenefCST_51.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[14,Linha])) = 'SIM' then
-            cdsCBenefCST_53.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[15,Linha])) = 'SIM' then
-            cdsCBenefCST_60.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[16,Linha])) = 'SIM' then
-            cdsCBenefCST_61.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[17,Linha])) = 'SIM' then
-            cdsCBenefCST_70.AsString := 'S';
-          if UpperCase(trim(gGrid.Cells[18,Linha])) = 'SIM' then
-            cdsCBenefCST_90.AsString := 'S';
+          if (vBeneficio = 'Crédito Presumido') then
+          begin
+            cdsCBenefMOSTRAR_CFOP.AsString := 'S';
+          end
+          else
+          begin
+            if UpperCase(trim(gGrid.Cells[4,Linha])) = 'SIM' then
+              cdsCBenefCST_00.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[5,Linha])) = 'SIM' then
+              cdsCBenefCST_02.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[6,Linha])) = 'SIM' then
+              cdsCBenefCST_10.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[7,Linha])) = 'SIM' then
+              cdsCBenefCST_15.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[8,Linha])) = 'SIM' then
+              cdsCBenefCST_20.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[9,Linha])) = 'SIM' then
+              cdsCBenefCST_30.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[10,Linha])) = 'SIM' then
+              cdsCBenefCST_40.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[11,Linha])) = 'SIM' then
+              cdsCBenefCST_41.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[12,Linha])) = 'SIM' then
+              cdsCBenefCST_50.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[13,Linha])) = 'SIM' then
+              cdsCBenefCST_51.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[14,Linha])) = 'SIM' then
+              cdsCBenefCST_53.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[15,Linha])) = 'SIM' then
+              cdsCBenefCST_60.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[16,Linha])) = 'SIM' then
+              cdsCBenefCST_61.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[17,Linha])) = 'SIM' then
+              cdsCBenefCST_70.AsString := 'S';
+            if UpperCase(trim(gGrid.Cells[18,Linha])) = 'SIM' then
+              cdsCBenefCST_90.AsString := 'S';
+          end;
           cdsCBenef.Post;
           cdsCBenef.ApplyUpdates(0);
         end;

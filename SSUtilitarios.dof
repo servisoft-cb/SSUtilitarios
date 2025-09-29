@@ -91,7 +91,7 @@ ImageBase=4194304
 ExeDescription=
 [Directories]
 OutputDir=d:\Delphi7\SSFacil\EXE
-UnitOutputDir=d:\Delphi7\SSFacil\DCU
+UnitOutputDir=D:\Delphi7\SSFacil\DCU_Utilitarios
 PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=
@@ -115,7 +115,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=0
 Release=0
-Build=12
+Build=14
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=ServiSoft Informática Ltda.
 FileDescription=
-FileVersion=1.0.0.12
+FileVersion=1.0.0.14
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -258,11 +258,12 @@ C:\Program Files (x86)\Developer Express Inc\Library\Delphi7\dcldxPScxScheduler3
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlUnitOutputDirectory]
-Count=4
-Item0=d:\Delphi7\SSFacil\DCU
-Item1=C:\Delphi7\SSFacil\DCU
-Item2=C:\Delphi7\Locacao_Pontos\DCU
-Item3=C:\Delphi7\ServicoFacil\DCU
+Count=5
+Item0=D:\Delphi7\SSFacil\DCU_Utilitarios
+Item1=d:\Delphi7\SSFacil\DCU
+Item2=C:\Delphi7\SSFacil\DCU
+Item3=C:\Delphi7\Locacao_Pontos\DCU
+Item4=C:\Delphi7\ServicoFacil\DCU
 [HistoryLists\hlOutputDirectorry]
 Count=4
 Item0=d:\Delphi7\SSFacil\EXE

@@ -192,6 +192,11 @@ object frmGeraCBenefSC: TfrmGeraCBenefSC
       FieldName = 'BENEFICIO'
       Size = 30
     end
+    object sdsCBenefMOSTRAR_CFOP: TStringField
+      FieldName = 'MOSTRAR_CFOP'
+      FixedChar = True
+      Size = 1
+    end
   end
   object dspCBenef: TDataSetProvider
     DataSet = sdsCBenef
@@ -301,6 +306,11 @@ object frmGeraCBenefSC: TfrmGeraCBenefSC
     object cdsCBenefBENEFICIO: TStringField
       FieldName = 'BENEFICIO'
       Size = 30
+    end
+    object cdsCBenefMOSTRAR_CFOP: TStringField
+      FieldName = 'MOSTRAR_CFOP'
+      FixedChar = True
+      Size = 1
     end
   end
   object dsCBenef: TDataSource
