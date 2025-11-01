@@ -31,7 +31,7 @@ object frmImportar_PlanoSage: TfrmImportar_PlanoSage
     ParentFont = False
     TabOrder = 0
     UseDockManager = True
-    Version = '1.6.0.3'
+    Version = '2.0.1.0'
     Caption.Color = clHighlight
     Caption.ColorTo = clNone
     Caption.Font.Charset = DEFAULT_CHARSET
@@ -141,7 +141,7 @@ object frmImportar_PlanoSage: TfrmImportar_PlanoSage
     SQL.Strings = (
       'SELECT *'
       'FROM PLANO_CONTABIL')
-    SQLConnection = DmDatabase.scoDados
+    SQLConnection = dmDatabase.scoDados
     Left = 496
     Top = 120
     object qPlano_ContabilID: TIntegerField

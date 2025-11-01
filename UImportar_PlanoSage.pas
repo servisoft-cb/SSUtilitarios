@@ -36,16 +36,11 @@ type
   private
     { Private declarations }
     fDMCadPlano_Contabil: TDMCadPlano_Contabil;
-    Txt: TextFile;
-    vRegistro: string;
-    vArquivo: string;
     gGrid: TStringGrid;
     vArquivo_XLS : String;
     Linha: Integer;
     vNivelSuperior: Integer;
 
-    function fnc_Montar_Campo: string;
-    function fnc_Conta_Nivel(const Texto: string; Caracter: string): Integer;
     function fnc_Nivel_Superior(Conta: string; Nivel: Integer): Integer;
 
     procedure prc_Le_XLS;
@@ -53,7 +48,6 @@ type
 
     function XlsToStringGrid2(AGrid: TStringGrid; AXLSFile: string; WorkSheet: Integer): Boolean;
     function fnc_verifica_Arquivo(NomeArquivo, Le_Grava : String) : String;
-    function Replace(Str, Ant, Novo: string): string;
 
   public
     { Public declarations }
@@ -74,44 +68,12 @@ begin
   Action := Cafree;
 end;
 
-function TfrmImportar_PlanoSage.fnc_Montar_Campo: string;
-var
-  i: Integer;
-  vTexto: string;
-begin
-  Result := '';
-  i := pos(';', vRegistro_CSV);
-  if i = 0 then
-    i := Length(vRegistro_CSV) + 1;
-  Result := Copy(vRegistro_CSV, 1, i - 1);
-  vTexto := Result;
-  Delete(vRegistro_CSV, 1, i);
-
-end;
-
 procedure TfrmImportar_PlanoSage.FormShow(Sender: TObject);
 begin
   fDMCadPlano_Contabil := TDMCadPlano_Contabil.Create(Self);
 end;
 
-function TfrmImportar_PlanoSage.fnc_Conta_Nivel(const Texto: string; Caracter: string): Integer;
-var
-  i, ivTot: Integer;
-begin
-  ivTot := 0;
-  for i := 1 to Length(Texto) do
-  begin
-    if ((Texto[i]) = (Caracter)) then
-      ivTot := ivTot + 1;
-  end;
-  Result := ivTot;
-end;
-
 function TfrmImportar_PlanoSage.fnc_Nivel_Superior(Conta: string; Nivel: Integer): Integer;
-var
-  i: Integer;
-  Flag: Boolean;
-  vCodAux: String;
 begin
   Conta := ReverseString(Conta);
   case nivel of
@@ -177,18 +139,6 @@ begin
       prc_Gravar_PlanoContabil;
   end;
   ShowMessage('Concluído!');
-end;
-
-function TfrmImportar_PlanoSage.Replace(Str, Ant, Novo: string): string;
-var
-  iPos: Integer;
-begin
-  while Pos(Ant, Str) > 0 do
-  begin
-    iPos := Pos(Ant, Str);
-    Str := copy(Str, 1, iPos - 1) + Novo + copy(Str, iPos + 1, Length(Str) - iPos);
-  end;
-  Result := Str;
 end;
 
 function TfrmImportar_PlanoSage.XlsToStringGrid2(AGrid: TStringGrid;
@@ -260,13 +210,8 @@ end;
 
 procedure TfrmImportar_PlanoSage.prc_Gravar_PlanoContabil;
 var
-  i, i2 : Integer;
-  vTexto: String;
-  vTexto2: String;
-  vQtdAux: Real;
   vcod_Reduzido: String;
   vNatureza: Integer;
-  vNome: String;
   vCod_Contabil: String;
 begin
   vcod_Reduzido := Monta_Numero(gGrid.Cells[1,Linha],0);

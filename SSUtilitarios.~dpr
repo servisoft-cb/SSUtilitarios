@@ -69,7 +69,9 @@ uses
   UCadInicial in '..\ssfacil\UCadInicial.pas' {frmCadInicial},
   UDMCadFilial in '..\ssfacil\UDMCadFilial.pas' {DMCadFilial: TDataModule},
   uPessoa in '..\ssfacil\Classes\uPessoa.pas',
-  UGeraCBenefSC in 'UGeraCBenefSC.pas' {frmGeraCBenefSC};
+  UGeraCBenefSC in 'UGeraCBenefSC.pas' {frmGeraCBenefSC},
+  EstoqueAppUtils in '..\ssfacil\Classes\EstoqueAppUtils.pas',
+  UImportar_IBSCBS_Excel in 'UImportar_IBSCBS_Excel.pas' {frmImportar_IBSCBS_Excel};
 
 {$R *.res}
 

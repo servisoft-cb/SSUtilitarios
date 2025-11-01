@@ -4,7 +4,7 @@ interface
 
 uses
   Classes, SysUtils, Dialogs, SqlExpr, DmdDatabase, Messages, Controls, Graphics, UDMCadProduto, Variants, DB, StrUtils,
-  frxExportMail, frxClass, frxExportPDF, RLFilters, RLPDFFilter, dbXPress, uDmConsProduto;
+  frxExportMail, frxClass, frxExportPDF, RLFilters, RLPDFFilter, dbXPress, uDmConsProduto, Classe.Parametros;
 
   procedure prc_Alterar_Consumo_Perc(fDMCadProduto: TDMCadProduto; ID_Prod: Integer; Percentual: Real);
   procedure prc_Alterar_Consumo_Fixo(fDMCadProduto: TDMCadProduto; ID_Prod: Integer; Qtd: Real);
@@ -20,15 +20,37 @@ uses
   procedure prc_Executa_Procedure(Parametro,Nome : String; IDCampo: Integer);
   procedure prc_Controle_Ativo(fDMCadProduto: TDMCadProduto);
   procedure prc_Controle_Veiculo(fDMCadProduto: TDMCadProduto);
-
+  procedure prc_Abrir_Ativo(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Veiculo(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Balanca(fDMCadProduto: TDMCadProduto; ID: Integer);
   procedure prc_Controle_Ficha_Textil(fDMCadProduto: TDMCadProduto);
   procedure prc_Controle_Ficha_Tranc(fDMCadProduto: TDMCadProduto);
-  procedure prc_Controle_Ficha_Textil_DP(fDMCadProduto: TDMCadProduto);
+  procedure prc_Abrir_Ficha_Textil(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Ficha_Tranc(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Ficha_Textil_DP(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Serie(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Matriz(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Produto_Cor(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_ProdFoto(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Produto_Emb(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Produto_Atelier(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Produto_MatTam(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Produto_Maq(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Comissao(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Comissao_Vend(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Produto_Lote(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Produto_CA(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Produto_Carimbo(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_CBarra(fDMCadProduto: TDMCadProduto; ID: Integer);
+
   procedure prc_Controle_Serie(fDMCadProduto: TDMCadProduto);
   procedure prc_Controle_Balanca(fDMCadProduto: TDMCadProduto);
   procedure prc_Gerar_Ref_Estruturada(fDMCadProduto: TDMCadProduto);
   procedure prc_Verificar_Cor_Comb(ID: Integer);
   procedure prc_Referencia_Linha(fDMCadProduto: TDMCadProduto);
+  procedure prc_Abrir_Produto_Comb(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Produto_Processo(fDMCadProduto: TDMCadProduto; ID: Integer);
+  procedure prc_Abrir_Produto_GradeNum(fDMCadProduto: TDMCadProduto; ID: Integer);
 
   function fnc_Combinacao_Cor(fDMCadProduto: TDMCadProduto): String;
   function fnc_Material_Com_Cor(ID: Integer): Boolean;
@@ -42,6 +64,7 @@ uses
   function fnc_Referencia_Proxima_Seq(Tipo: String): Integer;
   function fnc_Verifica_Corrugado(ID: Integer): String;
   function fnc_Monta_Nome_Estrutura(ID: Integer): String;
+  function fnc_busca_Estoque_Lote(ID_Produto: Integer; Num_Lote: String): Real;
 
 var
   vContador_Alt_Produto: Integer;  
@@ -99,7 +122,7 @@ begin
     if vGravar then
       fDMCadProduto.cdsProduto_Consumo.ApplyUpdates(0);
 
-    fDMCadProduto.prc_Abrir_Produto_Comb(ID_Prod);
+    prc_Abrir_Produto_Comb(fDMCadProduto,ID_Prod);
 
     fDMCadProduto.cdsProduto_Comb.First;
     while not fDMCadProduto.cdsProduto_Comb.Eof do
@@ -203,7 +226,7 @@ begin
     end;
     if vGravar then
       fDMCadProduto.cdsProduto_Consumo.ApplyUpdates(0);
-    fDMCadProduto.prc_Abrir_Produto_Comb(ID_Prod);
+    prc_Abrir_Produto_Comb(fDMCadProduto,ID_Prod);
     fDMCadProduto.cdsProduto_Comb.First;
     while not fDMCadProduto.cdsProduto_Comb.Eof do
     begin
@@ -310,7 +333,7 @@ begin
     end;
     if fDMCadProduto.cdsProduto_ConsumoID_SETOR.AsInteger > 0 then
       fDMCadProduto.cdsProduto_Comb_MatID_SETOR.AsInteger := fDMCadProduto.cdsProduto_ConsumoID_SETOR.AsInteger;
-    if fDMCadProduto.qParametros_ProdUSA_CONSUMO_COMB.AsString = 'S' then
+    if TParametros.Busca('USA_CONSUMO_COMB','PARAMETROS_PROD') = 'S' then
     begin
       fDMCadProduto.cdsProduto_Comb_MatQTD_CONSUMO.AsFloat := fDMCadProduto.cdsProduto_ConsumoQTD_CONSUMO.AsFloat;
       fDMCadProduto.cdsProduto_Comb_MatQTD_UNIDADE.AsFloat := fDMCadProduto.cdsProduto_ConsumoQTD_UNIDADE.AsFloat;
@@ -360,7 +383,7 @@ begin
       fDMCadProduto.prc_Localizar(fDMCadProduto.cdsConsultaID.AsInteger);
       if not fDMCadProduto.cdsProduto.IsEmpty then
       begin
-        fDMCadProduto.prc_Abrir_Produto_Processo(fDMCadProduto.cdsProdutoID.AsInteger);
+        prc_Abrir_Produto_Processo(fDMCadProduto,fDMCadProduto.cdsProdutoID.AsInteger);
         if fDMCadProduto.cdsProdutoProcesso.IsEmpty then
           prc_Gerar_Produto_Proc(fDMCadProduto);
       end;
@@ -757,7 +780,7 @@ procedure prc_Controle_Ativo(fDMCadProduto: TDMCadProduto);
 begin
   if not(fDMCadProduto.cdsProduto_Ativo.Active) or not(fDMCadProduto.cdsProduto_Ativo.State in [dsEdit, dsInsert]) then
   begin
-    fDMCadProduto.prc_Abrir_Ativo(fDMCadProduto.cdsProdutoID.AsInteger);
+    prc_Abrir_Ativo(fDMCadProduto,fDMCadProduto.cdsProdutoID.AsInteger);
     if (fDMCadProduto.cdsProduto.State in [dsEdit, dsInsert]) then
     begin
       if fDMCadProduto.cdsProduto_Ativo.IsEmpty then
@@ -775,7 +798,7 @@ procedure prc_Controle_Veiculo(fDMCadProduto: TDMCadProduto);
 begin
   if not(fDMCadProduto.cdsProduto_Veiculo.Active) or not(fDMCadProduto.cdsProduto_Veiculo.State in [dsEdit, dsInsert]) then
   begin
-    fDMCadProduto.prc_Abrir_Veiculo(fDMCadProduto.cdsProdutoID.AsInteger);
+    prc_Abrir_Veiculo(fDMCadProduto,fDMCadProduto.cdsProdutoID.AsInteger);
     if (fDMCadProduto.cdsProduto.State in [dsEdit, dsInsert]) then
     begin
       if fDMCadProduto.cdsProduto_Veiculo.IsEmpty then
@@ -794,7 +817,7 @@ begin
   if not(fDMCadProduto.cdsProduto_Textil.Active) or not(fDMCadProduto.cdsProduto_Textil.State in [dsEdit, dsInsert])
     or (fDMCadProduto.cdsProduto_TextilID.AsInteger <> fDMCadProduto.cdsProdutoID.AsInteger) then
   begin
-    fDMCadProduto.prc_Abrir_Ficha_Textil(fDMCadProduto.cdsProdutoID.AsInteger);
+    prc_Abrir_Ficha_Textil(fDMCadProduto,fDMCadProduto.cdsProdutoID.AsInteger);
     if (fDMCadProduto.cdsProduto.State in [dsEdit, dsInsert]) then
     begin
       if fDMCadProduto.cdsProduto_Textil.IsEmpty then
@@ -813,7 +836,7 @@ begin
   if not(fDMCadProduto.cdsProduto_Tranc.Active) or not(fDMCadProduto.cdsProduto_Tranc.State in [dsEdit, dsInsert])
     or (fDMCadProduto.cdsProduto_TrancID.AsInteger <> fDMCadProduto.cdsProdutoID.AsInteger) then
   begin
-    fDMCadProduto.prc_Abrir_Ficha_Tranc(fDMCadProduto.cdsProdutoID.AsInteger);
+    prc_Abrir_Ficha_Tranc(fDMCadProduto,fDMCadProduto.cdsProdutoID.AsInteger);
     if (fDMCadProduto.cdsProduto.State in [dsEdit, dsInsert]) then
     begin
       if fDMCadProduto.cdsProduto_Tranc.IsEmpty then
@@ -831,24 +854,17 @@ begin
   end;
 end;
 
-procedure prc_Controle_Ficha_Textil_DP(fDMCadProduto: TDMCadProduto);
-begin
-  if not(fDMCadProduto.cdsProduto_Textil_DP.Active) or not(fDMCadProduto.cdsProduto_Textil_DP.State in [dsEdit, dsInsert])
-    or (fDMCadProduto.cdsProduto_Textil_DPID.AsInteger <> fDMCadProduto.cdsProdutoID.AsInteger) then
-    fDMCadProduto.prc_Abrir_Ficha_Textil_DP(fDMCadProduto.cdsProdutoID.AsInteger);
-end;
-
 procedure prc_Controle_Serie(fDMCadProduto: TDMCadProduto);
 begin
   if not(fDMCadProduto.cdsProduto_Serie.Active) or not(fDMCadProduto.cdsProduto_Serie.State in [dsEdit, dsInsert]) then
-    fDMCadProduto.prc_Abrir_Serie(fDMCadProduto.cdsProdutoID.AsInteger);
+    prc_Abrir_Serie(fDMCadProduto,fDMCadProduto.cdsProdutoID.AsInteger);
 end;
 
 procedure prc_Controle_Balanca(fDMCadProduto: TDMCadProduto);
 begin
   if not(fDMCadProduto.cdsProduto_Balanca.Active) or not(fDMCadProduto.cdsProduto_Balanca.State in [dsEdit, dsInsert]) then
   begin
-    fDMCadProduto.prc_Abrir_Balanca(fDMCadProduto.cdsProdutoID.AsInteger);
+    prc_Abrir_Balanca(fDMCadProduto,fDMCadProduto.cdsProdutoID.AsInteger);
     if (fDMCadProduto.cdsProduto.State in [dsEdit, dsInsert]) then
     begin
       if fDMCadProduto.cdsProduto_Balanca.IsEmpty then
@@ -865,7 +881,7 @@ end;
 function fnc_Verificar_Tipo(fDMCadProduto: TDMCadProduto): Boolean;
 begin
   Result := True;
-  if fDMCadProduto.qParametros_ProdCONT_TIPO_PROD.AsString = 'S' then
+  if TParametros.Busca('CONT_TIPO_PROD','PARAMETROS_PROD') = 'S' then
   begin
     if (fDMCadProduto.cdsProdutoTIPO_REG.AsString = 'M') then
     begin
@@ -899,9 +915,9 @@ var
   sds: TSQLDataSet;
   i: Integer;
 begin
-  if fDMCadProduto.qParametros_ProdGERAR_REF_GRUPO.AsString <> 'S' then
+  if trim(TParametros.Busca('GERAR_REF_GRUPO','PARAMETROS_PROD')) <> 'S' then
     exit;
-  if fDMCadProduto.qParametros_ProdQTD_DIGITOS_REF.AsInteger <= 0 then
+  if StrToIntDef(TParametros.Busca('QTD_DIGITOS_REF','PARAMETROS_PROD'),0) <= 0 then
   begin
     MessageDlg('*** Quantidade de dígitos da referência não informada nos Parâmetros na aba Produtos!', mtError, [mbOk], 0);
     exit;
@@ -919,7 +935,7 @@ begin
     sds.SQLConnection := dmDatabase.scoDados;
     sds.NoMetadata    := True;
     sds.GetMetadata   := False;
-    sds.CommandText   := 'SELECT max( SUBSTRING(REFERENCIA FROM ' + IntToStr(i) + ' FOR ' + IntToStr(fDMCadProduto.qParametros_ProdQTD_DIGITOS_REF.AsInteger) + ')) SEQ '
+    sds.CommandText   := 'SELECT max( SUBSTRING(REFERENCIA FROM ' + IntToStr(i) + ' FOR ' + TParametros.Busca('QTD_DIGITOS_REF','PARAMETROS_PROD') + ')) SEQ '
                        + ' FROM PRODUTO WHERE ID_GRUPO = :ID_GRUPO';
     sds.ParamByName('ID_GRUPO').AsInteger := fDMCadProduto.cdsProdutoID_GRUPO.AsInteger;
     sds.Open;
@@ -930,7 +946,7 @@ begin
       i := 1
     else
       i := sds.FieldByName('SEQ').AsInteger + 1;
-    vRefAux := vRefAux + Monta_Numero(IntToStr(i),fDMCadProduto.qParametros_ProdQTD_DIGITOS_REF.AsInteger);
+    vRefAux := vRefAux + Monta_Numero(IntToStr(i),StrToIntDef(TParametros.Busca('QTD_DIGITOS_REF','PARAMETROS_PROD'),0));
   finally
     FreeAndNil(sds);
   end;
@@ -1063,7 +1079,7 @@ begin
     fDMCadProduto.cdsProdutoUNIDADE.AsString := fDMCadProduto.cdsLinhaUNIDADE.AsString;
   if fDMCadProduto.cdsLinhaID_NCM.AsInteger > 0 then
     fDMCadProduto.cdsProdutoID_NCM.AsInteger := fDMCadProduto.cdsLinhaID_NCM.AsInteger;
-  if fDMCadProduto.qParametrosMOSTRAR_LINHA_PROD.AsString = 'S' then
+  if TParametros.Busca('MOSTRAR_LINHA_PROD','PARAMETROS')  = 'S' then
     fDMCadProduto.cdsProdutoREFERENCIA.AsString := fDMCadProduto.cdsLinhaCODIGO.AsString + '.';
 end;
 
@@ -1136,6 +1152,195 @@ begin
     sds.ParamByName('CODIGO').AsInteger := ID;
     sds.Open;
     Result := sds.FieldByName('nome').AsString;
+  finally
+    FreeAndNil(sds);
+  end;
+end;
+
+procedure prc_Abrir_Produto_Comb(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Comb.Close;
+  fDMCadProduto.sdsProduto_Comb.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Comb.Open;
+  fDMCadProduto.cdsProduto_Comb_Mat.Close;
+  fDMCadProduto.cdsProduto_Comb_Mat.Open;
+end;
+
+procedure prc_Abrir_Produto_Processo(fDMCadProduto: TDMCadProduto; ID: Integer);
+                                                                                begin
+  fDMCadProduto.cdsProdutoProcesso.Close;
+  fDMCadProduto.sdsProdutoProcesso.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProdutoProcesso.Open;
+end;
+
+procedure prc_Abrir_Produto_GradeNum(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_GradeNum.Close;
+  fDMCadProduto.sdsProduto_GradeNum.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_GradeNum.Open;
+end;
+
+procedure prc_Abrir_Ativo(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Ativo.Close;
+  fDMCadProduto.sdsProduto_Ativo.CommandText := fDMCadProduto.ctAtivo;
+  fDMCadProduto.sdsProduto_Ativo.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Ativo.Open;
+end;
+
+procedure prc_Abrir_Veiculo(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Veiculo.Close;
+  fDMCadProduto.sdsProduto_Veiculo.CommandText := fDMCadProduto.ctVeiculo;
+  fDMCadProduto.sdsProduto_Veiculo.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Veiculo.Open;
+end;
+
+procedure prc_Abrir_Balanca(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Balanca.Close;
+  fDMCadProduto.sdsProduto_Balanca.CommandText := fDMCadProduto.ctBalanca;
+  fDMCadProduto.sdsProduto_Balanca.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Balanca.Open;
+end;
+
+procedure prc_Abrir_Ficha_Textil(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Textil.Close;
+  fDMCadProduto.sdsProduto_Textil.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Textil.Open;
+end;
+
+procedure prc_Abrir_Ficha_Tranc(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Tranc.Close;
+  fDMCadProduto.sdsProduto_Tranc.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Tranc.Open;
+end;
+
+procedure prc_Abrir_Ficha_Textil_DP(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Textil_DP.Close;
+  fDMCadProduto.sdsProduto_Textil_DP.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Textil_DP.Open;
+end;
+
+procedure prc_Abrir_Serie(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Serie.Close;
+  fDMCadProduto.sdsProduto_Serie.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Serie.Open;
+end;
+
+procedure prc_Abrir_Matriz(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Matriz.Close;
+  fDMCadProduto.sdsProduto_Matriz.CommandText := fDMCadProduto.ctMatriz;
+  fDMCadProduto.sdsProduto_Matriz.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Matriz.Open;
+end;
+
+procedure prc_Abrir_Produto_Cor(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Cor.Close;
+  fDMCadProduto.sdsProduto_Cor.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Cor.Open;
+end;
+
+procedure prc_Abrir_ProdFoto(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Foto.Close;
+  fDMCadProduto.sdsProduto_Foto.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Foto.Open;
+end;
+
+procedure prc_Abrir_Produto_Emb(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Emb.Close;
+  fDMCadProduto.sdsProduto_Emb.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Emb.Open;
+end;
+
+procedure prc_Abrir_Produto_Atelier(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Atelier.Close;
+  fDMCadProduto.sdsProduto_Atelier.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Atelier.Open;
+end;
+
+procedure prc_Abrir_Produto_MatTam(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_MatTam.Close;
+  fDMCadProduto.sdsProduto_MatTam.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_MatTam.Open;
+end;
+
+procedure prc_Abrir_Produto_Maq(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Maq.Close;
+  fDMCadProduto.sdsProduto_Maq.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Maq.Open;
+end;
+
+procedure prc_Abrir_Comissao(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Comissao.Close;
+  fDMCadProduto.sdsProduto_Comissao.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Comissao.Open;
+end;
+
+procedure prc_Abrir_Comissao_Vend(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Comissao_Vend.Close;
+  fDMCadProduto.sdsProduto_Comissao_Vend.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Comissao_Vend.Open;
+end;
+
+procedure prc_Abrir_Produto_Lote(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Lote.Close;
+  fDMCadProduto.sdsProduto_Lote.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Lote.Open;
+end;
+
+procedure prc_Abrir_Produto_CA(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_CA.Close;
+  fDMCadProduto.sdsProduto_CA.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_CA.Open;
+end;
+
+procedure prc_Abrir_Produto_Carimbo(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsProduto_Carimbo.Close;
+  fDMCadProduto.sdsProduto_Carimbo.ParamByName('ID').AsInteger := ID;
+  fDMCadProduto.cdsProduto_Carimbo.Open;
+end;
+
+procedure prc_Abrir_CBarra(fDMCadProduto: TDMCadProduto; ID: Integer);
+begin
+  fDMCadProduto.cdsCBarra2.Close;
+  fDMCadProduto.sdsCBarra2.ParamByName('ID_PRODUTO').AsInteger := ID;
+  fDMCadProduto.cdsCBarra2.Open;
+end;
+
+function fnc_busca_Estoque_Lote(ID_Produto: Integer; Num_Lote: String): Real;
+var
+  sds: TSQLDataSet;
+begin
+  sds := TSQLDataSet.Create(nil);
+  try
+    sds.SQLConnection := dmDatabase.scoDados;
+    sds.NoMetadata    := True;
+    sds.GetMetadata   := False;
+    sds.CommandText   := 'select cast(sum(QTD) as double precision)  QTD '
+                       + 'from ESTOQUE_LOTE '
+                       + 'where ID_PRODUTO = :ID_PRODUTO and '
+                       + '      NUM_LOTE_CONTROLE = :NUM_LOTE_CONTROLE ';
+    sds.ParamByName('ID_PRODUTO').AsInteger := ID_Produto;
+    sds.ParamByName('NUM_LOTE_CONTROLE').AsString := Num_Lote;
+    sds.Open;
+    Result := StrToFloatDef(FormatFloat('0.0000',sds.FieldByName('QTD').AsFloat),0);
   finally
     FreeAndNil(sds);
   end;

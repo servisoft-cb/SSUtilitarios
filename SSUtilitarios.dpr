@@ -70,7 +70,11 @@ uses
   UDMCadFilial in '..\ssfacil\UDMCadFilial.pas' {DMCadFilial: TDataModule},
   uPessoa in '..\ssfacil\Classes\uPessoa.pas',
   UGeraCBenefSC in 'UGeraCBenefSC.pas' {frmGeraCBenefSC},
-  EstoqueAppUtils in '..\ssfacil\Classes\EstoqueAppUtils.pas';
+  EstoqueAppUtils in '..\ssfacil\Classes\EstoqueAppUtils.pas',
+  UImportar_IBSCBS_Excel in 'UImportar_IBSCBS_Excel.pas' {frmImportar_IBSCBS_Excel},
+  UTransactionHelper in '..\ssfacil\Classes\UTransactionHelper.pas',
+  uSQLHelper in '..\ssfacil\Classes\uSQLHelper.pas',
+  Classe.Parametros in '..\ssfacil\Classes\Classe.Parametros.pas';
 
 {$R *.res}
 

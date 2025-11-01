@@ -502,5 +502,20 @@ object fMenu: TfMenu
       TabOrder = 29
       OnClick = btnCBenefSCClick
     end
+    object NxButton15: TNxButton
+      Left = 36
+      Top = 529
+      Width = 302
+      Height = 33
+      Caption = 'Importar IBS CBS Excel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 30
+      OnClick = NxButton15Click
+    end
   end
 end
