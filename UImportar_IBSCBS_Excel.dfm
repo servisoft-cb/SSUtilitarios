@@ -166,7 +166,7 @@ object frmImportar_IBSCBS_Excel: TfrmImportar_IBSCBS_Excel
     object sdsCTDESCRICAO_CLASSTRIB: TStringField
       FieldName = 'DESCRICAO_CLASSTRIB'
       Required = True
-      Size = 255
+      Size = 1000
     end
     object sdsCTCST_IBS_CBS: TStringField
       FieldName = 'CST_IBS_CBS'
@@ -176,7 +176,7 @@ object frmImportar_IBSCBS_Excel: TfrmImportar_IBSCBS_Excel
     end
     object sdsCTFUNDAMENTO_LEGAL: TStringField
       FieldName = 'FUNDAMENTO_LEGAL'
-      Size = 255
+      Size = 1000
     end
     object sdsCTTIPO_ALIQUOTA: TStringField
       FieldName = 'TIPO_ALIQUOTA'
@@ -204,11 +204,11 @@ object frmImportar_IBSCBS_Excel: TfrmImportar_IBSCBS_Excel
     end
     object sdsCTDESCRICAO_CSTIBSCBS: TStringField
       FieldName = 'DESCRICAO_CSTIBSCBS'
-      Size = 100
+      Size = 300
     end
     object sdsCTNOME_CCLASTRIB: TStringField
       FieldName = 'NOME_CCLASTRIB'
-      Size = 150
+      Size = 300
     end
     object sdsCTIND_REDUTORBC: TStringField
       FieldName = 'IND_REDUTORBC'
@@ -344,7 +344,7 @@ object frmImportar_IBSCBS_Excel: TfrmImportar_IBSCBS_Excel
     object cdsCTDESCRICAO_CLASSTRIB: TStringField
       FieldName = 'DESCRICAO_CLASSTRIB'
       Required = True
-      Size = 255
+      Size = 1000
     end
     object cdsCTCST_IBS_CBS: TStringField
       FieldName = 'CST_IBS_CBS'
@@ -354,7 +354,7 @@ object frmImportar_IBSCBS_Excel: TfrmImportar_IBSCBS_Excel
     end
     object cdsCTFUNDAMENTO_LEGAL: TStringField
       FieldName = 'FUNDAMENTO_LEGAL'
-      Size = 255
+      Size = 1000
     end
     object cdsCTTIPO_ALIQUOTA: TStringField
       FieldName = 'TIPO_ALIQUOTA'
@@ -382,11 +382,11 @@ object frmImportar_IBSCBS_Excel: TfrmImportar_IBSCBS_Excel
     end
     object cdsCTDESCRICAO_CSTIBSCBS: TStringField
       FieldName = 'DESCRICAO_CSTIBSCBS'
-      Size = 100
+      Size = 300
     end
     object cdsCTNOME_CCLASTRIB: TStringField
       FieldName = 'NOME_CCLASTRIB'
-      Size = 150
+      Size = 300
     end
     object cdsCTIND_REDUTORBC: TStringField
       FieldName = 'IND_REDUTORBC'

@@ -286,7 +286,7 @@ begin
   if vIDCT > 0 then
     exit;
 
-  vIDCT := dmDatabase.fnc_Generator_ID('GEN_CT_IBS_CBS_ID',True);
+  vIDCT := dmDatabase.fnc_Generator_ID('GEN_CT_IBS_CBS_ID',False);
   cdsCT.Insert;
   cdsCTID.AsInteger        := vIDCT;
   cdsCTCCLASSTRIB.AsString := vCClassTrib;
