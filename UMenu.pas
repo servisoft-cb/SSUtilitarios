@@ -89,7 +89,7 @@ uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio, uUtilPadrao,
   UImportarCTN, UAjusteNomeClienteCF, UImportar_PlanoDominio,
   UImportar_PlanoSage, UImportar_PlanoNovoSistema_Excel,
-  URecebeXMLNovo_ListarXML, UImportar_BalanceteDominio, UGeraCBenefSC, UImportar_IBSCBS_Excel;//, UGerarTalao_Setor;
+  URecebeXMLNovo_ListarXML, UImportar_BalanceteDominio, UGeraCBenefSC, UImportar_IBSCBS_Excel, UImportarXMLSaida;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -293,9 +293,12 @@ end;
 
 procedure TfMenu.NxButton13Click(Sender: TObject);
 begin
-  frmRecebeXMLNovo_ListarXML := TfrmRecebeXMLNovo_ListarXML.Create(self);
-  frmRecebeXMLNovo_ListarXML.ShowModal;
-  FreeAndNil(frmRecebeXMLNovo_ListarXML);
+  frmImportarXMLSaida := TfrmImportarXMLSaida.Create(self);
+  try
+    frmImportarXMLSaida.ShowModal;
+  finally
+    FreeAndNil(frmImportarXMLSaida);
+  end;
 end;
 
 procedure TfMenu.NxButton14Click(Sender: TObject);

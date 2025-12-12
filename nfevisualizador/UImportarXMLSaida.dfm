@@ -1,6 +1,6 @@
-object frmRecebeXMLNovo_ListarXML: TfrmRecebeXMLNovo_ListarXML
-  Left = 169
-  Top = 125
+object frmImportarXMLSaida: TfrmImportarXMLSaida
+  Left = 190
+  Top = 119
   Width = 1120
   Height = 600
   Caption = 'Listar XMLs por pasta'
@@ -12,7 +12,6 @@ object frmRecebeXMLNovo_ListarXML: TfrmRecebeXMLNovo_ListarXML
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -85,7 +84,6 @@ object frmRecebeXMLNovo_ListarXML: TfrmRecebeXMLNovo_ListarXML
         Ctl3D = False
         ParentCtl3D = False
         TabOrder = 1
-        OnKeyDown = edtProcuraChaveKeyDown
       end
       object btnAtualizar: TNxButton
         Left = 320
@@ -186,22 +184,13 @@ object frmRecebeXMLNovo_ListarXML: TfrmRecebeXMLNovo_ListarXML
         Transparent = True
         OnClick = btnAtualizarClick
       end
-      object btnApagarImportados: TButton
-        Left = 697
-        Top = 9
-        Width = 212
-        Height = 25
-        Caption = 'Gravar NFe de Sa'#237'da'
-        TabOrder = 3
-        OnClick = btnApagarImportadosClick
-      end
       object btnLeporACBR: TButton
         Left = 697
-        Top = 36
+        Top = 20
         Width = 212
         Height = 25
         Caption = 'Ler por ACBR'
-        TabOrder = 4
+        TabOrder = 3
       end
     end
     object gridChave: TSMDBGrid
@@ -211,7 +200,7 @@ object frmRecebeXMLNovo_ListarXML: TfrmRecebeXMLNovo_ListarXML
       Height = 487
       Align = alClient
       Ctl3D = False
-      DataSource = DMRecebeXMLNovo_ListarXML.dscdsNFe
+      DataSource = DMNotaFIscal.dsXML
       Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
       ParentCtl3D = False
       ReadOnly = True
@@ -239,54 +228,77 @@ object frmRecebeXMLNovo_ListarXML: TfrmRecebeXMLNovo_ListarXML
       WidthOfIndicator = 11
       DefaultRowHeight = 17
       ScrollBars = ssHorizontal
-      ColCount = 8
+      ColCount = 14
       RowCount = 2
       Columns = <
         item
           Expanded = False
+          FieldName = 'Numero'
+          Visible = True
+        end
+        item
+          Expanded = False
           FieldName = 'Serie'
-          Title.Color = 15194057
-          Width = 40
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'NumNota'
-          Title.Color = 15194057
-          Width = 60
+          FieldName = 'Modelo'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'DtEmissao'
-          Title.Color = 15194057
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'VlrTotal'
-          Title.Color = 15194057
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'NomeEmitente'
-          Title.Color = 15194057
-          Width = 325
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'CNPJEmitente'
-          Title.Color = 15194057
+          FieldName = 'Chave'
           Width = 200
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'chave_acesso'
-          Title.Color = 15194057
-          Width = 300
+          FieldName = 'DTEmissao'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Arquivo'
+          Width = 223
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Emit_CNPJ'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Emit_Nome'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Dest_CNPJ'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = '|Dest_Nome'
+          Title.Caption = #13'Dest_Nome'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Vlr_Prod'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Vlr_NFe'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Importar'
           Visible = True
         end>
     end
@@ -302,7 +314,7 @@ object frmRecebeXMLNovo_ListarXML: TfrmRecebeXMLNovo_ListarXML
     Configuracoes.WebServices.AguardarConsultaRet = 0
     Configuracoes.WebServices.QuebradeLinha = '|'
     Configuracoes.RespTec.IdCSRT = 0
-    Left = 560
-    Top = 208
+    Left = 544
+    Top = 288
   end
 end

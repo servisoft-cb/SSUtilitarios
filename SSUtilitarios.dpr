@@ -74,7 +74,9 @@ uses
   UImportar_IBSCBS_Excel in 'UImportar_IBSCBS_Excel.pas' {frmImportar_IBSCBS_Excel},
   UTransactionHelper in '..\ssfacil\Classes\UTransactionHelper.pas',
   uSQLHelper in '..\ssfacil\Classes\uSQLHelper.pas',
-  Classe.Parametros in '..\ssfacil\Classes\Classe.Parametros.pas';
+  Classe.Parametros in '..\ssfacil\Classes\Classe.Parametros.pas',
+  UDMNotaFIscal in 'UDMNotaFIscal.pas' {DMNotaFIscal: TDataModule},
+  UImportarXMLSaida in 'nfevisualizador\UImportarXMLSaida.pas' {frmImportarXMLSaida};
 
 {$R *.res}
 

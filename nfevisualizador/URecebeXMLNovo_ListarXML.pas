@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Mask, ToolEdit, Grids, DBGrids, SMDBGrid, ExtCtrls, UDMRecebeXMLNovo_ListarXML,
-  DBCtrls, NxCollection,DB;
+  DBCtrls, NxCollection,DB, ACBrBase, ACBrDFe, ACBrNFe;
 
 type
   TfrmRecebeXMLNovo_ListarXML = class(TForm)
@@ -18,9 +18,11 @@ type
     gridChave: TSMDBGrid;
     btnAtualizar: TNxButton;
     btnApagarImportados: TButton;
+    lblTotal: TLabel;
+    ACBrNFe1: TACBrNFe;
+    btnLeporACBR: TButton;
     procedure edtProcuraChaveKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure gridChaveDblClick(Sender: TObject);
     procedure btnAtualizarClick(Sender: TObject);
     procedure btnApagarImportadosClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -164,19 +166,14 @@ begin
   end;
 end;
 
-procedure TfrmRecebeXMLNovo_ListarXML.gridChaveDblClick(Sender: TObject);
-begin
-  if fDMRecebeXMLNovo_ListarXML.cdsNFevArq.AsString = EmptyStr then
-    Exit;
-    
-  vArqSelecionado := edtDiretorio.Text + '\' + fDMRecebeXMLNovo_ListarXML.cdsNFevArq.AsString;
-  Close;
-  ModalResult := mrOk;
-end;
-
 procedure TfrmRecebeXMLNovo_ListarXML.btnAtualizarClick(Sender: TObject);
 begin
-  ListarArquivos(edtDiretorio.Text);
+  try
+    ListarArquivos(edtDiretorio.Text);
+    lblTotal.Caption := 'Total de Registros: ' + IntToStr(fDMRecebeXMLNovo_ListarXML.cdsNFe.RecordCount);
+  except
+    lblTotal.Caption := 'Total de Registros: ' + IntToStr(fDMRecebeXMLNovo_ListarXML.cdsNFe.RecordCount);
+  end;
 end;
 
 procedure TfrmRecebeXMLNovo_ListarXML.prc_Buscar_XML;
