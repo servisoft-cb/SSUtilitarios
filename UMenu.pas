@@ -41,6 +41,9 @@ type
     NxButton12: TNxButton;
     btnCBenefSC: TNxButton;
     NxButton15: TNxButton;
+    btnCarregarNBS: TNxButton;
+    btnImportarIndOp: TNxButton;
+    btnServico_IBSCBS: TNxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ToolButton5Click(Sender: TObject);
     procedure btnLocalizarClick(Sender: TObject);
@@ -70,6 +73,9 @@ type
     procedure NxButton14Click(Sender: TObject);
     procedure btnCBenefSCClick(Sender: TObject);
     procedure NxButton15Click(Sender: TObject);
+    procedure btnCarregarNBSClick(Sender: TObject);
+    procedure btnImportarIndOpClick(Sender: TObject);
+    procedure btnServico_IBSCBSClick(Sender: TObject);
   private
     { Private declarations }
 
@@ -89,7 +95,7 @@ uses DmdDatabase, UImportarXML, uImportarXML_NFSe, UImportarPdx,
   UAjusteNCMCFOP, UImportar_PlanoNovoSistema, UProdutoCMedio, uUtilPadrao,
   UImportarCTN, UAjusteNomeClienteCF, UImportar_PlanoDominio,
   UImportar_PlanoSage, UImportar_PlanoNovoSistema_Excel,
-  URecebeXMLNovo_ListarXML, UImportar_BalanceteDominio, UGeraCBenefSC, UImportar_IBSCBS_Excel, UImportarXMLSaida;//, UGerarTalao_Setor;
+  URecebeXMLNovo_ListarXML, UImportar_BalanceteDominio, UGeraCBenefSC, UImportar_IBSCBS_Excel, UImportarXMLSaida, UNBS, UIndOperacao, UServico_IBSCBS;//, UGerarTalao_Setor;
 
 {$R *.dfm}
 
@@ -322,6 +328,36 @@ begin
     frmImportar_IBSCBS_Excel.ShowModal;
   finally
     FreeAndNil(frmImportar_IBSCBS_Excel);
+  end;
+end;
+
+procedure TfMenu.btnCarregarNBSClick(Sender: TObject);
+begin
+  frmNBS := TfrmNBS.Create(self);
+  try
+    frmNBS.ShowModal;
+  finally
+    FreeAndNil(frmNBS);
+  end;
+end;
+
+procedure TfMenu.btnImportarIndOpClick(Sender: TObject);
+begin
+  frmIndOperacao := TfrmIndOperacao.Create(self);
+  try
+    frmIndOperacao.ShowModal;
+  finally
+    FreeAndNil(frmIndOperacao);
+  end;
+end;
+
+procedure TfMenu.btnServico_IBSCBSClick(Sender: TObject);
+begin
+  frmServico_IBSCBS := TfrmServico_IBSCBS.Create(self);
+  try
+    frmServico_IBSCBS.ShowModal;
+  finally
+    FreeAndNil(frmServico_IBSCBS);
   end;
 end;
 

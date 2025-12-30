@@ -2,7 +2,7 @@ object fMenu: TfMenu
   Left = 273
   Top = 59
   Width = 801
-  Height = 650
+  Height = 680
   Caption = 'Menu    (30/11/2025  1.1.35'
   Color = clSilver
   Constraints.MinHeight = 650
@@ -25,7 +25,7 @@ object fMenu: TfMenu
     Left = 0
     Top = 0
     Width = 785
-    Height = 611
+    Height = 641
     Align = alClient
     BevelWidth = 10
     Color = 15325901
@@ -205,7 +205,7 @@ object fMenu: TfMenu
     end
     object NxButton8: TNxButton
       Left = 428
-      Top = 64
+      Top = 65
       Width = 281
       Height = 33
       Caption = 'Gerar Setor nos Tal'#245'es (Calcado)'
@@ -220,7 +220,7 @@ object fMenu: TfMenu
     end
     object NxButton9: TNxButton
       Left = 428
-      Top = 97
+      Top = 98
       Width = 281
       Height = 33
       Caption = 'Ajusta Contas de Orc. nas Duplicatas'
@@ -265,7 +265,7 @@ object fMenu: TfMenu
     end
     object NxButton11: TNxButton
       Left = 428
-      Top = 129
+      Top = 131
       Width = 281
       Height = 33
       Caption = 'Ajusta Produto_Processo'
@@ -280,7 +280,7 @@ object fMenu: TfMenu
     end
     object btnAtualizarNCMUnidTrib: TNxButton
       Left = 428
-      Top = 162
+      Top = 164
       Width = 281
       Height = 33
       Caption = 'Atualizar NCM Unidade Tribut'#225'vel (Servidor)'
@@ -294,7 +294,7 @@ object fMenu: TfMenu
     end
     object btnGravarProdutosWeb: TNxButton
       Left = 428
-      Top = 195
+      Top = 197
       Width = 281
       Height = 33
       Caption = 'Gravar Produtos na WEB / APP'
@@ -309,7 +309,7 @@ object fMenu: TfMenu
     end
     object btnAjustarCCusto: TNxButton
       Left = 428
-      Top = 227
+      Top = 230
       Width = 281
       Height = 33
       Caption = 'Ajustar Centro de Custo nos itens da NFe'
@@ -324,7 +324,7 @@ object fMenu: TfMenu
     end
     object btnAjustaNCM_CFOP: TNxButton
       Left = 428
-      Top = 260
+      Top = 263
       Width = 281
       Height = 33
       Caption = 'Ajustar NCM / CFOP 01/10/2022'
@@ -369,7 +369,7 @@ object fMenu: TfMenu
     end
     object btnGravarGruposWEB: TNxButton
       Left = 429
-      Top = 293
+      Top = 297
       Width = 281
       Height = 33
       Caption = 'Gravar Grupos na WEB / APP'
@@ -384,7 +384,7 @@ object fMenu: TfMenu
     end
     object btnImportarCTN: TNxButton
       Left = 428
-      Top = 325
+      Top = 330
       Width = 281
       Height = 33
       Caption = 'Importar CTN (Servi'#231'o Trib. Nacional)'
@@ -399,7 +399,7 @@ object fMenu: TfMenu
     end
     object btnAjusteNomeClienteCupom: TNxButton
       Left = 428
-      Top = 358
+      Top = 363
       Width = 281
       Height = 33
       Caption = 'Ajustar Nome Cliente Cupom (Est.Mov)'
@@ -414,7 +414,7 @@ object fMenu: TfMenu
     end
     object btnGerarPlanoDominio: TNxButton
       Left = 428
-      Top = 391
+      Top = 396
       Width = 281
       Height = 33
       Caption = 'Importar Plano Cont'#225'bil (Dominio)'
@@ -429,7 +429,7 @@ object fMenu: TfMenu
     end
     object btnGerarPlanoSage: TNxButton
       Left = 428
-      Top = 461
+      Top = 462
       Width = 281
       Height = 33
       Caption = 'Importar Plano Cont'#225'bil (Sage OA3)'
@@ -444,7 +444,7 @@ object fMenu: TfMenu
     end
     object NxButton13: TNxButton
       Left = 428
-      Top = 496
+      Top = 495
       Width = 281
       Height = 33
       Caption = 'Importar As Notas pelo XML (Sa'#237'da)'
@@ -459,7 +459,7 @@ object fMenu: TfMenu
     end
     object NxButton14: TNxButton
       Left = 428
-      Top = 425
+      Top = 429
       Width = 281
       Height = 33
       Caption = 'Importar Balancete para Plano (Dominio)'
@@ -474,7 +474,7 @@ object fMenu: TfMenu
     end
     object NxButton12: TNxButton
       Left = 36
-      Top = 493
+      Top = 495
       Width = 302
       Height = 33
       Caption = 'Importar Plano Contas Excel (Novo Sistema)'
@@ -516,6 +516,51 @@ object fMenu: TfMenu
       ParentFont = False
       TabOrder = 30
       OnClick = NxButton15Click
+    end
+    object btnCarregarNBS: TNxButton
+      Left = 428
+      Top = 529
+      Width = 281
+      Height = 33
+      Caption = 'Importar Tabela NBS'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 31
+      OnClick = btnCarregarNBSClick
+    end
+    object btnImportarIndOp: TNxButton
+      Left = 36
+      Top = 565
+      Width = 302
+      Height = 33
+      Caption = 'Importar Ind. Opera'#231#227'o (NFSe)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 32
+      OnClick = btnImportarIndOpClick
+    end
+    object btnServico_IBSCBS: TNxButton
+      Left = 428
+      Top = 563
+      Width = 281
+      Height = 33
+      Caption = 'Importar Servico IBS/CBS/NBS (NFSe)'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 33
+      OnClick = btnServico_IBSCBSClick
     end
   end
 end

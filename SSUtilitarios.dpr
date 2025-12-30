@@ -76,7 +76,10 @@ uses
   uSQLHelper in '..\ssfacil\Classes\uSQLHelper.pas',
   Classe.Parametros in '..\ssfacil\Classes\Classe.Parametros.pas',
   UDMNotaFIscal in 'UDMNotaFIscal.pas' {DMNotaFIscal: TDataModule},
-  UImportarXMLSaida in 'nfevisualizador\UImportarXMLSaida.pas' {frmImportarXMLSaida};
+  UImportarXMLSaida in 'nfevisualizador\UImportarXMLSaida.pas' {frmImportarXMLSaida},
+  UNBS in 'UNBS.pas' {frmNBS},
+  UIndOperacao in 'UIndOperacao.pas' {frmIndOperacao},
+  UServico_IBSCBS in 'UServico_IBSCBS.pas' {frmServico_IBSCBS};
 
 {$R *.res}
 
