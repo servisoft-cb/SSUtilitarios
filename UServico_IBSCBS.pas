@@ -56,9 +56,7 @@ begin
   vArquivo := fnc_verifica_Arquivo(FilenameEdit1.Text,'L');
 
   ImportarServicoIBSCBS;
-
 end;
-
 
 function TfrmServico_IBSCBS.Utf8ToAnsiD7(const S: AnsiString): AnsiString;
 var
@@ -69,7 +67,6 @@ begin
   // Converte Unicode -> ANSI (no codepage do Windows, geralmente 1252)
   Result := AnsiString(W);
 end;
-
 
 function TfrmServico_IBSCBS.fnc_verifica_Arquivo(NomeArquivo,
   Le_Grava: String): String;
@@ -92,12 +89,12 @@ var
   i: Integer;
 
   // valores da linha (efetivos)
-  CodLC116, CodNBS, PsOnerosa, AdqExterior, IndOp, CClassTrib: string;
+  CodLC116, DescLC116, CodNBS, PsOnerosa, AdqExterior, IndOp, CClassTrib: string;
 
   // valores herdados (contexto)
-  UltLC116, UltNBS, UltPsOnerosa, UltAdqExterior, UltIndOp, UltCClassTrib: string;
+  UltLC116, UltDescLC116, UltNBS, UltPsOnerosa, UltAdqExterior, UltIndOp, UltCClassTrib: string;
 
-  QryBusca, QryIns: TSQLQuery;
+  QryBusca, QryIns, QryServico: TSQLQuery;
   IDServico: Integer;
 
   procedure SplitLinha(const ALinha: string; ACols: TStringList);
@@ -124,14 +121,17 @@ begin
   Bytes := TMemoryStream.Create;
   SL    := TStringList.Create;
   Cols  := TStringList.Create;
-  QryBusca := TSQLQuery.Create(nil);
-  QryIns   := TSQLQuery.Create(nil);
+  QryBusca   := TSQLQuery.Create(nil);
+  QryIns     := TSQLQuery.Create(nil);
+  QryServico := TSQLQuery.Create(nil);
   try
-    QryBusca.SQLConnection := dmDatabase.scoDados;
-    QryIns.SQLConnection   := dmDatabase.scoDados;
+    QryBusca.SQLConnection   := dmDatabase.scoDados;
+    QryIns.SQLConnection     := dmDatabase.scoDados;
+    QryServico.SQLConnection := dmDatabase.scoDados;
 
     // inicializa contexto
     UltLC116       := '';
+    UltDescLC116   := '';
     UltNBS         := '';
     UltPsOnerosa   := '';
     UltAdqExterior := '';
@@ -158,8 +158,19 @@ begin
       Delete(ConteudoAnsi, 1, 3);
 
     // 4) carrega linhas
+    while Pos(#0, ConteudoAnsi) > 0 do
+      Delete(ConteudoAnsi, Pos(#0, ConteudoAnsi), 1);
     SetString(Linha, PAnsiChar(ConteudoAnsi), Length(ConteudoAnsi));
     SL.Text := Linha;
+
+    // 1) carrega arquivo DIRETO no TStringList
+    SL.LoadFromFile(vArquivo);
+
+    // remove BOM se existir (Excel UTF-8)
+    if (SL.Count > 0) and (Copy(SL[0],1,1) = #$FEFF) then
+      SL[0] := Copy(SL[0],2,MaxInt);
+
+    Label3.Caption := IntToStr(SL.Count);
 
     Label3.Caption := IntToStr(SL.Count);
 
@@ -174,19 +185,23 @@ begin
         Continue;
 
       SplitLinha(Linha, Cols);
-      if Cols.Count < 6 then
+
+      // AGORA tem 7 colunas (incluiu a descrição)
+      if Cols.Count < 7 then
         Continue;
 
       // ===== atualiza contexto (SE vier valor) =====
-      if Trim(Cols[0]) <> '' then UltLC116       := Trim(Cols[0]);
-      if Trim(Cols[1]) <> '' then UltNBS         := Trim(Cols[1]);
-      if Trim(Cols[2]) <> '' then UltPsOnerosa   := Trim(Cols[2]);
-      if Trim(Cols[3]) <> '' then UltAdqExterior := Trim(Cols[3]);
-      if Trim(Cols[4]) <> '' then UltIndOp       := Trim(Cols[4]);
-      if Trim(Cols[5]) <> '' then UltCClassTrib  := Trim(Cols[5]);
+      if Trim(Cols[0]) <> '' then UltLC116       := Trim(Cols[0]); // LC116
+      if Trim(Cols[1]) <> '' then UltDescLC116   := Trim(Cols[1]); // Descrição LC116
+      if Trim(Cols[2]) <> '' then UltNBS         := Trim(Cols[2]); // NBS
+      if Trim(Cols[3]) <> '' then UltPsOnerosa   := Trim(Cols[3]); // PS
+      if Trim(Cols[4]) <> '' then UltAdqExterior := Trim(Cols[4]); // ADQ
+      if Trim(Cols[5]) <> '' then UltIndOp       := Trim(Cols[5]); // INDOP
+      if Trim(Cols[6]) <> '' then UltCClassTrib  := Trim(Cols[6]); // cClasstrib
 
       // monta valores efetivos (sempre herdando)
       CodLC116     := UltLC116;
+      DescLC116    := UltDescLC116;
       CodNBS       := UltNBS;
       PsOnerosa    := UltPsOnerosa;
       AdqExterior  := UltAdqExterior;
@@ -204,6 +219,21 @@ begin
       QryBusca.ParamByName('COD').AsString := CodLC116;
       QryBusca.Open;
 
+      // NÃO ACHOU? cria o serviço e busca o ID
+      if QryBusca.IsEmpty then
+      begin
+        QryServico.Close;
+        QryServico.SQL.Text :=
+          'INSERT INTO SERVICO (ID, CODIGO, NOME, TIPO_AS) ' +
+          'VALUES (NEXT VALUE FOR GEN_SERVICO_ID, :COD, :NOME, ''A'')';
+        QryServico.ParamByName('COD').AsString  := CodLC116;
+        QryServico.ParamByName('NOME').AsString := Copy(DescLC116, 1, 500);
+        QryServico.ExecSQL;
+
+        QryBusca.Close;
+        QryBusca.Open;
+      end;
+
       if QryBusca.IsEmpty then
         Continue;
 
@@ -218,16 +248,17 @@ begin
         '(NEXT VALUE FOR GEN_SERVICO_IBSCBS_ID, :IDSERV, :NBS, :PS, :ADQ, :INDOP, :CC, ''N'')';
 
       QryIns.ParamByName('IDSERV').AsInteger := IDServico;
-      QryIns.ParamByName('NBS').AsString    := CodNBS;
+      QryIns.ParamByName('NBS').AsString    := Copy(CodNBS, 1, 15);
       QryIns.ParamByName('PS').AsString     := Copy(PsOnerosa, 1, 1);
       QryIns.ParamByName('ADQ').AsString    := Copy(AdqExterior, 1, 1);
       QryIns.ParamByName('INDOP').AsString  := Copy(IndOp, 1, 6);
-      QryIns.ParamByName('CC').AsString     := Copy(CClassTrib, 1, 6);
+      QryIns.ParamByName('CC').AsString     := Monta_Numero(Copy(CClassTrib, 1, 6),6);
 
       QryIns.ExecSQL;
     end;
 
   finally
+    QryServico.Free;
     QryIns.Free;
     QryBusca.Free;
     Cols.Free;
