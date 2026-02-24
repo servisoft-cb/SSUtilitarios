@@ -34,7 +34,7 @@ var
 
 implementation
 
-uses rsDBUtils, uUtilPadrao, DmdDatabase;
+uses rsDBUtils, uUtilPadrao, DmdDatabase, uProduto_Insert_Locate;
 
 {$R *.dfm}
 
@@ -99,7 +99,8 @@ begin
     begin
       if (SMDBGrid1.SelectedRows.CurrentRowSelected) and (StrToFloat(FormatFloat('0.000',fDMCadProduto.cdsConsultaPRECO_VENDA.AsFloat)) > 0) then
       begin
-        fDMCadProduto.prc_Localizar(fDMCadProduto.cdsConsultaID.AsInteger);
+        uProduto_Insert_Locate.prc_Produto_Localizar(fDMCadProduto,fDMCadProduto.cdsConsultaID.AsInteger);
+
         if fDMCadProduto.cdsProdutoGERAR_WEB.AsString <> 'S' then
         begin
           sds.Close;
