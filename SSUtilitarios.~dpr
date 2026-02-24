@@ -61,7 +61,6 @@ uses
   UDMRecebeXMLNovo_ListarXML in 'nfevisualizador\UDMRecebeXMLNovo_ListarXML.pas' {DMRecebeXMLNovo_ListarXML: TDataModule},
   uRecebeXMLNovo in 'nfevisualizador\URecebeXMLNovo.pas' {frmRecebeXMLNovo},
   URecebeXMLNovo_ListarXML in 'nfevisualizador\URecebeXMLNovo_ListarXML.pas' {frmRecebeXMLNovo_ListarXML},
-  uUtilProduto in 'uUtilProduto.pas',
   UDMConsProduto in '..\ssfacil\UDMConsProduto.pas' {DMConsProduto: TDataModule},
   uUtil_RecebeXML in 'nfevisualizador\uUtil_RecebeXML.pas',
   UDMGravarFinanceiro in '..\ssfacil\UDMGravarFinanceiro.pas' {DMGravarFinanceiro: TDataModule},
@@ -79,7 +78,10 @@ uses
   UImportarXMLSaida in 'nfevisualizador\UImportarXMLSaida.pas' {frmImportarXMLSaida},
   UNBS in 'UNBS.pas' {frmNBS},
   UIndOperacao in 'UIndOperacao.pas' {frmIndOperacao},
-  UServico_IBSCBS in 'UServico_IBSCBS.pas' {frmUServico_IBSCBS};
+  UServico_IBSCBS in 'UServico_IBSCBS.pas' {frmServico_IBSCBS},
+  uProduto_Insert_Locate in '..\SSFacil\uProduto_Insert_Locate.pas',
+  uProduto_InsertAux in '..\SSFacil\uProduto_InsertAux.pas',
+  uProduto_OpenTables in '..\SSFacil\uProduto_OpenTables.pas';
 
 {$R *.res}
 
