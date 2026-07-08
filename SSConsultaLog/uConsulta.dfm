@@ -310,6 +310,7 @@ object fConsulta: TfConsulta
     Color = clMenuBar
     DataField = 'LOG'
     DataSource = dsLog
+    ScrollBars = ssBoth
     TabOrder = 2
   end
   object scoLog: TSQLConnection
